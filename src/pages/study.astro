@@ -50,74 +50,83 @@ const pillars = [
 >
 	<Nav />
 	<main id="main" class="wrap">
-		<header class="pagehead">
-			<h1>The campus &amp; the classroom</h1>
-			<p class="gu sub">અભ્યાસ — a market town that sends its children to college</p>
+		<header class="pt-12">
+			<h1 class="text-[clamp(2.3rem,5vw,3.4rem)]">The campus &amp; the classroom</h1>
+			<p class="gu mt-1.5 text-[1.1rem] text-ink/80">અભ્યાસ — a market town that sends its children to college</p>
 		</header>
 
-		<section class="panel riveted svit" aria-labelledby="svit-h">
-			<div class="svithead">
-				<h2 id="svit-h">SVIT — Sardar Vallabhbhai Patel Institute of Technology</h2>
-				<span class="badge">Since 1997</span>
+		<section class="panel riveted mt-10 bg-cream-hi px-8 pb-8 pt-8" aria-labelledby="svit-h">
+			<div class="flex flex-wrap items-baseline justify-between gap-4">
+				<h2 id="svit-h" class="max-w-[22ch] text-[clamp(1.6rem,3.2vw,2.4rem)]">
+					SVIT — Sardar Vallabhbhai Patel Institute of Technology
+				</h2>
+				<span class="inline-block rotate-[1.5deg] rounded-lg border-[3px] border-ink bg-mustard px-3 py-1 font-display text-[0.95rem] text-ink">
+					Since 1997
+				</span>
 			</div>
-			<p class="measure">
+			<p class="measure mt-3.5">
 				The riverbank campus changed what this town is. Affiliated to the
 				<strong>Gujarat Technological University</strong>, SVIT runs three colleges whose
 				graduates now lead works from Gujarat to Silicon Valley:
 			</p>
-			<div class="colleges">
+			<div class="mt-7 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6">
 				{colleges.map((c) => (
-					<div class="college">
-						<span class="cbadge">{c.badge}</span>
-						<span class="cen">{c.en}</span>
-						<span class="cgu gu">{c.gu}</span>
-						<span class="cline">{c.line}</span>
-						<span class="cbody">{c.body}</span>
-						<span class="cintake">{c.intake}</span>
+					<div class="flex flex-col gap-1 rounded-xl border-[3px] border-ink bg-cream px-6 py-5 shadow-paint">
+						<span class="inline-block w-fit -rotate-[1.2deg] rounded-lg border-[3px] border-ink bg-mustard px-3 py-1 font-display text-[0.95rem] text-ink">
+							{c.badge}
+						</span>
+						<span class="mt-1.5 font-display text-[1.35rem]">{c.en}</span>
+						<span class="gu text-[0.9rem] font-semibold text-lacquer">{c.gu}</span>
+						<span class="mt-1 text-[0.93rem] text-ink/85">{c.line}</span>
+						<span class="mt-2 text-[0.9rem] font-semibold">{c.body}</span>
+						<span class="font-display text-[0.95rem] text-green">{c.intake}</span>
 					</div>
 				))}
 			</div>
-			<div class="statrow">
+			<div class="mt-7 grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-5">
 				{campusStats.map((s) => (
-					<div class="stat">
-						<span class="sbig">{s.big}</span>
-						<span class="sline">{s.line}</span>
+					<div class="flex flex-col rounded-[10px] border-[2.5px] border-ink bg-cream px-4 py-3.5">
+						<span class="font-display text-[1.6rem] text-lacquer">{s.big}</span>
+						<span class="text-[0.85rem] text-ink/80">{s.line}</span>
 					</div>
 				))}
 			</div>
-			<blockquote class="creed">
-				<p>“Educating minds where the historic waters of the Mahi meet the pioneering entrepreneurial spirit of Charotar.”</p>
-				<cite>SVIT institutional creed · Vasad, Anand</cite>
+			<blockquote class="mt-9 rounded-xl border-[3px] border-ink bg-cream px-7 py-6 shadow-paint">
+				<p class="font-display text-xl leading-[1.45]">
+					“Educating minds where the historic waters of the Mahi meet the pioneering
+					entrepreneurial spirit of Charotar.”
+				</p>
+				<cite class="mt-2.5 block text-[0.88rem] not-italic text-ink/70">SVIT institutional creed · Vasad, Anand</cite>
 			</blockquote>
-			<p class="afternote">
-				Students from across Gujarat study here — the town keeps a PG and rooms wall on the
+			<p class="mt-6 text-ink/85">
+				Students from across Gujarat study here — the town keeps a PG and rooms wall on the {' '}
 				<a href="/directory#boys-pg">directory</a>.
 			</p>
 		</section>
 
-		<section class="panel riveted panel--green" id="research" aria-labelledby="inst-h">
-			<h2 id="inst-h">The ground, studied here</h2>
-			<p class="gu gsub">કેન્દ્રીય જમીન સંરક્ષણ અને જળ સંશોધન કેન્દ્ર — વાસદ</p>
-			<p>
+		<section class="panel riveted mt-10 bg-green px-8 pb-8 pt-8 text-cream" id="research" aria-labelledby="inst-h">
+			<h2 class="text-[clamp(1.6rem,3vw,2.2rem)]">The ground, studied here</h2>
+			<p class="gu mt-0.5 text-[0.95rem] font-semibold text-cream/80">કેન્દ્રીય જમીન સંરક્ષણ અને જળ સંશોધન કેન્દ્ર — વાસદ</p>
+			<p class="mt-3 max-w-[68ch]">
 				The <strong>ICAR–Indian Institute of Soil and Water Conservation’s</strong> research
 				station works from Vasad on the Mahi’s ravines — the kotar terraces — turning eroding
 				gullies into held, farmable ground. Three pillars carry the work:
 			</p>
-			<div class="pillars">
+			<div class="mt-7 grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-6">
 				{pillars.map((p) => (
-					<div class="pillar">
-						<span class="pno" aria-hidden="true">{p.no}</span>
-						<span class="pen">{p.en}</span>
-						<span class="pline">{p.line}</span>
+					<div class="relative rounded-xl border-[3px] border-ink bg-cream py-5 pl-14 pr-5 pb-4 text-ink shadow-paint">
+						<span class="absolute top-4 left-4 font-display text-[1.4rem] text-lacquer" aria-hidden="true">{p.no}</span>
+						<span class="block font-display text-[1.12rem]">{p.en}</span>
+						<span class="mt-0.5 block text-[0.9rem] text-ink/85">{p.line}</span>
 					</div>
 				))}
 			</div>
 		</section>
 
-		<section class="panel riveted panel--lacquer lit" aria-labelledby="lit-h">
-			<h2 id="lit-h">The record on the wall</h2>
-			<p class="big">80.12%</p>
-			<p>
+		<section class="panel riveted mt-10 bg-lacquer px-8 pb-8 pt-8 text-cream" aria-labelledby="lit-h">
+			<h2 class="text-[clamp(1.6rem,3vw,2.2rem)]">The record on the wall</h2>
+			<p class="mt-2 font-display text-[clamp(2.6rem,6vw,4rem)] text-mustard">80.12%</p>
+			<p class="mt-2 max-w-[50ch]">
 				The town’s literacy at the 2011 Census — men at 84.18%, women at 75.66% — across
 				3,047 households.
 			</p>
@@ -125,201 +134,3 @@ const pillars = [
 	</main>
 	<Footer />
 </Layout>
-
-<style>
-	.pagehead {
-		padding-top: 3rem;
-	}
-	h1 {
-		font-size: clamp(2.3rem, 5vw, 3.4rem);
-	}
-	h2 {
-		font-size: clamp(1.6rem, 3vw, 2.2rem);
-	}
-	.sub {
-		margin-top: 0.4rem;
-		color: rgba(42, 39, 35, 0.8);
-		font-size: 1.1rem;
-	}
-	.panel {
-		padding: 2.1rem 2.3rem;
-		margin-top: 2.6rem;
-	}
-	.svit {
-		background: var(--cream-hi);
-	}
-	.svithead {
-		display: flex;
-		align-items: baseline;
-		justify-content: space-between;
-		gap: 1rem;
-		flex-wrap: wrap;
-	}
-	.badge,
-	.cbadge {
-		font-family: var(--display);
-		font-size: 0.95rem;
-		background: var(--mustard);
-		color: var(--ink);
-		border: 3px solid var(--ink);
-		border-radius: 8px;
-		padding: 0.3rem 0.8rem;
-		transform: rotate(1.5deg);
-	}
-	.svit > p {
-		margin-top: 0.9rem;
-	}
-	.colleges {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 1.5rem;
-		margin-top: 1.8rem;
-	}
-	.college {
-		background: var(--cream);
-		border: 3px solid var(--ink);
-		border-radius: 12px;
-		box-shadow: var(--paint-shadow);
-		padding: 1.4rem 1.4rem 1.3rem;
-		display: flex;
-		flex-direction: column;
-		gap: 0.3rem;
-	}
-	.cbadge {
-		align-self: flex-start;
-		transform: rotate(-1.2deg);
-	}
-	.cen {
-		font-family: var(--display);
-		font-size: 1.35rem;
-		margin-top: 0.4rem;
-	}
-	.cgu {
-		font-size: 0.9rem;
-		font-weight: 600;
-		color: var(--lacquer);
-	}
-	.cline {
-		margin-top: 0.3rem;
-		font-size: 0.93rem;
-		color: rgba(42, 39, 35, 0.85);
-	}
-	.cbody {
-		margin-top: 0.5rem;
-		font-weight: 600;
-		font-size: 0.9rem;
-	}
-	.cintake {
-		font-family: var(--display);
-		font-size: 0.95rem;
-		color: var(--green);
-	}
-	.statrow {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-		gap: 1.2rem;
-		margin-top: 1.8rem;
-	}
-	.stat {
-		border: 2.5px solid var(--ink);
-		border-radius: 10px;
-		padding: 0.9rem 1.1rem;
-		background: var(--cream);
-		display: flex;
-		flex-direction: column;
-	}
-	.sbig {
-		font-family: var(--display);
-		font-size: 1.6rem;
-		color: var(--lacquer);
-	}
-	.sline {
-		font-size: 0.85rem;
-		color: rgba(42, 39, 35, 0.8);
-	}
-	.creed {
-		margin: 2.2rem 0 0;
-		border: 3px solid var(--ink);
-		border-radius: 12px;
-		background: var(--cream);
-		box-shadow: var(--paint-shadow);
-		padding: 1.4rem 1.8rem;
-	}
-	.creed p {
-		font-family: var(--display);
-		font-size: 1.2rem;
-		line-height: 1.45;
-	}
-	.creed cite {
-		display: block;
-		margin-top: 0.6rem;
-		font-style: normal;
-		font-size: 0.88rem;
-		color: rgba(42, 39, 35, 0.7);
-	}
-	.afternote {
-		margin-top: 1.4rem;
-		color: rgba(42, 39, 35, 0.85);
-	}
-	.gsub {
-		font-size: 0.95rem;
-		font-weight: 600;
-		color: rgba(244, 233, 216, 0.8);
-		margin-top: 0.2rem;
-	}
-	.panel--green {
-		background: var(--green);
-		color: var(--cream);
-	}
-	.panel--green > p:not(.gsub) {
-		margin-top: 0.8rem;
-	}
-	.panel--lacquer {
-		background: var(--lacquer);
-		color: var(--cream);
-	}
-	.pillars {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-		gap: 1.4rem;
-		margin-top: 1.8rem;
-	}
-	.pillar {
-		position: relative;
-		background: var(--cream);
-		color: var(--ink);
-		border: 3px solid var(--ink);
-		border-radius: 12px;
-		box-shadow: var(--paint-shadow);
-		padding: 1.2rem 1.3rem 1.1rem 3.6rem;
-	}
-	.pno {
-		position: absolute;
-		left: 1rem;
-		top: 1.1rem;
-		font-family: var(--display);
-		font-size: 1.4rem;
-		color: var(--lacquer);
-	}
-	.pen {
-		display: block;
-		font-family: var(--display);
-		font-size: 1.12rem;
-	}
-	.pline {
-		display: block;
-		margin-top: 0.2rem;
-		font-size: 0.9rem;
-		color: rgba(42, 39, 35, 0.85);
-	}
-	.lit .big {
-		font-family: var(--display);
-		font-size: clamp(2.6rem, 6vw, 4rem);
-		color: var(--mustard);
-		margin-top: 0.5rem;
-	}
-	.lit p:not(.big) {
-		margin-top: 0.5rem;
-		max-width: 50ch;
-	}
-</style>

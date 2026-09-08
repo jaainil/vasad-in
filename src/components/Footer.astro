@@ -18,147 +18,55 @@ const commerce = [
 ];
 ---
 
-<footer class="tail" id="getlisted-footer">
+<footer class="mt-20 bg-ink text-cream">
 	<div class="chain" aria-hidden="true"></div>
-	<div class="wrap inner">
-		<p class="horn gu" aria-hidden="true">હોર્ન ઓકે પ્લીઝ <span class="latin">Horn OK Please</span></p>
-		<div class="cols">
-			<div class="col col--wide">
-				<p class="head">Vasad · <span class="gu">વસુધાનગરી</span></p>
-				<p class="line">
+	<div class="mx-auto max-w-[1180px] px-[clamp(1.25rem,4vw,2.5rem)] pt-10 pb-8">
+		<p class="gu mb-9 text-2xl font-bold text-mustard" aria-hidden="true">
+			હોર્ન ઓકે પ્લીઝ <span class="font-display ml-2 text-[1.15rem] font-normal tracking-[0.08em] text-cream">Horn OK Please</span>
+		</p>
+		<div class="flex flex-wrap gap-x-14 gap-y-10">
+			<div class="flex max-w-96 min-w-56 flex-col gap-1.5">
+				<p class="mb-1 font-display text-xl text-mustard">Vasad · <span class="gu">વસુધાનગરી</span></p>
+				<p class="max-w-[34ch] text-[0.95rem] text-cream/85">
 					The historic gateway to Charotar on the northern bank of the Mahi — 45+ toor dal
 					mills, the SVIT campus, the 200-year banyan, and the ICAR soil &amp; water station.
 				</p>
-				<p class="marks">22.45°N · 73.0667°E · 18.89 m MSL</p>
-				<p class="marks">PIN 388306 · STD 02692 · NH 48 · Station VDA</p>
+				<p class="text-[0.9rem] font-semibold tracking-[0.03em] text-cream/85">22.45°N · 73.0667°E · 18.89 m MSL</p>
+				<p class="text-[0.9rem] font-semibold tracking-[0.03em] text-cream/85">PIN 388306 · STD 02692 · NH 48 · Station VDA</p>
 			</div>
-			<nav class="col" aria-label="Explore">
-				<p class="head">Explore</p>
-				{explore.map((l) => <a href={l.href}>{l.en}</a>)}
+			<nav class="flex min-w-48 flex-col gap-1.5" aria-label="Explore">
+				<p class="mb-1 font-display text-xl text-mustard">Explore</p>
+				{explore.map((l) => <a class="w-fit text-[0.95rem] text-cream hover:text-mustard" href={l.href}>{l.en}</a>)}
 			</nav>
-			<nav class="col" aria-label="Commerce and living">
-				<p class="head">Commerce &amp; living</p>
-				{commerce.map((l) => <a href={l.href}>{l.en}</a>)}
+			<nav class="flex min-w-48 flex-col gap-1.5" aria-label="Commerce and living">
+				<p class="mb-1 font-display text-xl text-mustard">Commerce &amp; living</p>
+				{commerce.map((l) => <a class="w-fit text-[0.95rem] text-cream hover:text-mustard" href={l.href}>{l.en}</a>)}
 			</nav>
-			<div class="col">
-				<p class="head">The corridor</p>
-				<p class="marks">Anand 15 km</p>
-				<p class="marks">Vadodara 20 km</p>
-				<p class="marks">Ahmedabad 75 km</p>
-				<p class="marks">Mumbai 420 km</p>
+			<div class="flex min-w-40 flex-col gap-1.5">
+				<p class="mb-1 font-display text-xl text-mustard">The corridor</p>
+				<p class="text-[0.9rem] font-semibold tracking-[0.03em] text-cream/85">Anand 15 km</p>
+				<p class="text-[0.9rem] font-semibold tracking-[0.03em] text-cream/85">Vadodara 20 km</p>
+				<p class="text-[0.9rem] font-semibold tracking-[0.03em] text-cream/85">Ahmedabad 75 km</p>
+				<p class="text-[0.9rem] font-semibold tracking-[0.03em] text-cream/85">Mumbai 420 km</p>
 			</div>
 		</div>
-		<div class="notice">
-			<p class="nhead">Community notice · unofficial portal</p>
-			<p class="nline">
+		<div class="mt-10 rounded-xl border-[2.5px] border-cream/35 px-6 py-5">
+			<p class="font-display text-[1.05rem] text-mustard">Community notice · unofficial portal</p>
+			<p class="mt-2 max-w-[90ch] text-[0.92rem] text-cream/85">
 				An independent community project documenting the heritage, industry and civic life of
 				Vasad — under active development, and not the municipal government website. For
-				official panchayat matters, call the Panchayat Bhavan directly at
-				<a href="tel:+912692274220">02692 274220</a>. Found an inaccuracy, or know a story the
-				boards should carry? Write to
-				<a href="mailto:jainilprajapati9@gmail.com">jainilprajapati9@gmail.com</a>. Code lives
-				at <a href="https://github.com/jaainil/vasad.in">github.com/jaainil/vasad.in</a>.
+				official panchayat matters, call the Panchayat Bhavan directly at {' '}
+				<a class="text-mustard hover:text-cream" href="tel:+912692274220">02692 274220</a>. Found an inaccuracy, or know a story the
+				boards should carry? Write to {' '}
+				<a class="text-mustard hover:text-cream" href="mailto:jainilprajapati9@gmail.com">jainilprajapati9@gmail.com</a>. Code lives {' '}
+				at <a class="text-mustard hover:text-cream" href="https://github.com/jaainil/vasad.in">github.com/jaainil/vasad.in</a>.
 			</p>
-			<p class="ncredit">
-				Developed by <a href="https://jaainil.com">Jainil Prajapati</a>
+			<p class="mt-2 text-[0.9rem]">
+				Developed by <a class="text-mustard hover:text-cream" href="https://jaainil.com">Jainil Prajapati</a>
 			</p>
 		</div>
-		<p class="fine">© {year} Vasad (Vasudhanagari) · an unofficial community project by Jainil Prajapati.</p>
+		<p class="mt-8 text-[0.85rem] text-cream/60">
+			© {year} Vasad (Vasudhanagari) · an unofficial community project by Jainil Prajapati.
+		</p>
 	</div>
 </footer>
-
-<style>
-	.tail {
-		background: var(--ink);
-		color: var(--cream);
-		margin-top: 5rem;
-	}
-	.inner {
-		padding-block: 2.6rem 2rem;
-	}
-	.horn {
-		font-size: 1.5rem;
-		font-weight: 700;
-		color: var(--mustard);
-		margin-bottom: 2.2rem;
-	}
-	.horn .latin {
-		font-family: var(--display);
-		font-weight: 400;
-		font-size: 1.15rem;
-		color: var(--cream);
-		margin-left: 0.6rem;
-		letter-spacing: 0.08em;
-	}
-	.cols {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 2.5rem 3.6rem;
-	}
-	.col {
-		display: flex;
-		flex-direction: column;
-		gap: 0.4rem;
-		min-width: 12rem;
-	}
-	.col--wide {
-		max-width: 24rem;
-	}
-	.head {
-		font-family: var(--display);
-		font-size: 1.2rem;
-		color: var(--mustard);
-		margin-bottom: 0.35rem;
-	}
-	.line {
-		max-width: 34ch;
-		font-size: 0.95rem;
-		color: rgba(244, 233, 216, 0.85);
-	}
-	.marks {
-		font-weight: 600;
-		font-size: 0.9rem;
-		letter-spacing: 0.03em;
-		color: rgba(244, 233, 216, 0.85);
-	}
-	.col a {
-		color: var(--cream);
-		width: fit-content;
-		font-size: 0.95rem;
-	}
-	.col a:hover {
-		color: var(--mustard);
-	}
-	.notice {
-		margin-top: 2.6rem;
-		border: 2.5px solid rgba(244, 233, 216, 0.35);
-		border-radius: 12px;
-		padding: 1.3rem 1.5rem;
-	}
-	.nhead {
-		font-family: var(--display);
-		font-size: 1.05rem;
-		color: var(--mustard);
-	}
-	.nline {
-		margin-top: 0.4rem;
-		font-size: 0.92rem;
-		color: rgba(244, 233, 216, 0.85);
-		max-width: 90ch;
-	}
-	.notice a {
-		color: var(--mustard);
-	}
-	.notice a:hover {
-		color: var(--cream);
-	}
-	.ncredit {
-		margin-top: 0.6rem;
-		font-size: 0.9rem;
-	}
-	.fine {
-		margin-top: 2rem;
-		font-size: 0.85rem;
-		color: rgba(244, 233, 216, 0.6);
-	}
-</style>

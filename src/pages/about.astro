@@ -27,8 +27,6 @@ const work = [
 
 const civic = [
 	['Body', 'Gram panchayat Vasad'],
-	['Sarpanch', 'Poonambhai D. Parmar'],
-	['Deputy Sarpanch', 'Deepbhai P. Patel'],
 	['Constituencies', 'Anklav Vidhan Sabha · Anand Lok Sabha'],
 	['Post', 'PIN 388306 · STD code 02692'],
 ];
@@ -40,14 +38,14 @@ const civic = [
 >
 	<Nav />
 	<main id="main" class="wrap">
-		<header class="pagehead">
-			<h1>The town record</h1>
-			<p class="gu sub">વાસદ વિશે — what the registers say</p>
+		<header class="pt-12">
+			<h1 class="text-[clamp(2.3rem,5vw,3.4rem)]">The town record</h1>
+			<p class="gu mt-1.5 text-[1.1rem] text-ink/80">વાસદ વિશે — what the registers say</p>
 		</header>
 
-		<section class="panel riveted name" aria-labelledby="name-h">
-			<h2 id="name-h">Vasad · <span class="gu">વાસદ</span></h2>
-			<p class="measure">
+		<section class="panel riveted mt-10 bg-cream-hi px-8 pb-8 pt-8" aria-labelledby="name-h">
+			<h2 id="name-h" class="text-[clamp(1.8rem,3.5vw,2.5rem)]">Vasad · <span class="gu">વાસદ</span></h2>
+			<p class="measure mt-3">
 				The registers record an older name too: <strong>Vasudhanagari</strong> — from the
 				Sanskrit <em>vasudha</em>, the earth and its treasure, and <em>nagari</em>, the city.
 				The town sits in Anand district, Gujarat, and calls itself the gateway to Charotar —
@@ -55,35 +53,55 @@ const civic = [
 			</p>
 		</section>
 
-		<div class="pair">
-			<section class="panel riveted" aria-labelledby="ground-h">
-				<h2 id="ground-h">The ground</h2>
-				<dl class="ruled">
-					{ground.map(([k, v]) => <div class="row"><dt>{k}</dt><dd>{v}</dd></div>)}
+		<div class="grid gap-10 md:grid-cols-2">
+			<section class="panel riveted mt-10 px-8 pb-8 pt-8" aria-labelledby="ground-h">
+				<h2 class="text-[1.7rem]">The ground</h2>
+				<dl class="mt-4">
+					{ground.map(([k, v]) => (
+						<div class="row">
+							<dt>{k}</dt>
+							<dd>{v}</dd>
+						</div>
+					))}
 				</dl>
 			</section>
-			<section class="panel riveted panel--lacquer" aria-labelledby="people-h">
-				<h2 id="people-h">The people</h2>
-				<dl class="ruled">
-					{people.map(([k, v]) => <div class="row"><dt>{k}</dt><dd>{v}</dd></div>)}
+			<section class="panel riveted mt-10 bg-lacquer px-8 pb-8 pt-8 text-cream" aria-labelledby="people-h">
+				<h2 class="text-[1.7rem]">The people</h2>
+				<dl class="mt-4">
+					{people.map(([k, v]) => (
+						<div class="row row-light">
+							<dt>{k}</dt>
+							<dd>{v}</dd>
+						</div>
+					))}
 				</dl>
 			</section>
 		</div>
 
-		<div class="pair">
-			<section class="panel riveted panel--green" aria-labelledby="work-h">
-				<h2 id="work-h">The work</h2>
-				<dl class="ruled">
-					{work.map(([k, v]) => <div class="row"><dt>{k}</dt><dd>{v}</dd></div>)}
+		<div class="grid gap-10 md:grid-cols-2">
+			<section class="panel riveted mt-10 bg-green px-8 pb-8 pt-8 text-cream" aria-labelledby="work-h">
+				<h2 class="text-[1.7rem]">The work</h2>
+				<dl class="mt-4">
+					{work.map(([k, v]) => (
+						<div class="row row-light">
+							<dt>{k}</dt>
+							<dd>{v}</dd>
+						</div>
+					))}
 				</dl>
-				<a class="plate plate--ghost small-plate" href="/directory">Walk the mill yard</a>
+				<a class="plate plate-ghost mt-6 px-5 py-2.5 text-base" href="/directory">Walk the mill yard</a>
 			</section>
-			<section class="panel riveted panel--mustard" aria-labelledby="civic-h">
-				<h2 id="civic-h">The civic</h2>
-				<dl class="ruled">
-					{civic.map(([k, v]) => <div class="row"><dt>{k}</dt><dd>{v}</dd></div>)}
+			<section class="panel riveted mt-10 bg-mustard px-8 pb-8 pt-8 text-ink" aria-labelledby="civic-h">
+				<h2 class="text-[1.7rem]">The civic</h2>
+				<dl class="mt-4">
+					{civic.map(([k, v]) => (
+						<div class="row">
+							<dt>{k}</dt>
+							<dd>{v}</dd>
+						</div>
+					))}
 				</dl>
-				<a class="plate small-plate" href="/contact">The panchayat office</a>
+				<a class="plate mt-6 px-5 py-2.5 text-base" href="/contact">The panchayat office</a>
 			</section>
 		</div>
 	</main>
@@ -91,83 +109,25 @@ const civic = [
 </Layout>
 
 <style>
-	.pagehead {
-		padding-top: 3rem;
-	}
-	h1 {
-		font-size: clamp(2.3rem, 5vw, 3.4rem);
-	}
-	.sub {
-		margin-top: 0.4rem;
-		color: rgba(42, 39, 35, 0.8);
-		font-size: 1.1rem;
-	}
-	.panel {
-		padding: 2rem 2.2rem 2.1rem;
-		margin-top: 2.6rem;
-	}
-	.name {
-		background: var(--cream-hi);
-	}
-	.name h2 {
-		font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-	}
-	.name p {
-		margin-top: 0.7rem;
-	}
-	.pair {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2.6rem;
-	}
-	@media (max-width: 780px) {
-		.pair {
-			grid-template-columns: 1fr;
-		}
-	}
-	.panel--lacquer {
-		background: var(--lacquer);
-		color: var(--cream);
-	}
-	.panel--green {
-		background: var(--green);
-		color: var(--cream);
-	}
-	.panel--mustard {
-		background: var(--mustard);
-		color: var(--ink);
-	}
-	h2 {
-		font-size: 1.7rem;
-	}
-	.ruled {
-		margin: 1rem 0 0;
-	}
 	.row {
 		display: grid;
 		grid-template-columns: 8.5rem 1fr;
 		gap: 0.8rem;
 		padding: 0.7rem 0;
-		border-bottom: 2px dashed rgba(42, 39, 35, 0.4);
+		border-bottom: 2px dashed color-mix(in srgb, var(--color-ink) 40%, transparent);
 	}
 	.row:last-child {
 		border-bottom: 0;
 	}
+	.row-light {
+		border-bottom-color: color-mix(in srgb, var(--color-cream) 40%, transparent);
+	}
 	dt {
-		font-family: var(--display);
+		font-family: var(--font-display);
 		font-size: 1.02rem;
 	}
 	dd {
 		margin: 0;
 		line-height: 1.5;
-	}
-	.panel--lacquer .row,
-	.panel--green .row {
-		border-bottom-color: rgba(244, 233, 216, 0.4);
-	}
-	.small-plate {
-		margin-top: 1.4rem;
-		font-size: 1rem;
-		padding: 0.6rem 1.2rem;
 	}
 </style>

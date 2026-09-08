@@ -18,6 +18,13 @@ const daytrips = [
 	{ en: 'Champaner-Pavagadh', km: '65 km', line: 'UNESCO World Heritage site and Kalika Mata temple', time: '1 hr 15 via Halol' },
 	{ en: 'Statue of Unity', km: '105 km', line: 'The world’s tallest monument at 182 m and Sardar Sarovar', time: '2 hrs via Vadodara–Dabhoi' },
 ];
+
+const stones = [
+	{ gu: 'આણંદ', en: 'Anand 15', tone: 'bg-lacquer text-cream' },
+	{ gu: 'વડોદરા', en: 'Vadodara 20', tone: 'bg-green text-cream' },
+	{ gu: 'અમદાવાદ', en: 'Ahmedabad 75', tone: 'bg-mustard text-ink' },
+	{ gu: 'મુંબઈ', en: 'Mumbai 420', tone: 'bg-cream text-ink' },
+];
 ---
 
 <Layout
@@ -26,14 +33,14 @@ const daytrips = [
 >
 	<Nav />
 	<main id="main" class="wrap">
-		<header class="pagehead">
-			<h1>Reach &amp; roam</h1>
-			<p class="gu sub">પ્રવાસ — the river, the retreats, the sacred circuit</p>
+		<header class="pt-12">
+			<h1 class="text-[clamp(2.3rem,5vw,3.4rem)]">Reach &amp; roam</h1>
+			<p class="gu mt-1.5 text-[1.1rem] text-ink/80">પ્રવાસ — the river, the retreats, the sacred circuit</p>
 		</header>
 
-		<section class="panel riveted riverpanel" aria-labelledby="mahi-h">
-			<h2 id="mahi-h">The Mahi at the town’s edge</h2>
-			<p class="measure">
+		<section class="panel riveted mt-10 bg-green px-8 pb-8 pt-8 text-cream" aria-labelledby="mahi-h">
+			<h2 id="mahi-h" class="text-[clamp(1.7rem,3.2vw,2.3rem)] text-mustard">The Mahi at the town’s edge</h2>
+			<p class="measure mt-3">
 				Vasad perches on the northern bluff of the Mahi at 18.89 metres — the old ravine
 				terrace the locals call the <strong>kotar</strong>. Forested cliffs run south and
 				northeast, the evening air comes off the water, and the railway’s masonry viaduct
@@ -42,21 +49,21 @@ const daytrips = [
 			</p>
 		</section>
 
-		<div class="stays">
-			<section class="panel riveted hang hang--lacquer" aria-labelledby="ashram-h">
-				<h2 id="ashram-h">Art of Living Gujarat Ashram</h2>
-				<p class="gu gsub">આર્ટ ઓફ લિવિંગ ગુજરાત આશ્રમ — વાસદ</p>
-				<p>
+		<div class="grid items-start gap-10 md:grid-cols-[1.2fr_1fr]">
+			<section class="panel riveted -rotate-[0.6deg] mt-10 bg-lacquer px-8 pb-8 pt-8 text-cream" aria-labelledby="ashram-h">
+				<h2 id="ashram-h" class="text-[clamp(1.6rem,3vw,2.1rem)]">Art of Living Gujarat Ashram</h2>
+				<p class="gu mt-0.5 text-[0.95rem] font-semibold text-cream/80">આર્ટ ઓફ લિવિંગ ગુજરાત આશ્રમ — વાસદ</p>
+				<p class="mt-2.5">
 					The foundation’s Gujarat ashram, set in greenery over the northern bank. Residential
 					Sudarshan Kriya retreats, silent meditation and youth empowerment courses, with
 					daily satsangs and a yoga amphitheatre. Check the ashram’s own calendar before
 					travelling for a specific program.
 				</p>
 			</section>
-			<section class="panel riveted hang hang--green" aria-labelledby="resort-h">
-				<h2 id="resort-h">Krishna Riverside Resort</h2>
-				<p class="gu gsub">ક્રિષ્ના રિવરસાઇડ રિસોર્ટ</p>
-				<p>
+			<section class="panel riveted mt-10 rotate-[0.8deg] bg-green px-8 pb-8 pt-8 text-cream" aria-labelledby="resort-h">
+				<h2 id="resort-h" class="text-[clamp(1.6rem,3vw,2.1rem)]">Krishna Riverside Resort</h2>
+				<p class="gu mt-0.5 text-[0.95rem] font-semibold text-cream/80">ક્રિષ્ના રિવરસાઇડ રિસોર્ટ</p>
+				<p class="mt-2.5">
 					Hospitality and recreation on the river cliffs — nature trails along the bluffs,
 					open lawns, water adventure, and Charotar Kathiyawadi dining. Riverfront cottages
 					with the Mahi for a neighbour.
@@ -64,36 +71,36 @@ const daytrips = [
 			</section>
 		</div>
 
-		<section class="panel riveted sacred" aria-labelledby="sacred-h">
-			<h2 id="sacred-h">Sacred roots</h2>
-			<p class="measure">
+		<section class="panel riveted mt-10 bg-cream-hi px-8 pb-8 pt-8" aria-labelledby="sacred-h">
+			<h2 id="sacred-h" class="text-[clamp(1.7rem,3.2vw,2.3rem)]">Sacred roots</h2>
+			<p class="measure mt-3">
 				Beside the Mahadev mandir on the old bluff stands the town’s living guardian — a
 				<strong>200-year-old banyan</strong>, its prop roots descending like pillars. Around
 				it runs the mandir circuit of six:
 			</p>
-			<div class="mandirs">
+			<div class="mt-6 grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-5">
 				{mandirs.map((m) => (
-					<div class="mandir">
-						<span class="men">{m.en}</span>
-						<span class="mgu gu">{m.gu}</span>
-						<span class="mline">{m.line}</span>
+					<div class="rounded-[10px] border-[2.5px] border-ink/50 bg-cream px-4 py-4">
+						<span class="block font-display text-[1.08rem]">{m.en}</span>
+						<span class="gu block text-[0.85rem] font-semibold text-lacquer">{m.gu}</span>
+						<span class="mt-1 block text-[0.85rem] text-ink/85">{m.line}</span>
 					</div>
 				))}
 			</div>
 		</section>
 
-		<section class="panel riveted reach" aria-labelledby="reach-h">
-			<h2 id="reach-h">Getting there</h2>
-			<div class="ways">
-				<div class="way">
-					<h3>Road</h3>
+		<section class="panel riveted mt-10 bg-cream-hi px-8 pb-8 pt-8" aria-labelledby="reach-h">
+			<h2 id="reach-h" class="text-[clamp(1.7rem,3.2vw,2.3rem)]">Getting there</h2>
+			<div class="mt-4 grid gap-8 md:grid-cols-2">
+				<div>
+					<h3 class="mb-1.5 font-display text-[1.25rem] font-normal">Road</h3>
 					<p>
 						Vasad sits on <strong>NH 48</strong>, the Ahmedabad–Vadodara artery. Anand lies
 						15 km north, Vadodara 20 km south, Ahmedabad 75 km, Mumbai 420 km.
 					</p>
 				</div>
-				<div class="way">
-					<h3>Rail</h3>
+				<div>
+					<h3 class="mb-1.5 font-display text-[1.25rem] font-normal">Rail</h3>
 					<p>
 						<strong>Vasad Junction (station code VDA)</strong> halts passenger, MEMU and
 						selected express trains on the Western Railway trunk — about 15 km from Anand
@@ -101,233 +108,41 @@ const daytrips = [
 					</p>
 				</div>
 			</div>
-			<div class="stones" aria-label="Distances">
-				<span class="stone stone--lacquer">Anand 15</span>
-				<span class="stone stone--green">Vadodara 20</span>
-				<span class="stone stone--mustard">Ahmedabad 75</span>
-				<span class="stone stone--ghost">Mumbai 420</span>
+			<div class="mt-6 flex flex-wrap gap-3" aria-label="Distances">
+				{
+					stones.map((s) => (
+						<span class:list={['rounded-t-[10px] rounded-b-[4px] border-[3px] border-ink px-4 pt-1 pb-1.5 font-display text-base shadow-paint', s.tone]}>
+							<span class="gu sn">{s.gu}</span> {s.en}
+						</span>
+					))
+				}
 			</div>
 		</section>
 
-		<section class="panel riveted trips" aria-labelledby="trips-h">
-			<h2 id="trips-h">The gateway for day trips</h2>
-			<p class="measure">
+		<section class="panel riveted mt-10 bg-cream-hi px-8 pb-8 pt-8" aria-labelledby="trips-h">
+			<h2 id="trips-h" class="text-[clamp(1.7rem,3.2vw,2.3rem)]">The gateway for day trips</h2>
+			<p class="measure mt-3">
 				Midway on the corridor, Vasad is the unhurried base for central Gujarat’s celebrated
 				destinations:
 			</p>
-			<div class="tripgrid">
+			<div class="mt-6 grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-6">
 				{daytrips.map((t) => (
-					<div class="trip">
-						<span class="tkm">{t.km}</span>
-						<span class="ten">{t.en}</span>
-						<span class="tline">{t.line}</span>
-						<span class="ttime">{t.time}</span>
+					<div class="flex flex-col gap-0.5 rounded-t-[10px] rounded-b-[4px] border-[3px] border-ink bg-cream px-5 py-5 shadow-paint">
+						<span class="font-display text-[1.6rem] text-lacquer">{t.km}</span>
+						<span class="font-display text-[1.15rem]">{t.en}</span>
+						<span class="text-[0.9rem] text-ink/85">{t.line}</span>
+						<span class="mt-1.5 text-[0.85rem] font-semibold text-green">{t.time}</span>
 					</div>
 				))}
 			</div>
 		</section>
 
-		<section class="note" aria-label="Where to stay">
+		<section class="mt-9 text-[1.05rem]" aria-label="Where to stay">
 			<p>
-				Lodging, PGs and messes hang their boards on the
+				Lodging, PGs and messes hang their boards on the {' '}
 				<a href="/directory">directory wall</a>.
 			</p>
 		</section>
 	</main>
 	<Footer />
 </Layout>
-
-<style>
-	.pagehead {
-		padding-top: 3rem;
-	}
-	h1 {
-		font-size: clamp(2.3rem, 5vw, 3.4rem);
-	}
-	h2 {
-		font-size: clamp(1.7rem, 3.2vw, 2.3rem);
-	}
-	.sub {
-		margin-top: 0.4rem;
-		color: rgba(42, 39, 35, 0.8);
-		font-size: 1.1rem;
-	}
-	.panel {
-		padding: 2rem 2.2rem 2.1rem;
-		margin-top: 2.6rem;
-	}
-	.gsub {
-		font-size: 0.95rem;
-		font-weight: 600;
-		color: rgba(244, 233, 216, 0.8);
-		margin-top: 0.2rem;
-	}
-	.riverpanel {
-		background: var(--green);
-		color: var(--cream);
-	}
-	.riverpanel h2 {
-		color: var(--mustard);
-	}
-	.riverpanel p {
-		margin-top: 0.7rem;
-	}
-	.stays {
-		display: grid;
-		grid-template-columns: 1.2fr 1fr;
-		gap: 2.6rem;
-		align-items: start;
-	}
-	@media (max-width: 780px) {
-		.stays {
-			grid-template-columns: 1fr;
-		}
-	}
-	.hang {
-		transform: rotate(-0.6deg);
-	}
-	.hang--green {
-		transform: rotate(0.8deg);
-	}
-	.hang--lacquer {
-		background: var(--lacquer);
-		color: var(--cream);
-	}
-	.hang--green {
-		background: var(--green);
-		color: var(--cream);
-	}
-	.hang p {
-		margin-top: 0.6rem;
-	}
-	.sacred {
-		background: var(--cream-hi);
-	}
-	.sacred > p {
-		margin-top: 0.7rem;
-	}
-	.mandirs {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-		gap: 1.2rem;
-		margin-top: 1.6rem;
-	}
-	.mandir {
-		border: 2.5px solid rgba(42, 39, 35, 0.5);
-		border-radius: 10px;
-		padding: 1rem 1.1rem;
-		background: var(--cream);
-	}
-	.men {
-		display: block;
-		font-family: var(--display);
-		font-size: 1.08rem;
-	}
-	.mgu {
-		display: block;
-		font-size: 0.85rem;
-		color: var(--lacquer);
-		font-weight: 600;
-	}
-	.mline {
-		display: block;
-		margin-top: 0.25rem;
-		font-size: 0.85rem;
-		color: rgba(42, 39, 35, 0.85);
-	}
-	.reach {
-		background: var(--cream-hi);
-	}
-	.ways {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2rem;
-		margin-top: 1.1rem;
-	}
-	@media (max-width: 680px) {
-		.ways {
-			grid-template-columns: 1fr;
-		}
-	}
-	.way h3 {
-		font-family: var(--display);
-		font-weight: 400;
-		font-size: 1.25rem;
-		margin-bottom: 0.3rem;
-	}
-	.stones {
-		display: flex;
-		gap: 0.7rem;
-		flex-wrap: wrap;
-		margin-top: 1.6rem;
-	}
-	.stone {
-		font-family: var(--display);
-		font-size: 1rem;
-		padding: 0.4rem 0.95rem 0.5rem;
-		border: 3px solid var(--ink);
-		border-radius: 10px 10px 4px 4px;
-		box-shadow: var(--paint-shadow);
-	}
-	.stone--lacquer {
-		background: var(--lacquer);
-		color: var(--cream);
-	}
-	.stone--green {
-		background: var(--green);
-		color: var(--cream);
-	}
-	.stone--mustard {
-		background: var(--mustard);
-		color: var(--ink);
-	}
-	.stone--ghost {
-		background: var(--cream);
-		color: var(--ink);
-	}
-	.trips {
-		background: var(--cream-hi);
-	}
-	.trips > p {
-		margin-top: 0.7rem;
-	}
-	.tripgrid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-		gap: 1.4rem;
-		margin-top: 1.6rem;
-	}
-	.trip {
-		background: var(--cream);
-		border: 3px solid var(--ink);
-		border-radius: 10px 10px 4px 4px;
-		box-shadow: var(--paint-shadow);
-		padding: 1.2rem 1.3rem;
-		display: flex;
-		flex-direction: column;
-		gap: 0.15rem;
-	}
-	.tkm {
-		font-family: var(--display);
-		font-size: 1.6rem;
-		color: var(--lacquer);
-	}
-	.ten {
-		font-family: var(--display);
-		font-size: 1.15rem;
-	}
-	.tline {
-		font-size: 0.9rem;
-		color: rgba(42, 39, 35, 0.85);
-	}
-	.ttime {
-		margin-top: 0.3rem;
-		font-weight: 600;
-		font-size: 0.85rem;
-		color: var(--green);
-	}
-	.note {
-		margin-top: 2.2rem;
-		font-size: 1.05rem;
-	}
-</style>

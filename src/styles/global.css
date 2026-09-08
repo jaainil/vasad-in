@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+	--color-lacquer: #9e2b25;
+	--color-lacquer-deep: #7c1f1b;
+	--color-mustard: #e8a020;
+	--color-mustard-deep: #b57708;
+	--color-green: #1d5c3f;
+	--color-green-deep: #154630;
+	--color-cream: #f4e9d8;
+	--color-cream-hi: #faf3e3;
+	--color-ink: #2a2723;
+	--color-rivet: #c9a227;
+
+	--font-display: "Yatra One", "Baloo Bhai 2", serif;
+	--font-gu: "Baloo Bhai 2", "Hind Vadodara", sans-serif;
+	--font-body: "Mukta", "Hind Vadodara", sans-serif;
+
+	--shadow-paint: 0 16px 32px -20px rgb(42 39 35 / 0.45);
+
+	--animate-drift: drift 5.5s linear infinite;
+	@keyframes drift {
+		to {
+			background-position-x: -118px;
+		}
+	}
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+	body {
+		@apply m-0 bg-cream font-body text-ink antialiased;
+		font-size: 1.0625rem;
+		line-height: 1.65;
+	}
+	::selection {
+		background: var(--color-mustard);
+		color: var(--color-ink);
+	}
+	body::-webkit-scrollbar {
+		width: 13px;
+	}
+	body::-webkit-scrollbar-track {
+		background: var(--color-cream);
+	}
+	body::-webkit-scrollbar-thumb {
+		background: var(--color-lacquer);
+		border: 3px solid var(--color-ink);
+		border-radius: 8px;
+	}
+	:focus-visible {
+		outline: 3px solid var(--color-mustard);
+		outline-offset: 3px;
+		border-radius: 4px;
+	}
+	h1,
+	h2,
+	h3 {
+		@apply m-0 font-display font-normal;
+		line-height: 1.08;
+		text-wrap: balance;
+	}
+	p {
+		margin: 0;
+	}
+	a {
+		color: var(--color-lacquer);
+		text-decoration-thickness: 2px;
+		text-underline-offset: 3px;
+	}
+	a:hover {
+		color: var(--color-lacquer-deep);
+	}
+}
+
+@layer components {
+	.skip {
+		@apply absolute top-0 left-[-999px] z-100 border-[3px] border-ink bg-mustard px-[1.2rem] py-[0.7rem] font-display text-ink;
+		border-radius: 0 0 10px 0;
+	}
+	.skip:focus {
+		left: 0;
+	}
+
+	.panel {
+		@apply relative rounded-xl border-[3px] border-ink bg-cream-hi shadow-paint;
+	}
+
+	.riveted {
+		background-image:
+			radial-gradient(circle 4px at 13px 13px, var(--color-rivet) 92%, transparent 100%),
+			radial-gradient(circle 4px at calc(100% - 13px) 13px, var(--color-rivet) 92%, transparent 100%),
+			radial-gradient(circle 4px at 13px calc(100% - 13px), var(--color-rivet) 92%, transparent 100%),
+			radial-gradient(circle 4px at calc(100% - 13px) calc(100% - 13px), var(--color-rivet) 92%, transparent 100%);
+	}
+
+	.chain {
+		height: 24px;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='24' viewBox='0 0 44 24'%3E%3Ccircle cx='11' cy='12' r='7' fill='none' stroke='%23f4e9d8' stroke-width='3'/%3E%3Ccircle cx='33' cy='12' r='7' fill='none' stroke='%23e8a020' stroke-width='3'/%3E%3C/svg%3E");
+		background-repeat: repeat-x;
+		background-position: center;
+	}
+	.chain-ink {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='24' viewBox='0 0 44 24'%3E%3Ccircle cx='11' cy='12' r='7' fill='none' stroke='%232a2723' stroke-width='3'/%3E%3Ccircle cx='33' cy='12' r='7' fill='none' stroke='%23c9a227' stroke-width='3'/%3E%3C/svg%3E");
+	}
+
+	.plate {
+		@apply inline-block rounded-[10px] border-[3px] border-ink bg-lacquer px-[1.7rem] py-[0.85rem] font-display text-[1.15rem] leading-[1.2] text-cream no-underline shadow-paint;
+		transition:
+			transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+			background-color 0.2s ease-out;
+	}
+	.plate:hover {
+		@apply -translate-y-[3px] -rotate-[0.5deg] bg-lacquer-deep text-cream;
+	}
+	.plate-ghost {
+		@apply bg-cream-hi text-ink;
+	}
+	.plate-ghost:hover {
+		@apply bg-mustard text-ink;
+	}
+	.plate-green {
+		@apply bg-green;
+	}
+	.plate-green:hover {
+		@apply bg-green-deep;
+	}
+
+	.stamp {
+		@apply inline-block -rotate-3 rounded-md border-[2.5px] border-ink px-[0.55rem] py-[0.15rem] font-gu text-[0.78rem] font-bold tracking-[0.06em] text-ink uppercase;
+		background: rgb(232 160 32 / 0.18);
+	}
+
+	.gu {
+		@apply font-gu;
+	}
+	.wrap {
+		@apply mx-auto max-w-[1180px] px-[clamp(1.25rem,4vw,2.5rem)];
+	}
+	.measure {
+		max-width: 68ch;
+	}
+	.sn {
+		@apply mr-[0.3rem] text-[0.95em] opacity-90;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
