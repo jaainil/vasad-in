@@ -35,11 +35,11 @@ const stones = [
 	<main id="main" class="wrap">
 		<header class="pt-12">
 			<h1 class="text-[clamp(2.3rem,5vw,3.4rem)]">Reach &amp; roam</h1>
-			<p class="gu mt-1.5 text-[1.1rem] text-ink/80">પ્રવાસ — the river, the retreats, the sacred circuit</p>
+			<p class="font-gu mt-1.5 text-[1.1rem] text-ink/80">પ્રવાસ — the river, the retreats, the sacred circuit</p>
 		</header>
 
-		<section class="panel riveted mt-10 bg-green px-8 pb-8 pt-8 text-cream" aria-labelledby="mahi-h">
-			<h2 id="mahi-h" class="text-[clamp(1.7rem,3.2vw,2.3rem)] text-mustard">The Mahi at the town’s edge</h2>
+		<section class="panel riveted mt-10 bg-green px-8 pb-8 pt-8 text-cream" aria-label="The Mahi at the town’s edge">
+			<h2 class="text-[clamp(1.7rem,3.2vw,2.3rem)] text-mustard">The Mahi at the town’s edge</h2>
 			<p class="mt-3">
 				Vasad perches on the northern bluff of the Mahi at 18.89 metres — the old ravine
 				terrace the locals call the <strong>kotar</strong>. Forested cliffs run south and
@@ -50,9 +50,9 @@ const stones = [
 		</section>
 
 		<div class="grid items-start gap-10 md:grid-cols-[1.2fr_1fr]">
-			<section class="panel riveted -rotate-[0.6deg] mt-10 bg-lacquer px-8 pb-8 pt-8 text-cream" aria-labelledby="ashram-h">
-				<h2 id="ashram-h" class="text-[clamp(1.6rem,3vw,2.1rem)]">Art of Living Gujarat Ashram</h2>
-				<p class="gu mt-0.5 text-[0.95rem] font-semibold text-cream/80">આર્ટ ઓફ લિવિંગ ગુજરાત આશ્રમ — વાસદ</p>
+			<section class="panel riveted -rotate-[0.6deg] mt-10 bg-lacquer px-8 pb-8 pt-8 text-cream" aria-label="Art of Living Gujarat Ashram">
+				<h2 class="text-[clamp(1.6rem,3vw,2.1rem)]">Art of Living Gujarat Ashram</h2>
+				<p class="font-gu mt-0.5 text-[0.95rem] font-semibold text-cream/80">આર્ટ ઓફ લિવિંગ ગુજરાત આશ્રમ — વાસદ</p>
 				<p class="mt-2.5">
 					The foundation’s Gujarat ashram, set in greenery over the northern bank. Residential
 					Sudarshan Kriya retreats, silent meditation and youth empowerment courses, with
@@ -60,9 +60,9 @@ const stones = [
 					travelling for a specific program.
 				</p>
 			</section>
-			<section class="panel riveted mt-10 rotate-[0.8deg] bg-green px-8 pb-8 pt-8 text-cream" aria-labelledby="resort-h">
-				<h2 id="resort-h" class="text-[clamp(1.6rem,3vw,2.1rem)]">Krishna Riverside Resort</h2>
-				<p class="gu mt-0.5 text-[0.95rem] font-semibold text-cream/80">ક્રિષ્ના રિવરસાઇડ રિસોર્ટ</p>
+			<section class="panel riveted mt-10 rotate-[0.8deg] bg-green px-8 pb-8 pt-8 text-cream" aria-label="Krishna Riverside Resort">
+				<h2 class="text-[clamp(1.6rem,3vw,2.1rem)]">Krishna Riverside Resort</h2>
+				<p class="font-gu mt-0.5 text-[0.95rem] font-semibold text-cream/80">ક્રિષ્ના રિવરસાઇડ રિસોર્ટ</p>
 				<p class="mt-2.5">
 					Hospitality and recreation on the river cliffs — nature trails along the bluffs,
 					open lawns, water adventure, and Charotar Kathiyawadi dining. Riverfront cottages
@@ -71,8 +71,8 @@ const stones = [
 			</section>
 		</div>
 
-		<section class="panel riveted mt-10 bg-cream-hi px-8 pb-8 pt-8" aria-labelledby="sacred-h">
-			<h2 id="sacred-h" class="text-[clamp(1.7rem,3.2vw,2.3rem)]">Sacred roots</h2>
+		<section class="panel riveted mt-10 bg-cream-hi px-8 pb-8 pt-8" aria-label="Sacred roots">
+			<h2 class="text-[clamp(1.7rem,3.2vw,2.3rem)]">Sacred roots</h2>
 			<p class="mt-3">
 				Beside the Mahadev mandir on the old bluff stands the town’s living guardian — a
 				<strong>200-year-old banyan</strong>, its prop roots descending like pillars. Around
@@ -82,15 +82,15 @@ const stones = [
 				{mandirs.map((m) => (
 					<div class="rounded-[10px] border-[2.5px] border-ink/50 bg-cream px-4 py-4">
 						<span class="block font-display text-[1.08rem]">{m.en}</span>
-						<span class="gu block text-[0.85rem] font-semibold text-lacquer">{m.gu}</span>
+						<span class="font-gu block text-[0.85rem] font-semibold text-lacquer">{m.gu}</span>
 						<span class="mt-1 block text-[0.85rem] text-ink/85">{m.line}</span>
 					</div>
 				))}
 			</div>
 		</section>
 
-		<section class="panel riveted mt-10 bg-cream-hi px-8 pb-8 pt-8" aria-labelledby="reach-h">
-			<h2 id="reach-h" class="text-[clamp(1.7rem,3.2vw,2.3rem)]">Getting there</h2>
+		<section class="panel riveted mt-10 bg-cream-hi px-8 pb-8 pt-8" id="reach" aria-label="Getting there">
+			<h2 class="text-[clamp(1.7rem,3.2vw,2.3rem)]">Getting there</h2>
 			<div class="mt-4 grid gap-8 md:grid-cols-2">
 				<div>
 					<h3 class="mb-1.5 font-display text-[1.25rem] font-normal">Road</h3>
@@ -112,15 +112,15 @@ const stones = [
 				{
 					stones.map((s) => (
 						<span class:list={['rounded-t-[10px] rounded-b-[4px] border-[3px] border-ink px-4 pt-1 pb-1.5 font-display text-base shadow-paint', s.tone]}>
-							<span class="gu sn">{s.gu}</span> {s.en}
+							<span class="font-gu mr-[0.3rem] text-[0.95em] opacity-90">{s.gu}</span> {s.en}
 						</span>
 					))
 				}
 			</div>
 		</section>
 
-		<section class="panel riveted mt-10 bg-cream-hi px-8 pb-8 pt-8" aria-labelledby="trips-h">
-			<h2 id="trips-h" class="text-[clamp(1.7rem,3.2vw,2.3rem)]">The gateway for day trips</h2>
+		<section class="panel riveted mt-10 bg-cream-hi px-8 pb-8 pt-8" aria-label="The gateway for day trips">
+			<h2 class="text-[clamp(1.7rem,3.2vw,2.3rem)]">The gateway for day trips</h2>
 			<p class="mt-3">
 				Midway on the corridor, Vasad is the unhurried base for central Gujarat’s celebrated
 				destinations:

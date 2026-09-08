@@ -146,8 +146,8 @@ const yards = [
 	<main id="main" class="wrap">
 		<header class="pt-12">
 			<h1 class="text-[clamp(2.3rem,5vw,3.4rem)]">Vasad commerce &amp; student living</h1>
-			<p class="gu mt-1.5 text-[1.1rem] text-ink/80">વસાદ વ્યાપાર, દાળ ભંડાર અને છાત્ર આવાસો</p>
-			<p class="trust measure mt-4 rounded-xl border-[3px] border-ink bg-cream-hi p-4 px-6 py-4 shadow-paint">
+			<p class="font-gu mt-1.5 text-[1.1rem] text-ink/80">વસાદ વ્યાપાર, દાળ ભંડાર અને છાત્ર આવાસો</p>
+			<p class="mt-4 max-w-[68ch] rounded-xl border-[3px] border-ink bg-cream-hi p-4 px-6 py-4 shadow-paint">
 				The local index for buyers, students and parents: dal counters, PGs and messes, one
 				board each, with tariffs on the plate. Twelve boards hang today. Call and WhatsApp
 				lines publish with each owner’s claim — until then the {' '}
@@ -169,16 +169,16 @@ const yards = [
 
 		{
 			yards.map((yard, yi) => (
-				<section class="mt-16" id={yard.id} aria-labelledby={`${yard.id}-h`}>
-					<h2 id={`${yard.id}-h`} class="text-[clamp(1.8rem,3.5vw,2.5rem)]" set:html={yard.h} />
+				<section class="mt-16" id={yard.id} aria-label={yard.note}>
+					<h2 class="text-[clamp(1.8rem,3.5vw,2.5rem)]" set:html={yard.h} />
 					<p class="mt-2 text-ink/85">{yard.note}</p>
 					<div class="mt-8 grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-x-6 gap-y-8">
 						{yard.items.map((c, i) => (
 							<article
 								class:list={[
-									'panel riveted flex flex-col gap-1 px-6 pt-6 pb-5',
-									(yi + i) % 2 === 0 && 'tilt -rotate-[0.5deg] hover:rotate-0 hover:-translate-y-1',
-									(yi + i) % 2 === 1 && 'tilt rotate-[0.6deg] hover:rotate-0 hover:-translate-y-1',
+									'panel riveted flex flex-col gap-1 px-6 pt-6 pb-5 [transition:transform_0.55s_cubic-bezier(0.22,1,0.36,1)]',
+									(yi + i) % 2 === 0 && '-rotate-[0.5deg] hover:rotate-0 hover:-translate-y-1',
+									(yi + i) % 2 === 1 && 'rotate-[0.6deg] hover:rotate-0 hover:-translate-y-1',
 								]}
 							>
 								<span
@@ -190,7 +190,7 @@ const yards = [
 									set:html={yard.chip}
 								/>
 								<h3 class="mt-2.5 text-[1.45rem]">{c.en}</h3>
-								<p class="gu text-[0.95rem] font-semibold text-lacquer">{c.gu}</p>
+								<p class="font-gu text-[0.95rem] font-semibold text-lacquer">{c.gu}</p>
 								<p class="mt-2 text-[0.95rem] font-semibold">{c.where}</p>
 								<p class="text-[0.85rem] font-semibold text-green">{c.near}</p>
 								<p class="mt-2 text-[0.95rem] leading-[1.55] text-ink/90">{c.line}</p>
@@ -199,7 +199,7 @@ const yards = [
 										<span class="rounded-md border-2 border-ink/55 px-2 py-0.5 text-[0.78rem] font-semibold text-ink/85">{t}</span>
 									))}
 								</p>
-								<p class="tariff mt-3.5 rounded-lg border-[2.5px] border-dashed border-ink bg-cream px-3 py-2 font-display text-[1.05rem]">
+								<p class="mt-3.5 rounded-lg border-[2.5px] border-dashed border-ink bg-cream px-3 py-2 font-display text-[1.05rem]">
 									<span class="mb-0.5 block font-gu text-[0.7rem] font-bold tracking-[0.08em] uppercase text-ink/65">Plate rate</span>
 									{c.tariff}
 								</p>
@@ -210,9 +210,9 @@ const yards = [
 			))
 		}
 
-		<section class="mt-20 border-y-[3px] border-ink bg-lacquer py-14 text-cream" id="getlisted" aria-labelledby="listed-h">
+		<section class="mt-20 border-y-[3px] border-ink bg-lacquer py-14 text-cream" id="getlisted" aria-label="Run a dal shop, PG or mess in Vasad?">
 			<div class="wrap">
-				<h2 id="listed-h" class="text-[clamp(1.8rem,3.5vw,2.5rem)] text-mustard">Run a dal shop, PG or mess in Vasad?</h2>
+				<h2 class="text-[clamp(1.8rem,3.5vw,2.5rem)] text-mustard">Run a dal shop, PG or mess in Vasad?</h2>
 				<p class="mt-4">
 					This wall is read by highway travellers on NH 48, by students and parents arriving
 					for SVIT admissions, and by grain buyers across Gujarat. Boards carry the owner’s
@@ -251,9 +251,3 @@ const yards = [
 	</main>
 	<Footer />
 </Layout>
-
-<style>
-	.tilt {
-		transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-</style>
