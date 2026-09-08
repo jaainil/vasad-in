@@ -1,23 +1,230 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'Vasad — Gateway to Charotar | વાસદ',
+	description = 'Vasad (Vasudhanagari), Anand district, Gujarat: the Mahi riverside, the toor dal mills, SVIT and Vasad Junction — the town on NH48 between Ahmedabad and Vadodara.',
+} = Astro.props;
+---
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content={description} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Baloo+Bhai+2:wght@500;600;700;800&family=Hind+Vadodara:wght@400;500;600;700&family=Mukta:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
+		<a class="skip" href="#main">Skip to content</a>
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
+<style is:global>
+	:root {
+		--lacquer: #9e2b25;
+		--lacquer-deep: #7c1f1b;
+		--lacquer-wash: rgba(158, 43, 37, 0.08);
+		--mustard: #e8a020;
+		--mustard-deep: #b57708;
+		--green: #1d5c3f;
+		--green-deep: #154630;
+		--cream: #f4e9d8;
+		--cream-hi: #faf3e3;
+		--ink: #2a2723;
+		--rivet: #c9a227;
+		--paint-shadow: 0 16px 32px -20px rgba(42, 39, 35, 0.45);
+		--display: 'Yatra One', 'Baloo Bhai 2', serif;
+		--gu: 'Baloo Bhai 2', 'Hind Vadodara', sans-serif;
+		--body: 'Mukta', 'Hind Vadodara', sans-serif;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
 	body {
 		margin: 0;
-		width: 100%;
-		height: 100%;
+		background: var(--cream);
+		color: var(--ink);
+		font-family: var(--body);
+		font-size: 1.0625rem;
+		line-height: 1.65;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	::selection {
+		background: var(--mustard);
+		color: var(--ink);
+	}
+
+	body::-webkit-scrollbar {
+		width: 13px;
+	}
+	body::-webkit-scrollbar-track {
+		background: var(--cream);
+	}
+	body::-webkit-scrollbar-thumb {
+		background: var(--lacquer);
+		border: 3px solid var(--ink);
+		border-radius: 8px;
+	}
+
+	:focus-visible {
+		outline: 3px solid var(--mustard);
+		outline-offset: 3px;
+		border-radius: 4px;
+	}
+
+	.skip {
+		position: absolute;
+		left: -999px;
+		top: 0;
+		z-index: 100;
+		background: var(--mustard);
+		color: var(--ink);
+		font-family: var(--display);
+		padding: 0.7rem 1.2rem;
+		border: 3px solid var(--ink);
+		border-radius: 0 0 10px 0;
+	}
+	.skip:focus {
+		left: 0;
+	}
+
+	h1,
+	h2,
+	h3 {
+		font-family: var(--display);
+		font-weight: 400;
+		line-height: 1.08;
+		margin: 0;
+		text-wrap: balance;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	a {
+		color: var(--lacquer);
+		text-decoration-thickness: 2px;
+		text-underline-offset: 3px;
+	}
+	a:hover {
+		color: var(--lacquer-deep);
+	}
+
+	.wrap {
+		max-width: 1180px;
+		margin-inline: auto;
+		padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+	}
+
+	.gu {
+		font-family: var(--gu);
+	}
+
+	.panel {
+		position: relative;
+		background: var(--cream-hi);
+		border: 3px solid var(--ink);
+		border-radius: 12px;
+		box-shadow: var(--paint-shadow);
+	}
+
+	.riveted {
+		background-image:
+			radial-gradient(circle 4px at 13px 13px, var(--rivet) 92%, transparent 100%),
+			radial-gradient(circle 4px at calc(100% - 13px) 13px, var(--rivet) 92%, transparent 100%),
+			radial-gradient(circle 4px at 13px calc(100% - 13px), var(--rivet) 92%, transparent 100%),
+			radial-gradient(circle 4px at calc(100% - 13px) calc(100% - 13px), var(--rivet) 92%, transparent 100%);
+	}
+
+	.chain {
+		height: 24px;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='24' viewBox='0 0 44 24'%3E%3Ccircle cx='11' cy='12' r='7' fill='none' stroke='%23f4e9d8' stroke-width='3'/%3E%3Ccircle cx='33' cy='12' r='7' fill='none' stroke='%23e8a020' stroke-width='3'/%3E%3C/svg%3E");
+		background-repeat: repeat-x;
+		background-position: center;
+	}
+
+	.chain--ink {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='24' viewBox='0 0 44 24'%3E%3Ccircle cx='11' cy='12' r='7' fill='none' stroke='%232a2723' stroke-width='3'/%3E%3Ccircle cx='33' cy='12' r='7' fill='none' stroke='%23c9a227' stroke-width='3'/%3E%3C/svg%3E");
+	}
+
+	.plate {
+		display: inline-block;
+		padding: 0.85rem 1.7rem;
+		border: 3px solid var(--ink);
+		border-radius: 10px;
+		font-family: var(--display);
+		font-size: 1.15rem;
+		line-height: 1.2;
+		text-decoration: none;
+		color: var(--cream);
+		background: var(--lacquer);
+		box-shadow: var(--paint-shadow);
+		transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease-out;
+	}
+	.plate:hover {
+		transform: translateY(-3px) rotate(-0.5deg);
+		background: var(--lacquer-deep);
+		color: var(--cream);
+	}
+	.plate--ghost {
+		background: var(--cream-hi);
+		color: var(--ink);
+	}
+	.plate--ghost:hover {
+		background: var(--mustard);
+		color: var(--ink);
+	}
+	.plate--green {
+		background: var(--green);
+	}
+	.plate--green:hover {
+		background: var(--green-deep);
+	}
+
+	.stamp {
+		display: inline-block;
+		transform: rotate(-3deg);
+		border: 2.5px solid var(--mustard-deep);
+		border-radius: 6px;
+		color: var(--mustard-deep);
+		font-family: var(--gu);
+		font-weight: 700;
+		font-size: 0.78rem;
+		letter-spacing: 0.06em;
+		padding: 0.15rem 0.55rem;
+		text-transform: uppercase;
+	}
+
+	.measure {
+		max-width: 68ch;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+		}
 	}
 </style>

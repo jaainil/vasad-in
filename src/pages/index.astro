@@ -1,11 +1,401 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import LorryFlank from '../components/LorryFlank.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const lots = [
+	{
+		no: '1',
+		en: 'The Mahi Riverside',
+		gu: 'મહી નદી',
+		line: 'The town’s front garden — the northern bank, the evening air, the water.',
+		href: '/visit',
+	},
+	{
+		no: '2',
+		en: 'The Toor Dal Mills',
+		gu: 'દાણાના ભોઠા',
+		line: '45+ processing mills make Vasad a dal heartland of Charotar.',
+		href: '/directory#mills',
+	},
+	{
+		no: '3',
+		en: 'The SVIT Campus',
+		gu: 'એસ.વી.આઈ.ટી.',
+		line: 'Engineering, architecture and nursing, on campus since 1997.',
+		href: '/study',
+	},
+	{
+		no: '4',
+		en: 'Vasad Junction',
+		gu: 'વાસદ સ્ટેશન',
+		line: 'Passenger, MEMU and express halts on the Western Railway line.',
+		href: '/visit#reach',
+	},
+	{
+		no: '5',
+		en: 'Soil & Water Research Institute',
+		gu: 'જમીન સંરક્ષણ',
+		line: 'The central government’s institute for soil and water, right here.',
+		href: '/study#research',
+	},
+	{
+		no: '6',
+		en: 'Ashram & Riverside Resort',
+		gu: 'આશ્રમ · રિસોર્ટ',
+		line: 'The Art of Living ashram and the Krishna Riverside Resort.',
+		href: '/visit#stay',
+	},
+];
+
+const boards = [
+	{
+		href: '/directory#bazaar',
+		en: 'The Bazaar',
+		gu: 'દુકાનો',
+		line: 'Kirana, sweets, hardware, tailors — the bazaar’s hanging boards.',
+		tone: 'lacquer',
+		tilt: '-1.6deg',
+	},
+	{
+		href: '/directory#mills',
+		en: 'The Mill Yard',
+		gu: 'ભોઠા',
+		line: '45+ toor dal mills. Five sample boards hang now.',
+		tone: 'green',
+		tilt: '1.2deg',
+	},
+	{
+		href: '/directory#stay',
+		en: 'Stay & PG',
+		gu: 'રહેઠાણ',
+		line: 'Rooms and PGs for students, workers and visitors.',
+		tone: 'mustard',
+		tilt: '-0.7deg',
+	},
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+	title="Vasad — Gateway to Charotar | વાસદ"
+	description="Vasad (Vasudhanagari), Anand district, Gujarat: the Mahi riverside, 45+ toor dal mills, SVIT, Vasad Junction — the town's own site, and its directory of shops, mills and PGs."
+>
+	<Nav />
+	<main id="main">
+		<h1 class="sr">Vasad — gateway to Charotar, Anand district, Gujarat</h1>
+
+		<section class="hero wrap" aria-label="Vasad, painted on the town lorry">
+			<LorryFlank />
+			<div class="roadline" aria-hidden="true"></div>
+			<div class="stones" aria-label="Distances">
+				<span class="stone stone--lacquer">Anand 15</span>
+				<span class="stone stone--green">Vadodara →</span>
+				<span class="stone stone--mustard">Ahmedabad →</span>
+				<span class="stonenote">km-stone distances follow the town’s record</span>
+			</div>
+			<div class="actions">
+				<a class="plate" href="/visit">Plan your visit</a>
+				<a class="plate plate--ghost" href="/directory">Walk the directory</a>
+			</div>
+		</section>
+
+		<section class="manifest wrap" aria-labelledby="manifest-h">
+			<h2 id="manifest-h">What Vasad carries</h2>
+			<p class="gu sub">વાસદનું ભથ્થું — the town’s load manifest</p>
+			<ol class="lots">
+				{
+					lots.map((lot) => (
+						<li class="lot">
+							<span class="chip" aria-hidden="true">LOT {lot.no}</span>
+							<span class="lotname">
+								{lot.en} <span class="gu lotgu">{lot.gu}</span>
+							</span>
+							<span class="lotline">{lot.line}</span>
+							<a class="lotlink" href={lot.href} aria-label={`${lot.en} — read more`}>
+								→
+							</a>
+						</li>
+					))
+				}
+			</ol>
+		</section>
+
+		<section class="yards wrap" aria-labelledby="yards-h">
+			<h2 id="yards-h">The directory wall</h2>
+			<p class="sub">
+				Boards hang here the way they hang in the bazaar — one per shop, one per mill, one per
+				door with a room to let.
+			</p>
+			<div class="wall">
+				{
+					boards.map((b) => (
+						<a class:list={['hanging', `hanging--${b.tone}`]} href={b.href} style={`--tilt:${b.tilt}`}>
+							<span class="h-en">{b.en}</span>
+							<span class="h-gu gu">{b.gu}</span>
+							<span class="h-line">{b.line}</span>
+							<span class="h-go">See the boards →</span>
+						</a>
+					))
+				}
+			</div>
+		</section>
+
+		<section class="river" aria-labelledby="river-h">
+			<div class="wrap">
+				<h2 id="river-h">The river is the reason</h2>
+				<p class="measure">
+					Vasad sits on the northern bank of the Mahi, the highway wall between Ahmedabad and
+					Vadodara — and 15 km south of Anand, the district seat. Step off NH 48 and the
+					Charotar heartland opens: dal mills, fields, the campus, the ashram gate.
+				</p>
+				<a class="plate plate--ghost" href="/visit">Reach &amp; roam</a>
+			</div>
+		</section>
+	</main>
+	<Footer />
 </Layout>
+
+<style>
+	.sr {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+
+	.hero {
+		padding-top: 2.2rem;
+	}
+	.hero :global(svg.flank) {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	.roadline {
+		height: 14px;
+		border-block: 3px solid var(--ink);
+		background: repeating-linear-gradient(90deg, var(--mustard) 0 84px, var(--ink) 84px 118px);
+		animation: drift 5.5s linear infinite;
+	}
+	@keyframes drift {
+		to {
+			background-position-x: -118px;
+		}
+	}
+	.stones {
+		display: flex;
+		align-items: center;
+		gap: 0.7rem;
+		flex-wrap: wrap;
+		margin-top: 1.3rem;
+	}
+	.stone {
+		font-family: var(--display);
+		font-size: 1.02rem;
+		padding: 0.45rem 1rem 0.55rem;
+		border: 3px solid var(--ink);
+		border-radius: 10px 10px 4px 4px;
+		box-shadow: var(--paint-shadow);
+	}
+	.stone--lacquer {
+		background: var(--lacquer);
+		color: var(--cream);
+	}
+	.stone--green {
+		background: var(--green);
+		color: var(--cream);
+	}
+	.stone--mustard {
+		background: var(--mustard);
+		color: var(--ink);
+	}
+	.stonenote {
+		font-size: 0.85rem;
+		color: rgba(42, 39, 35, 0.75);
+	}
+	.actions {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+		margin-top: 1.6rem;
+	}
+
+	.manifest {
+		margin-top: 5.5rem;
+	}
+	h2 {
+		font-size: clamp(1.9rem, 4vw, 2.7rem);
+	}
+	.sub {
+		margin-top: 0.4rem;
+		color: rgba(42, 39, 35, 0.8);
+	}
+	.lots {
+		list-style: none;
+		margin: 1.8rem 0 0;
+		padding: 0;
+		border-top: 3px solid var(--ink);
+	}
+	.lot {
+		display: grid;
+		grid-template-columns: 4.6rem 1fr;
+		grid-template-areas:
+			'chip name'
+			'chip line'
+			'chip go';
+		align-items: baseline;
+		column-gap: 1.1rem;
+		padding: 1.05rem 0.4rem;
+		border-bottom: 3px solid var(--ink);
+		transition: background-color 0.25s ease-out, transform 0.25s ease-out;
+	}
+	.lot:hover {
+		background: var(--lacquer-wash);
+		transform: translateX(6px);
+	}
+	.chip {
+		grid-area: chip;
+		justify-self: start;
+		font-family: var(--display);
+		font-size: 0.82rem;
+		letter-spacing: 0.05em;
+		color: var(--cream);
+		background: var(--green);
+		border: 2.5px solid var(--ink);
+		border-radius: 7px;
+		padding: 0.3rem 0.5rem;
+		align-self: center;
+	}
+	.lotname {
+		grid-area: name;
+		font-family: var(--display);
+		font-size: 1.35rem;
+		line-height: 1.2;
+	}
+	.lotgu {
+		font-size: 1rem;
+		color: var(--lacquer);
+		margin-left: 0.4rem;
+	}
+	.lotline {
+		grid-area: line;
+		color: rgba(42, 39, 35, 0.85);
+		margin-top: 0.15rem;
+	}
+	.lotlink {
+		grid-area: go;
+		justify-self: end;
+		align-self: end;
+		font-family: var(--display);
+		font-size: 1.15rem;
+		text-decoration: none;
+	}
+	.lot:nth-child(2) .chip {
+		background: var(--lacquer);
+	}
+	.lot:nth-child(4) .chip {
+		background: var(--lacquer);
+	}
+
+	.yards {
+		margin-top: 5.5rem;
+	}
+	.wall {
+		display: flex;
+		gap: 2rem;
+		align-items: flex-start;
+		margin-top: 3.2rem;
+		flex-wrap: wrap;
+	}
+	.hanging {
+		--tilt: 0deg;
+		position: relative;
+		flex: 1 1 260px;
+		max-width: 350px;
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		padding: 1.5rem 1.5rem 1.4rem;
+		border: 3px solid var(--ink);
+		border-radius: 12px;
+		text-decoration: none;
+		box-shadow: var(--paint-shadow);
+		transform: rotate(var(--tilt));
+		transform-origin: 50% -14px;
+		transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	.hanging::before {
+		content: '';
+		position: absolute;
+		top: -14px;
+		left: 50%;
+		width: 3px;
+		height: 14px;
+		background: var(--ink);
+	}
+	.hanging::after {
+		content: '';
+		position: absolute;
+		top: -20px;
+		left: 50%;
+		width: 11px;
+		height: 11px;
+		border-radius: 50%;
+		background: var(--rivet);
+		border: 2.5px solid var(--ink);
+		transform: translateX(-50%);
+	}
+	.hanging:hover {
+		transform: rotate(calc(var(--tilt) * -0.5)) translateY(-5px);
+	}
+	.hanging--lacquer {
+		background: var(--lacquer);
+		color: var(--cream);
+	}
+	.hanging--green {
+		background: var(--green);
+		color: var(--cream);
+	}
+	.hanging--mustard {
+		background: var(--mustard);
+		color: var(--ink);
+	}
+	.h-en {
+		font-family: var(--display);
+		font-size: 1.75rem;
+		line-height: 1.1;
+	}
+	.h-gu {
+		font-size: 1rem;
+		font-weight: 600;
+		opacity: 0.9;
+	}
+	.h-line {
+		margin-top: 0.45rem;
+		font-size: 0.97rem;
+		line-height: 1.5;
+	}
+	.h-go {
+		margin-top: 0.9rem;
+		font-family: var(--display);
+		font-size: 1rem;
+	}
+
+	.river {
+		margin-top: 5.5rem;
+		background: var(--green);
+		color: var(--cream);
+		padding-block: 3.6rem;
+		border-block: 3px solid var(--ink);
+	}
+	.river h2 {
+		color: var(--mustard);
+		margin-bottom: 0.9rem;
+	}
+	.river .plate {
+		margin-top: 1.6rem;
+	}
+</style>

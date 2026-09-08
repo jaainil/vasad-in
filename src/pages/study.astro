@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+	title="Study — Vasad | અભ્યાસ"
+	description="Education in Vasad: SVIT — engineering, architecture and nursing since 1997 — the Soil Conservation & Water Research Institute, and the town's 80% literacy record."
+>
+	<Nav />
+	<main id="main" class="wrap">
+		<header class="pagehead">
+			<h1>The campus &amp; the classroom</h1>
+			<p class="gu sub">અભ્યાસ — a market town that sends its children to college</p>
+		</header>
+
+		<section class="panel riveted svit" aria-labelledby="svit-h">
+			<div class="svithead">
+				<h2 id="svit-h">SVIT — Sardar Vallabhbhai Patel Institute of Technology</h2>
+				<span class="badge">Since 1997</span>
+			</div>
+			<p class="measure">
+				The campus changed what this town is. Affiliated to Gujarat Technological University,
+				SVIT runs undergraduate and postgraduate programs across three schools:
+			</p>
+			<ul class="schools">
+				<li>Engineering</li>
+				<li>Architecture</li>
+				<li>Nursing</li>
+			</ul>
+			<p class="afternote">
+				Students from across Gujarat study here — which is why the town keeps a PG and rooms
+				wall on the <a href="/directory#stay">directory</a>.
+			</p>
+		</section>
+
+		<div class="pair">
+			<section class="panel riveted panel--green" id="research" aria-labelledby="inst-h">
+				<h2 id="inst-h">Soil &amp; Water, studied here</h2>
+				<p>
+					The central government's <strong>Soil Conservation and Water Research Institute</strong> works from Vasad on the region's two hardest problems: holding the soil and keeping
+					the water. Research that the farms around town feel.
+				</p>
+			</section>
+			<section class="panel riveted panel--lacquer" aria-labelledby="lit-h">
+				<h2 id="lit-h">The record on the wall</h2>
+				<p class="big">80.12%</p>
+				<p>
+					The town's literacy at the 2011 Census — men at 84.18%, women at 75.66% — already
+					above the state's bar, and rising since.
+				</p>
+			</section>
+		</div>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	.pagehead {
+		padding-top: 3rem;
+	}
+	h1 {
+		font-size: clamp(2.3rem, 5vw, 3.4rem);
+	}
+	.sub {
+		margin-top: 0.4rem;
+		color: rgba(42, 39, 35, 0.8);
+		font-size: 1.1rem;
+	}
+	.panel {
+		padding: 2.1rem 2.3rem;
+		margin-top: 2.6rem;
+	}
+	.svit {
+		background: var(--cream-hi);
+	}
+	.svithead {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+	.svit h2 {
+		font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+		max-width: 22ch;
+	}
+	.badge {
+		font-family: var(--display);
+		font-size: 1rem;
+		background: var(--mustard);
+		color: var(--ink);
+		border: 3px solid var(--ink);
+		border-radius: 8px;
+		padding: 0.3rem 0.8rem;
+		transform: rotate(1.5deg);
+	}
+	.svit p {
+		margin-top: 0.9rem;
+	}
+	.schools {
+		list-style: none;
+		display: flex;
+		gap: 0.8rem;
+		flex-wrap: wrap;
+		padding: 0;
+		margin: 1.4rem 0 0;
+	}
+	.schools li {
+		font-family: var(--display);
+		font-size: 1.15rem;
+		border: 3px solid var(--ink);
+		border-radius: 10px;
+		padding: 0.45rem 1.1rem;
+		background: var(--lacquer);
+		color: var(--cream);
+	}
+	.schools li:nth-child(2) {
+		background: var(--green);
+	}
+	.schools li:nth-child(3) {
+		background: var(--mustard);
+		color: var(--ink);
+	}
+	.afternote {
+		margin-top: 1.4rem;
+		color: rgba(42, 39, 35, 0.85);
+	}
+	.pair {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2.6rem;
+	}
+	@media (max-width: 780px) {
+		.pair {
+			grid-template-columns: 1fr;
+		}
+	}
+	.panel--green {
+		background: var(--green);
+		color: var(--cream);
+	}
+	.panel--lacquer {
+		background: var(--lacquer);
+		color: var(--cream);
+	}
+	h2 {
+		font-size: 1.65rem;
+	}
+	.pair p {
+		margin-top: 0.6rem;
+	}
+	.big {
+		font-family: var(--display);
+		font-size: clamp(2.6rem, 6vw, 4rem);
+		color: var(--mustard);
+		margin-top: 0.5rem;
+	}
+</style>

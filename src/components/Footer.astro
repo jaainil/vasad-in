@@ -1,0 +1,102 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="tail">
+	<div class="chain" aria-hidden="true"></div>
+	<div class="wrap inner">
+		<p class="horn gu" aria-hidden="true">હોર્ન ઓકે પ્લીઝ <span class="latin">Horn OK Please</span></p>
+		<div class="cols">
+			<div class="col">
+				<p class="head">Vasad · <span class="gu">વાસદ</span></p>
+				<p class="line">
+					The northern bank of the Mahi, the gateway to Charotar, Anand district, Gujarat.
+				</p>
+			</div>
+			<nav class="col" aria-label="Footer">
+				<p class="head">Pages</p>
+				<a href="/about">About</a>
+				<a href="/visit">Visit</a>
+				<a href="/study">Study</a>
+				<a href="/directory">Directory</a>
+				<a href="/contact">Contact</a>
+			</nav>
+			<div class="col">
+				<p class="head">On the body</p>
+				<p class="line marks">PIN 388306 · STD 02692</p>
+				<p class="line marks">22.45°N 73.0667°E · NH 48</p>
+				<p class="line small">
+					Listings stamped SAMPLE stand where real boards will hang. Facts follow the town's
+					public record.
+				</p>
+			</div>
+		</div>
+		<p class="fine">© {year} · A town site for Vasad, kept by its people.</p>
+	</div>
+</footer>
+
+<style>
+	.tail {
+		background: var(--ink);
+		color: var(--cream);
+		margin-top: 5rem;
+	}
+	.inner {
+		padding-block: 2.6rem 2rem;
+	}
+	.horn {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--mustard);
+		margin-bottom: 2.2rem;
+	}
+	.horn .latin {
+		font-family: var(--display);
+		font-weight: 400;
+		font-size: 1.15rem;
+		color: var(--cream);
+		margin-left: 0.6rem;
+		letter-spacing: 0.08em;
+	}
+	.cols {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2.5rem 4rem;
+	}
+	.col {
+		display: flex;
+		flex-direction: column;
+		gap: 0.45rem;
+		min-width: 14rem;
+	}
+	.head {
+		font-family: var(--display);
+		font-size: 1.2rem;
+		color: var(--mustard);
+		margin-bottom: 0.35rem;
+	}
+	.line {
+		max-width: 34ch;
+	}
+	.marks {
+		font-weight: 600;
+		letter-spacing: 0.04em;
+	}
+	.col a {
+		color: var(--cream);
+		width: fit-content;
+	}
+	.col a:hover {
+		color: var(--mustard);
+	}
+	.small {
+		font-size: 0.85rem;
+		color: rgba(244, 233, 216, 0.75);
+		max-width: 30ch;
+	}
+	.fine {
+		margin-top: 2.4rem;
+		font-size: 0.85rem;
+		color: rgba(244, 233, 216, 0.65);
+	}
+</style>

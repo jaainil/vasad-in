@@ -1,0 +1,150 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+	title="The Panchayat Office — Vasad | સંપર્ક"
+	description="Contact Vasad's gram panchayat: the sarpanch's office, the town's postal and dialling marks, and how to claim a directory board."
+>
+	<Nav />
+	<main id="main" class="wrap">
+		<header class="pagehead">
+			<h1>The panchayat office</h1>
+			<p class="gu sub">સંપર્ક — the town's front desk</p>
+		</header>
+
+		<section class="panel riveted office" aria-labelledby="gp-h">
+			<h2 id="gp-h">Gram Panchayat Vasad</h2>
+			<dl class="ruled">
+				<div class="row">
+					<dt>Sarpanch</dt>
+					<dd>Dharmistha Alpeshbhai Patel (Delawala)</dd>
+				</div>
+				<div class="row">
+					<dt>Address</dt>
+					<dd>Gram Panchayat office, Vasad 388306, Anand, Gujarat</dd>
+				</div>
+				<div class="row">
+					<dt>Dialling</dt>
+					<dd>STD code 02692 — the prefix for every Vasad landline</dd>
+				</div>
+				<div class="row">
+					<dt>Position</dt>
+					<dd>22.45°N 73.0667°E — on NH 48, 15 km south of Anand</dd>
+				</div>
+			</dl>
+		</section>
+
+		<div class="pair">
+			<section class="panel riveted pending" aria-labelledby="pend-h">
+				<h2 id="pend-h">Plates painted, seal waiting</h2>
+				<p>
+					The office phone and email plates are painted and hung — they publish here when the
+					panchayat stamps them. Until then, the office door in Vasad is the fastest line.
+				</p>
+				<div class="blanks" aria-hidden="true">
+					<span class="blank">phone · 02692 2__ ___</span>
+					<span class="blank">mail · the panchayat’s own address</span>
+				</div>
+			</section>
+			<section class="panel riveted panel--lacquer claim" aria-labelledby="claim-h">
+				<h2 id="claim-h">Claim a directory board</h2>
+				<p>
+					Shop, mill or room in Vasad? Your board hangs free on the
+					<a href="/directory">directory wall</a> — send the name, what you do, and where,
+					through the panchayat. Boards carry the owner's word, so the owner claims them.
+				</p>
+			</section>
+		</div>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	.pagehead {
+		padding-top: 3rem;
+	}
+	h1 {
+		font-size: clamp(2.3rem, 5vw, 3.4rem);
+	}
+	.sub {
+		margin-top: 0.4rem;
+		color: rgba(42, 39, 35, 0.8);
+		font-size: 1.1rem;
+	}
+	.panel {
+		padding: 2.1rem 2.3rem;
+		margin-top: 2.6rem;
+	}
+	h2 {
+		font-size: 1.7rem;
+	}
+	.ruled {
+		margin: 1rem 0 0;
+	}
+	.row {
+		display: grid;
+		grid-template-columns: 8.5rem 1fr;
+		gap: 0.8rem;
+		padding: 0.7rem 0;
+		border-bottom: 2px dashed rgba(42, 39, 35, 0.4);
+	}
+	.row:last-child {
+		border-bottom: 0;
+	}
+	dt {
+		font-family: var(--display);
+		font-size: 1.02rem;
+	}
+	dd {
+		margin: 0;
+		line-height: 1.5;
+	}
+	.pair {
+		display: grid;
+		grid-template-columns: 1.1fr 1fr;
+		gap: 2.6rem;
+	}
+	@media (max-width: 780px) {
+		.pair {
+			grid-template-columns: 1fr;
+		}
+	}
+	.pending p,
+	.claim p {
+		margin-top: 0.7rem;
+	}
+	.blanks {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		margin-top: 1.2rem;
+	}
+	.blank {
+		font-family: var(--gu);
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		color: rgba(42, 39, 35, 0.55);
+		border: 2.5px dashed rgba(42, 39, 35, 0.5);
+		border-radius: 8px;
+		padding: 0.55rem 0.9rem;
+		width: fit-content;
+		background: repeating-linear-gradient(
+			-45deg,
+			transparent 0 12px,
+			rgba(42, 39, 35, 0.05) 12px 24px
+		);
+	}
+	.claim {
+		background: var(--lacquer);
+		color: var(--cream);
+	}
+	.claim a {
+		color: var(--mustard);
+	}
+	.claim a:hover {
+		color: var(--cream);
+	}
+</style>

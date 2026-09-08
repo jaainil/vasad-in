@@ -1,0 +1,193 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+	title="Reach & Roam — Vasad | પ્રવાસ"
+	description="Visiting Vasad: the Mahi riverside, the Art of Living ashram and Krishna Riverside Resort, and how to arrive by NH48 or Vasad Junction."
+>
+	<Nav />
+	<main id="main" class="wrap">
+		<header class="pagehead">
+			<h1>Reach &amp; roam</h1>
+			<p class="gu sub">પ્રવાસ — the river, the retreats, the road in</p>
+		</header>
+
+		<section class="panel riveted riverpanel" aria-labelledby="mahi-h">
+			<div class="riverface">
+				<h2 id="mahi-h">The Mahi at the town's edge</h2>
+				<p class="measure">
+					Vasad keeps its northern bank of the Mahi as its front garden. The evening air comes
+					off the water, the woods to the south stay dark and green, and the river road is the
+					town's slow walk. No ticket, no gate — just the bank.
+				</p>
+			</div>
+		</section>
+
+		<div class="stays" id="stay">
+			<section class="panel riveted hang hang--lacquer" aria-labelledby="ashram-h">
+				<h2 id="ashram-h">Art of Living Vasad Ashram</h2>
+				<p>
+					Courses and events through the year, focused on stress reduction and well-being. The
+					ashram keeps its own calendar — check with the ashram office before travelling for a
+					specific program.
+				</p>
+			</section>
+			<section class="panel riveted hang hang--green" aria-labelledby="resort-h">
+				<h2 id="resort-h">Krishna Riverside Resort</h2>
+				<p>
+					Luxury accommodation and recreation on the riverside — the town's full-service stay,
+					with the Mahi for a neighbour.
+				</p>
+			</section>
+		</div>
+
+		<section class="panel riveted reach" id="reach" aria-labelledby="reach-h">
+			<h2 id="reach-h">Getting there</h2>
+			<div class="ways">
+				<div class="way">
+					<h3>Road</h3>
+					<p>
+						Vasad sits on <strong>NH 48</strong>, the Ahmedabad–Vadodara corridor. Anand lies
+						15 km north; Vadodara is the next city southbound.
+					</p>
+				</div>
+				<div class="way">
+					<h3>Rail</h3>
+					<p>
+						<strong>Vasad Junction</strong> halts passenger, MEMU and selected express trains
+						on the Western Railway line — about 15 km from Anand railway station.
+					</p>
+				</div>
+			</div>
+			<div class="stones" aria-label="Distances">
+				<span class="stone stone--lacquer">Anand 15</span>
+				<span class="stone stone--green">Vadodara →</span>
+				<span class="stone stone--mustard">Ahmedabad →</span>
+			</div>
+		</section>
+
+		<section class="note" aria-label="Where to stay and eat">
+			<p>
+				Lodging and rooms — including PGs near the campus — hang their boards on the
+				<a href="/directory#stay">directory wall</a>.
+			</p>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	.pagehead {
+		padding-top: 3rem;
+	}
+	h1 {
+		font-size: clamp(2.3rem, 5vw, 3.4rem);
+	}
+	.sub {
+		margin-top: 0.4rem;
+		color: rgba(42, 39, 35, 0.8);
+		font-size: 1.1rem;
+	}
+	.panel {
+		padding: 2rem 2.2rem 2.1rem;
+		margin-top: 2.6rem;
+	}
+	.riverpanel {
+		background: var(--green);
+		color: var(--cream);
+	}
+	.riverpanel h2 {
+		color: var(--mustard);
+		font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+	}
+	.riverpanel p {
+		margin-top: 0.7rem;
+	}
+	.stays {
+		display: grid;
+		grid-template-columns: 1.2fr 1fr;
+		gap: 2.6rem;
+		align-items: start;
+	}
+	@media (max-width: 780px) {
+		.stays {
+			grid-template-columns: 1fr;
+		}
+	}
+	.hang {
+		transform: rotate(-0.6deg);
+	}
+	.hang--green {
+		transform: rotate(0.8deg);
+	}
+	.hang--lacquer {
+		background: var(--lacquer);
+		color: var(--cream);
+	}
+	.hang--green {
+		background: var(--green);
+		color: var(--cream);
+	}
+	.hang h2 {
+		font-size: 1.65rem;
+	}
+	.hang p {
+		margin-top: 0.6rem;
+	}
+	.reach {
+		background: var(--cream-hi);
+	}
+	.reach h2 {
+		font-size: 1.9rem;
+	}
+	.ways {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+		margin-top: 1.1rem;
+	}
+	@media (max-width: 680px) {
+		.ways {
+			grid-template-columns: 1fr;
+		}
+	}
+	.way h3 {
+		font-family: var(--display);
+		font-weight: 400;
+		font-size: 1.25rem;
+		margin-bottom: 0.3rem;
+	}
+	.stones {
+		display: flex;
+		gap: 0.7rem;
+		flex-wrap: wrap;
+		margin-top: 1.6rem;
+	}
+	.stone {
+		font-family: var(--display);
+		font-size: 1rem;
+		padding: 0.4rem 0.95rem 0.5rem;
+		border: 3px solid var(--ink);
+		border-radius: 10px 10px 4px 4px;
+		box-shadow: var(--paint-shadow);
+	}
+	.stone--lacquer {
+		background: var(--lacquer);
+		color: var(--cream);
+	}
+	.stone--green {
+		background: var(--green);
+		color: var(--cream);
+	}
+	.stone--mustard {
+		background: var(--mustard);
+		color: var(--ink);
+	}
+	.note {
+		margin-top: 2.2rem;
+		font-size: 1.05rem;
+	}
+</style>

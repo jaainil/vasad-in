@@ -1,0 +1,133 @@
+---
+const links = [
+	{ href: '/about', en: 'About', gu: 'વિશે' },
+	{ href: '/visit', en: 'Visit', gu: 'પ્રવાસ' },
+	{ href: '/study', en: 'Study', gu: 'અભ્યાસ' },
+	{ href: '/directory', en: 'Directory', gu: 'યાદી' },
+	{ href: '/contact', en: 'Contact', gu: 'સંપર્ક' },
+];
+const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="masthead">
+	<div class="bar">
+		<a class="brand" href="/" aria-label="Vasad home">
+			<span class="roundel" aria-hidden="true">
+				<svg viewBox="0 0 44 44" width="44" height="44" role="presentation">
+					<circle cx="22" cy="22" r="20" fill="#9e2b25" stroke="#2a2723" stroke-width="3" />
+					<circle cx="22" cy="22" r="13.5" fill="none" stroke="#f4e9d8" stroke-width="2.5" />
+					<circle cx="22" cy="22" r="4.5" fill="#e8a020" stroke="#2a2723" stroke-width="2" />
+				</svg>
+			</span>
+			<span class="name">
+				<span class="en">Vasad</span>
+				<span class="gu-name gu">વાસદ</span>
+			</span>
+		</a>
+		<nav class="rail" aria-label="Main">
+			{
+				links.map((l) => (
+					<a
+						class:list={['board', { on: current === l.href }]}
+						href={l.href}
+						aria-current={current === l.href ? 'page' : undefined}
+					>
+						<span class="en">{l.en}</span>
+						<span class="gu gu">{l.gu}</span>
+					</a>
+				))
+			}
+		</nav>
+	</div>
+	<div class="chain strip" aria-hidden="true"></div>
+</header>
+
+<style>
+	.masthead {
+		background: var(--lacquer);
+	}
+	.bar {
+		max-width: 1180px;
+		margin-inline: auto;
+		padding: 0.8rem clamp(1.25rem, 4vw, 2.5rem) 0.7rem;
+		display: flex;
+		align-items: center;
+		gap: 1.2rem;
+		flex-wrap: wrap;
+	}
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 0.65rem;
+		text-decoration: none;
+		color: var(--cream);
+		margin-right: auto;
+	}
+	.roundel {
+		display: grid;
+		place-items: center;
+		filter: drop-shadow(0 4px 6px rgba(42, 39, 35, 0.35));
+	}
+	.name {
+		display: flex;
+		flex-direction: column;
+		line-height: 1;
+	}
+	.name .en {
+		font-family: var(--display);
+		font-size: 1.5rem;
+	}
+	.name .gu-name {
+		font-size: 0.95rem;
+		color: var(--mustard);
+		margin-top: 0.15rem;
+	}
+	.rail {
+		display: flex;
+		gap: 0.55rem;
+		overflow-x: auto;
+		padding-bottom: 0.35rem;
+		scrollbar-width: thin;
+		scrollbar-color: var(--mustard) var(--lacquer-deep);
+	}
+	.board {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 0.35rem 0.85rem 0.45rem;
+		border: 2.5px solid var(--ink);
+		border-radius: 8px;
+		background: var(--cream-hi);
+		color: var(--ink);
+		text-decoration: none;
+		line-height: 1.05;
+		transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease-out;
+	}
+	.board .en {
+		font-family: var(--display);
+		font-size: 1rem;
+	}
+	.board .gu {
+		font-size: 0.72rem;
+		color: var(--lacquer);
+		font-weight: 600;
+	}
+	.board:hover {
+		transform: translateY(-2px) rotate(-1deg);
+		background: var(--mustard);
+	}
+	.board:hover .gu {
+		color: var(--ink);
+	}
+	.board.on {
+		background: var(--mustard);
+	}
+	.board.on .gu {
+		color: var(--ink);
+	}
+	.strip {
+		max-width: 1180px;
+		margin-inline: auto;
+		opacity: 0.85;
+	}
+</style>

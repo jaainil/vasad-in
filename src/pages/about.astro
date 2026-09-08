@@ -1,0 +1,170 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const ground = [
+	['Bank', 'The northern bank of the Mahi river'],
+	['Height', 'About 19 m above sea level'],
+	['Road', 'On NH 48, between Ahmedabad and Vadodara'],
+	['District', 'Anand seat lies 15 km to the north'],
+	['Woods', 'Forests to the south and the northeast'],
+	['Position', '22.45°N 73.0667°E'],
+];
+
+const people = [
+	['People', '14,384 at the 2011 Census'],
+	['Men & women', '7,530 men · 6,854 women'],
+	['Literacy', '80.12% — men 84.18%, women 75.66%'],
+	['Languages', 'Gujarati and Hindi at home, English in class'],
+];
+
+const work = [
+	['Dal', '45+ toor dal processing mills — a Charotar hub'],
+	['Fields', 'Tobacco farming alongside the dal trade'],
+	['Research', 'The central Soil Conservation & Water Research Institute'],
+];
+
+const civic = [
+	['Body', 'Gram panchayat Vasad'],
+	['Sarpanch', 'Dharmistha Alpeshbhai Patel (Delawala)'],
+	['Post', 'PIN 388306 · STD code 02692'],
+];
+---
+
+<Layout
+	title="The Town Record — Vasad | વાસદ વિશે"
+	description="Vasad's record: geography on the Mahi's northern bank, the 2011 Census people, the dal-mill economy, and the gram panchayat."
+>
+	<Nav />
+	<main id="main" class="wrap">
+		<header class="pagehead">
+			<h1>The town record</h1>
+			<p class="gu sub">વાસદ વિશે — what the registers say</p>
+		</header>
+
+		<section class="panel riveted name" aria-labelledby="name-h">
+			<h2 id="name-h">Vasad · <span class="gu">વાસદ</span></h2>
+			<p class="measure">
+				The registers record an older name too: <strong>Vasudhanagari</strong>. The town sits in
+				Anand district, Gujarat, and calls itself the gateway to Charotar — the rich, double-crop
+				land between the Mahi and the Sabarmati.
+			</p>
+		</section>
+
+		<div class="pair">
+			<section class="panel riveted" aria-labelledby="ground-h">
+				<h2 id="ground-h">The ground</h2>
+				<dl class="ruled">
+					{ground.map(([k, v]) => <div class="row"><dt>{k}</dt><dd>{v}</dd></div>)}
+				</dl>
+			</section>
+			<section class="panel riveted panel--lacquer" aria-labelledby="people-h">
+				<h2 id="people-h">The people</h2>
+				<dl class="ruled">
+					{people.map(([k, v]) => <div class="row"><dt>{k}</dt><dd>{v}</dd></div>)}
+				</dl>
+			</section>
+		</div>
+
+		<div class="pair">
+			<section class="panel riveted panel--green" aria-labelledby="work-h">
+				<h2 id="work-h">The work</h2>
+				<dl class="ruled">
+					{work.map(([k, v]) => <div class="row"><dt>{k}</dt><dd>{v}</dd></div>)}
+				</dl>
+				<a class="plate plate--ghost small-plate" href="/directory">Walk the mill yard</a>
+			</section>
+			<section class="panel riveted panel--mustard" aria-labelledby="civic-h">
+				<h2 id="civic-h">The civic</h2>
+				<dl class="ruled">
+					{civic.map(([k, v]) => <div class="row"><dt>{k}</dt><dd>{v}</dd></div>)}
+				</dl>
+				<a class="plate small-plate" href="/contact">The panchayat office</a>
+			</section>
+		</div>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	.pagehead {
+		padding-top: 3rem;
+	}
+	h1 {
+		font-size: clamp(2.3rem, 5vw, 3.4rem);
+	}
+	.sub {
+		margin-top: 0.4rem;
+		color: rgba(42, 39, 35, 0.8);
+		font-size: 1.1rem;
+	}
+	.panel {
+		padding: 2rem 2.2rem 2.1rem;
+		margin-top: 2.6rem;
+	}
+	.name {
+		background: var(--cream-hi);
+	}
+	.name h2 {
+		font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+	}
+	.name p {
+		margin-top: 0.7rem;
+	}
+	.pair {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2.6rem;
+	}
+	@media (max-width: 780px) {
+		.pair {
+			grid-template-columns: 1fr;
+		}
+	}
+	.panel--lacquer {
+		background: var(--lacquer);
+		color: var(--cream);
+	}
+	.panel--green {
+		background: var(--green);
+		color: var(--cream);
+	}
+	.panel--mustard {
+		background: var(--mustard);
+		color: var(--ink);
+	}
+	h2 {
+		font-size: 1.7rem;
+	}
+	.ruled {
+		margin: 1rem 0 0;
+	}
+	.row {
+		display: grid;
+		grid-template-columns: 8.5rem 1fr;
+		gap: 0.8rem;
+		padding: 0.7rem 0;
+		border-bottom: 2px dashed rgba(42, 39, 35, 0.4);
+	}
+	.row:last-child {
+		border-bottom: 0;
+	}
+	dt {
+		font-family: var(--display);
+		font-size: 1.02rem;
+	}
+	dd {
+		margin: 0;
+		line-height: 1.5;
+	}
+	.panel--lacquer .row,
+	.panel--green .row {
+		border-bottom-color: rgba(244, 233, 216, 0.4);
+	}
+	.small-plate {
+		margin-top: 1.4rem;
+		font-size: 1rem;
+		padding: 0.6rem 1.2rem;
+	}
+</style>
