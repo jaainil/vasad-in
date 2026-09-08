@@ -3,38 +3,58 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
-const colleges = [
-	{
-		badge: 'B.Tech · M.Tech',
-		en: 'College of Engineering',
-		gu: 'એન્જિનિયરિંગ કોલેજ',
-		line: 'Computer, Civil, Mechanical, Electrical, IT, and Electronics & Communication.',
-		body: 'Gujarat Technological University',
-		intake: '840+ seats a year',
-	},
-	{
-		badge: 'B.Arch · M.Arch',
-		en: 'College of Architecture',
-		gu: 'આર્કિટેક્ચર કોલેજ',
-		line: 'Urban design, sustainable habitat planning, landscape architecture.',
-		body: 'Council of Architecture & GTU',
-		intake: '80 seats a year',
-	},
-	{
-		badge: 'B.Sc · GNM · MCA',
-		en: 'Nursing & Computer Applications',
-		gu: 'નર્સિંગ અને એમ.સી.એ.',
-		line: 'Clinical healthcare and advanced software systems.',
-		body: 'Gujarat Nursing Council & GTU',
-		intake: '240+ seats a year',
-	},
+const engUg = [
+	{ en: 'Computer', intake: '180' },
+	{ en: 'Information Technology', intake: '120' },
+	{ en: 'Computer Science & Design', intake: '60' },
+	{ en: 'Aeronautical', intake: '60' },
+	{ en: 'Civil', intake: '60' },
+	{ en: 'Mechanical', intake: '60' },
+	{ en: 'Electrical', intake: '60' },
+	{ en: 'Electronics & Communication', intake: '30' },
 ];
 
-const campusStats = [
-	{ big: '4,000+', line: 'students on campus' },
-	{ big: '18,000+', line: 'alumni worldwide' },
-	{ big: '28+', line: 'research laboratories' },
-	{ big: 'Since 1997', line: 'affiliated to GTU' },
+const engPg = [
+	'M.E. CAD/CAM · 18',
+	'M.E. Structural · 18',
+	'M.E. Software Engineering · 18',
+	'M.E. IT & Cyber Warfare · 18',
+	'MBA · 30',
+	'MCA · 60',
+];
+
+const diploma = [
+	'Computer · 60',
+	'I.T. · 30',
+	'Mechanical · 30',
+	'Electrical · 30',
+	'Civil · 30',
+];
+
+const facts = [
+	{ big: '26 acres', line: 'riverside campus on the Mahi' },
+	{ big: '3,000+', line: 'students on campus' },
+	{ big: '150+', line: 'teachers on staff' },
+	{ big: 'Since 1997', line: 'AICTE approved · GTU affiliated' },
+];
+
+const archPrograms = [
+	{ en: 'Bachelor of Architecture (B.Arch)', intake: '80', dur: '5 years' },
+	{ en: 'Bachelor of Interior Design (B.ID)', intake: '40', dur: '4 years' },
+	{ en: 'Diploma in Architecture (D.Arch)', intake: '40', dur: '3 years' },
+];
+
+const nursing = [
+	{ en: 'General Nursing & Midwifery (GNM)', intake: '60', dur: '4 years' },
+	{ en: 'B.Sc Nursing', intake: '60', dur: '4 years' },
+];
+
+const festivals = [
+	{ en: 'PRAKARSH', line: 'national technical symposium' },
+	{ en: 'VISION', line: 'inter-department tech festival' },
+	{ en: 'SPANDAN', line: 'GTU university festival' },
+	{ en: 'ZEST-O-PUS', line: 'architecture & design symposium' },
+	{ en: 'AVISHKAR', line: 'project exhibition' },
 ];
 
 const pillars = [
@@ -46,68 +66,147 @@ const pillars = [
 
 <Layout
 	title="Study — Vasad | અભ્યાસ"
-	description="Education in Vasad: SVIT's three colleges — engineering, architecture, nursing & MCA — the ICAR soil & water research station, and the town's 80.12% literacy."
+	description="SVIT Vasad: engineering, architecture and nursing on a 26-acre Mahi-river campus since 1997 — full program and intake record, festivals, and the ICAR soil & water research station."
 >
 	<Nav />
 	<main id="main" class="wrap">
 		<header class="pt-12">
-			<h1 class="text-[clamp(2.3rem,5vw,3.4rem)]">The campus &amp; the classroom</h1>
+			<h1 class="text-[clamp(2.3rem,5vw,3.4rem)]">The campus on the Mahi</h1>
 			<p class="gu mt-1.5 text-[1.1rem] text-ink/80">અભ્યાસ — a market town that sends its children to college</p>
 		</header>
 
 		<section class="panel riveted mt-10 bg-cream-hi px-8 pb-8 pt-8" aria-labelledby="svit-h">
 			<div class="flex flex-wrap items-baseline justify-between gap-4">
-				<h2 id="svit-h" class="max-w-[22ch] text-[clamp(1.6rem,3.2vw,2.4rem)]">
-					SVIT — Sardar Vallabhbhai Patel Institute of Technology
+				<h2 id="svit-h" class="max-w-[24ch] text-[clamp(1.6rem,3.2vw,2.4rem)]">
+					Sardar Vallabhbhai Patel Institute of Technology
 				</h2>
 				<span class="inline-block rotate-[1.5deg] rounded-lg border-[3px] border-ink bg-mustard px-3 py-1 font-display text-[0.95rem] text-ink">
 					Since 1997
 				</span>
 			</div>
 			<p class="measure mt-3.5">
-				The riverbank campus changed what this town is. Affiliated to the
-				<strong>Gujarat Technological University</strong>, SVIT runs three colleges whose
-				graduates now lead works from Gujarat to Silicon Valley:
+				The New English School Trust (NEST) founded SVIT as a self-financed degree college and
+				named it for the region’s own Sardar. It opened in 1997 with three branches — Civil,
+				Mechanical and Electrical, sixty seats each — under Gujarat University, and grew into
+				the region’s technical landmark on a <strong>26-acre campus on the Mahi’s banks</strong>.
 			</p>
-			<div class="mt-7 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6">
-				{colleges.map((c) => (
-					<div class="flex flex-col gap-1 rounded-xl border-[3px] border-ink bg-cream px-6 py-5 shadow-paint">
-						<span class="inline-block w-fit -rotate-[1.2deg] rounded-lg border-[3px] border-ink bg-mustard px-3 py-1 font-display text-[0.95rem] text-ink">
-							{c.badge}
-						</span>
-						<span class="mt-1.5 font-display text-[1.35rem]">{c.en}</span>
-						<span class="gu text-[0.9rem] font-semibold text-lacquer">{c.gu}</span>
-						<span class="mt-1 text-[0.93rem] text-ink/85">{c.line}</span>
-						<span class="mt-2 text-[0.9rem] font-semibold">{c.body}</span>
-						<span class="font-display text-[0.95rem] text-green">{c.intake}</span>
-					</div>
-				))}
-			</div>
+			<p class="motto mt-5 font-gu text-2xl font-bold text-lacquer">यंत्रविद्या पराविद्या</p>
+			<p class="mt-1 text-[0.9rem] text-ink/70">
+				“Yantravidyā Parāvidyā” — the science of machines, the highest science. Approved by the
+				AICTE, affiliated to Gujarat Technological University ·
+				<a href="https://svitvasad.ac.in">svitvasad.ac.in</a>
+			</p>
 			<div class="mt-7 grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-5">
-				{campusStats.map((s) => (
+				{facts.map((s) => (
 					<div class="flex flex-col rounded-[10px] border-[2.5px] border-ink bg-cream px-4 py-3.5">
 						<span class="font-display text-[1.6rem] text-lacquer">{s.big}</span>
 						<span class="text-[0.85rem] text-ink/80">{s.line}</span>
 					</div>
 				))}
 			</div>
-			<blockquote class="mt-9 rounded-xl border-[3px] border-ink bg-cream px-7 py-6 shadow-paint">
-				<p class="font-display text-xl leading-[1.45]">
-					“Educating minds where the historic waters of the Mahi meet the pioneering
-					entrepreneurial spirit of Charotar.”
-				</p>
-				<cite class="mt-2.5 block text-[0.88rem] not-italic text-ink/70">SVIT institutional creed · Vasad, Anand</cite>
-			</blockquote>
-			<p class="mt-6 text-ink/85">
-				Students from across Gujarat study here — the town keeps a PG and rooms wall on the {' '}
-				<a href="/directory#boys-pg">directory</a>.
+		</section>
+
+		<section class="panel riveted mt-10 px-8 pb-8 pt-8" aria-labelledby="eng-h">
+			<div class="flex flex-wrap items-baseline justify-between gap-3">
+				<h2 id="eng-h" class="text-[clamp(1.5rem,3vw,2rem)]">College of Engineering</h2>
+				<span class="font-display text-[0.95rem] text-green">Principal · Dr. D. P. Soni</span>
+			</div>
+			<p class="gu mt-0.5 text-[0.95rem] font-semibold text-lacquer">એન્જિનિયરિંગ કોલેજ — GTU affiliated</p>
+			<h3 class="mt-5 text-lg">Undergraduate branches</h3>
+			<div class="mt-3 grid grid-cols-[repeat(auto-fill,minmax(190px,1fr))] gap-3">
+				{engUg.map((b) => (
+					<div class="flex items-baseline justify-between rounded-lg border-2 border-ink/55 bg-cream px-3 py-2">
+						<span class="text-[0.92rem] font-semibold">{b.en}</span>
+						<span class="font-display text-[1.05rem] text-lacquer">{b.intake}</span>
+					</div>
+				))}
+			</div>
+			<h3 class="mt-6 text-lg">Postgraduate &amp; masters</h3>
+			<p class="mt-3 flex flex-wrap gap-2">
+				{engPg.map((g) => (
+					<span class="rounded-md border-2 border-ink/55 bg-cream px-2.5 py-1 text-[0.88rem] font-semibold">{g}</span>
+				))}
+			</p>
+			<h3 class="mt-6 text-lg">Diploma</h3>
+			<p class="mt-3 flex flex-wrap gap-2">
+				{diploma.map((d) => (
+					<span class="rounded-md border-2 border-ink/55 bg-cream px-2.5 py-1 text-[0.88rem] font-semibold">{d}</span>
+				))}
 			</p>
 		</section>
 
+		<div class="grid items-start gap-10 md:grid-cols-2">
+			<section class="panel riveted mt-10 bg-green px-8 pb-8 pt-8 text-cream" aria-labelledby="arch-h">
+				<div class="flex flex-wrap items-baseline justify-between gap-3">
+					<h2 id="arch-h" class="text-[clamp(1.5rem,3vw,2rem)]">College of Architecture</h2>
+					<span class="font-display text-[0.95rem] text-mustard">Ar. Pragnesh Shah</span>
+				</div>
+				<p class="gu mt-0.5 text-[0.95rem] font-semibold text-cream/80">આર્કિટેક્ચર કોલેજ — since 2000</p>
+				<div class="mt-4 flex flex-col gap-2">
+					{archPrograms.map((p) => (
+						<div class="flex items-baseline justify-between gap-3 rounded-lg border-2 border-cream/50 px-3 py-2">
+							<span class="text-[0.92rem] font-semibold">{p.en}</span>
+							<span class="whitespace-nowrap font-display text-[0.95rem] text-mustard">{p.intake} · {p.dur}</span>
+						</div>
+					))}
+				</div>
+				<p class="mt-4 text-[0.92rem] text-cream/90">
+					Council of Architecture approved — affiliated to Sardar Patel University, Vallabh
+					Vidyanagar since 2016.
+				</p>
+			</section>
+
+			<section class="panel riveted mt-10 bg-mustard px-8 pb-8 pt-8 text-ink" aria-labelledby="nur-h">
+				<div class="flex flex-wrap items-baseline justify-between gap-3">
+					<h2 id="nur-h" class="text-[clamp(1.5rem,3vw,2rem)]">Institute of Nursing (SVION)</h2>
+					<span class="font-display text-[0.95rem] text-lacquer">Dr. Ekta Patel</span>
+				</div>
+				<p class="gu mt-0.5 text-[0.95rem] font-semibold text-ink/70">નર્સિંગ ઇન્સ્ટિટ્યૂટ</p>
+				<div class="mt-4 flex flex-col gap-2">
+					{nursing.map((p) => (
+						<div class="flex items-baseline justify-between gap-3 rounded-lg border-2 border-ink/60 px-3 py-2">
+							<span class="text-[0.92rem] font-semibold">{p.en}</span>
+							<span class="whitespace-nowrap font-display text-[0.95rem] text-lacquer">{p.intake} · {p.dur}</span>
+						</div>
+					))}
+				</div>
+				<p class="mt-4 text-[0.92rem] text-ink/85">
+					Clinical training for the region’s hospitals — under the Gujarat Nursing Council.
+				</p>
+			</section>
+		</div>
+
+		<section class="panel riveted mt-10 bg-cream-hi px-8 pb-8 pt-8" aria-labelledby="fest-h">
+			<h2 id="fest-h" class="text-[clamp(1.5rem,3vw,2rem)]">The campus year</h2>
+			<p class="mt-2 text-ink/85">Five festivals keep the calendar full:</p>
+			<div class="mt-5 grid grid-cols-[repeat(auto-fit,minmax(190px,1fr))] gap-5">
+				{festivals.map((f) => (
+					<div class="rounded-[10px] border-[2.5px] border-ink bg-cream px-4 py-3.5">
+						<span class="block font-display text-[1.15rem] text-lacquer">{f.en}</span>
+						<span class="mt-0.5 block text-[0.88rem] text-ink/80">{f.line}</span>
+					</div>
+				))}
+			</div>
+			<dl class="mt-7">
+				<div class="row">
+					<dt>Chairman</dt>
+					<dd>Shri Bhaskerbhai Chandubhai Patel</dd>
+				</div>
+				<div class="row">
+					<dt>Chairperson</dt>
+					<dd>Shri Sandipbhai Rameshbhai Patel</dd>
+				</div>
+				<div class="row">
+					<dt>MCA</dt>
+					<dd>Dr. Jonita Roman</dd>
+				</div>
+			</dl>
+		</section>
+
 		<section class="panel riveted mt-10 bg-green px-8 pb-8 pt-8 text-cream" id="research" aria-labelledby="inst-h">
-			<h2 class="text-[clamp(1.6rem,3vw,2.2rem)]">The ground, studied here</h2>
+			<h2 id="inst-h" class="text-[clamp(1.6rem,3vw,2.2rem)]">The ground, studied here</h2>
 			<p class="gu mt-0.5 text-[0.95rem] font-semibold text-cream/80">કેન્દ્રીય જમીન સંરક્ષણ અને જળ સંશોધન કેન્દ્ર — વાસદ</p>
-			<p class="mt-3 max-w-[68ch]">
+			<p class="mt-3">
 				The <strong>ICAR–Indian Institute of Soil and Water Conservation’s</strong> research
 				station works from Vasad on the Mahi’s ravines — the kotar terraces — turning eroding
 				gullies into held, farmable ground. Three pillars carry the work:
@@ -124,13 +223,41 @@ const pillars = [
 		</section>
 
 		<section class="panel riveted mt-10 bg-lacquer px-8 pb-8 pt-8 text-cream" aria-labelledby="lit-h">
-			<h2 class="text-[clamp(1.6rem,3vw,2.2rem)]">The record on the wall</h2>
+			<h2 id="lit-h" class="text-[clamp(1.6rem,3vw,2.2rem)]">The record on the wall</h2>
 			<p class="mt-2 font-display text-[clamp(2.6rem,6vw,4rem)] text-mustard">80.12%</p>
-			<p class="mt-2 max-w-[50ch]">
+			<p class="mt-2">
 				The town’s literacy at the 2011 Census — men at 84.18%, women at 75.66% — across
 				3,047 households.
+			</p>
+		</section>
+
+		<section class="mt-9 text-[1.05rem]" aria-label="Where to stay">
+			<p>
+				Students coming from across Gujarat — PGs and rooms hang their boards on the {' '}
+				<a href="/directory#boys-pg">directory wall</a>.
 			</p>
 		</section>
 	</main>
 	<Footer />
 </Layout>
+
+<style>
+	.row {
+		display: grid;
+		grid-template-columns: 9.5rem 1fr;
+		gap: 0.8rem;
+		padding: 0.7rem 0;
+		border-bottom: 2px dashed color-mix(in srgb, var(--color-ink) 40%, transparent);
+	}
+	.row:last-child {
+		border-bottom: 0;
+	}
+	dt {
+		font-family: var(--font-display);
+		font-size: 1.02rem;
+	}
+	dd {
+		margin: 0;
+		line-height: 1.5;
+	}
+</style>
