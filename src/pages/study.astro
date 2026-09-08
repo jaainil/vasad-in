@@ -2,11 +2,51 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+const colleges = [
+	{
+		badge: 'B.Tech · M.Tech',
+		en: 'College of Engineering',
+		gu: 'એન્જિનિયરિંગ કોલેજ',
+		line: 'Computer, Civil, Mechanical, Electrical, IT, and Electronics & Communication.',
+		body: 'Gujarat Technological University',
+		intake: '840+ seats a year',
+	},
+	{
+		badge: 'B.Arch · M.Arch',
+		en: 'College of Architecture',
+		gu: 'આર્કિટેક્ચર કોલેજ',
+		line: 'Urban design, sustainable habitat planning, landscape architecture.',
+		body: 'Council of Architecture & GTU',
+		intake: '80 seats a year',
+	},
+	{
+		badge: 'B.Sc · GNM · MCA',
+		en: 'Nursing & Computer Applications',
+		gu: 'નર્સિંગ અને એમ.સી.એ.',
+		line: 'Clinical healthcare and advanced software systems.',
+		body: 'Gujarat Nursing Council & GTU',
+		intake: '240+ seats a year',
+	},
+];
+
+const campusStats = [
+	{ big: '4,000+', line: 'students on campus' },
+	{ big: '18,000+', line: 'alumni worldwide' },
+	{ big: '28+', line: 'research laboratories' },
+	{ big: 'Since 1997', line: 'affiliated to GTU' },
+];
+
+const pillars = [
+	{ no: 'I', en: 'Gully control & check dams', line: 'Masonry drop spillways and vegetative dams slow cloudburst runoff by most of its pace, dropping silt instead of washing soil.' },
+	{ no: 'II', en: 'Agroforestry & bamboo', line: 'Dendrocalamus bamboo and neem plantations bind the ravine crests permanently — K. G. Tejwani’s founding research here.' },
+	{ no: 'III', en: 'Water harvesting', line: 'Watershed models send monsoon water back into the ground, holding the water table and pushing salinity back from the fields.' },
+];
 ---
 
 <Layout
 	title="Study — Vasad | અભ્યાસ"
-	description="Education in Vasad: SVIT — engineering, architecture and nursing since 1997 — the Soil Conservation & Water Research Institute, and the town's 80% literacy record."
+	description="Education in Vasad: SVIT's three colleges — engineering, architecture, nursing & MCA — the ICAR soil & water research station, and the town's 80.12% literacy."
 >
 	<Nav />
 	<main id="main" class="wrap">
@@ -21,37 +61,67 @@ import Footer from '../components/Footer.astro';
 				<span class="badge">Since 1997</span>
 			</div>
 			<p class="measure">
-				The campus changed what this town is. Affiliated to Gujarat Technological University,
-				SVIT runs undergraduate and postgraduate programs across three schools:
+				The riverbank campus changed what this town is. Affiliated to the
+				<strong>Gujarat Technological University</strong>, SVIT runs three colleges whose
+				graduates now lead works from Gujarat to Silicon Valley:
 			</p>
-			<ul class="schools">
-				<li>Engineering</li>
-				<li>Architecture</li>
-				<li>Nursing</li>
-			</ul>
+			<div class="colleges">
+				{colleges.map((c) => (
+					<div class="college">
+						<span class="cbadge">{c.badge}</span>
+						<span class="cen">{c.en}</span>
+						<span class="cgu gu">{c.gu}</span>
+						<span class="cline">{c.line}</span>
+						<span class="cbody">{c.body}</span>
+						<span class="cintake">{c.intake}</span>
+					</div>
+				))}
+			</div>
+			<div class="statrow">
+				{campusStats.map((s) => (
+					<div class="stat">
+						<span class="sbig">{s.big}</span>
+						<span class="sline">{s.line}</span>
+					</div>
+				))}
+			</div>
+			<blockquote class="creed">
+				<p>“Educating minds where the historic waters of the Mahi meet the pioneering entrepreneurial spirit of Charotar.”</p>
+				<cite>SVIT institutional creed · Vasad, Anand</cite>
+			</blockquote>
 			<p class="afternote">
-				Students from across Gujarat study here — which is why the town keeps a PG and rooms
-				wall on the <a href="/directory#stay">directory</a>.
+				Students from across Gujarat study here — the town keeps a PG and rooms wall on the
+				<a href="/directory#boys-pg">directory</a>.
 			</p>
 		</section>
 
-		<div class="pair">
-			<section class="panel riveted panel--green" id="research" aria-labelledby="inst-h">
-				<h2 id="inst-h">Soil &amp; Water, studied here</h2>
-				<p>
-					The central government's <strong>Soil Conservation and Water Research Institute</strong> works from Vasad on the region's two hardest problems: holding the soil and keeping
-					the water. Research that the farms around town feel.
-				</p>
-			</section>
-			<section class="panel riveted panel--lacquer" aria-labelledby="lit-h">
-				<h2 id="lit-h">The record on the wall</h2>
-				<p class="big">80.12%</p>
-				<p>
-					The town's literacy at the 2011 Census — men at 84.18%, women at 75.66% — already
-					above the state's bar, and rising since.
-				</p>
-			</section>
-		</div>
+		<section class="panel riveted panel--green" id="research" aria-labelledby="inst-h">
+			<h2 id="inst-h">The ground, studied here</h2>
+			<p class="gu gsub">કેન્દ્રીય જમીન સંરક્ષણ અને જળ સંશોધન કેન્દ્ર — વાસદ</p>
+			<p>
+				The <strong>ICAR–Indian Institute of Soil and Water Conservation’s</strong> research
+				station works from Vasad on the Mahi’s ravines — the kotar terraces — turning eroding
+				gullies into held, farmable ground. Three pillars carry the work:
+			</p>
+			<div class="pillars">
+				{pillars.map((p) => (
+					<div class="pillar">
+						<span class="pno" aria-hidden="true">{p.no}</span>
+						<span class="pen">{p.en}</span>
+						<span class="pline">{p.line}</span>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section class="panel riveted panel--lacquer lit" aria-labelledby="lit-h">
+			<h2 id="lit-h">The record on the wall</h2>
+			<p class="big">80.12%</p>
+			<p>
+				The town’s literacy at the 2011 Census — men at 84.18%, women at 75.66% — across
+				3,047 households.
+			</p>
+		</section>
 	</main>
 	<Footer />
 </Layout>
@@ -62,6 +132,9 @@ import Footer from '../components/Footer.astro';
 	}
 	h1 {
 		font-size: clamp(2.3rem, 5vw, 3.4rem);
+	}
+	h2 {
+		font-size: clamp(1.6rem, 3vw, 2.2rem);
 	}
 	.sub {
 		margin-top: 0.4rem;
@@ -82,13 +155,10 @@ import Footer from '../components/Footer.astro';
 		gap: 1rem;
 		flex-wrap: wrap;
 	}
-	.svit h2 {
-		font-size: clamp(1.7rem, 3.2vw, 2.4rem);
-		max-width: 22ch;
-	}
-	.badge {
+	.badge,
+	.cbadge {
 		font-family: var(--display);
-		font-size: 1rem;
+		font-size: 0.95rem;
 		background: var(--mustard);
 		color: var(--ink);
 		border: 3px solid var(--ink);
@@ -96,65 +166,160 @@ import Footer from '../components/Footer.astro';
 		padding: 0.3rem 0.8rem;
 		transform: rotate(1.5deg);
 	}
-	.svit p {
+	.svit > p {
 		margin-top: 0.9rem;
 	}
-	.schools {
-		list-style: none;
-		display: flex;
-		gap: 0.8rem;
-		flex-wrap: wrap;
-		padding: 0;
-		margin: 1.4rem 0 0;
+	.colleges {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1.5rem;
+		margin-top: 1.8rem;
 	}
-	.schools li {
-		font-family: var(--display);
-		font-size: 1.15rem;
+	.college {
+		background: var(--cream);
 		border: 3px solid var(--ink);
+		border-radius: 12px;
+		box-shadow: var(--paint-shadow);
+		padding: 1.4rem 1.4rem 1.3rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+	}
+	.cbadge {
+		align-self: flex-start;
+		transform: rotate(-1.2deg);
+	}
+	.cen {
+		font-family: var(--display);
+		font-size: 1.35rem;
+		margin-top: 0.4rem;
+	}
+	.cgu {
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--lacquer);
+	}
+	.cline {
+		margin-top: 0.3rem;
+		font-size: 0.93rem;
+		color: rgba(42, 39, 35, 0.85);
+	}
+	.cbody {
+		margin-top: 0.5rem;
+		font-weight: 600;
+		font-size: 0.9rem;
+	}
+	.cintake {
+		font-family: var(--display);
+		font-size: 0.95rem;
+		color: var(--green);
+	}
+	.statrow {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+		gap: 1.2rem;
+		margin-top: 1.8rem;
+	}
+	.stat {
+		border: 2.5px solid var(--ink);
 		border-radius: 10px;
-		padding: 0.45rem 1.1rem;
-		background: var(--lacquer);
-		color: var(--cream);
+		padding: 0.9rem 1.1rem;
+		background: var(--cream);
+		display: flex;
+		flex-direction: column;
 	}
-	.schools li:nth-child(2) {
-		background: var(--green);
+	.sbig {
+		font-family: var(--display);
+		font-size: 1.6rem;
+		color: var(--lacquer);
 	}
-	.schools li:nth-child(3) {
-		background: var(--mustard);
-		color: var(--ink);
+	.sline {
+		font-size: 0.85rem;
+		color: rgba(42, 39, 35, 0.8);
+	}
+	.creed {
+		margin: 2.2rem 0 0;
+		border: 3px solid var(--ink);
+		border-radius: 12px;
+		background: var(--cream);
+		box-shadow: var(--paint-shadow);
+		padding: 1.4rem 1.8rem;
+	}
+	.creed p {
+		font-family: var(--display);
+		font-size: 1.2rem;
+		line-height: 1.45;
+	}
+	.creed cite {
+		display: block;
+		margin-top: 0.6rem;
+		font-style: normal;
+		font-size: 0.88rem;
+		color: rgba(42, 39, 35, 0.7);
 	}
 	.afternote {
 		margin-top: 1.4rem;
 		color: rgba(42, 39, 35, 0.85);
 	}
-	.pair {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2.6rem;
-	}
-	@media (max-width: 780px) {
-		.pair {
-			grid-template-columns: 1fr;
-		}
+	.gsub {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: rgba(244, 233, 216, 0.8);
+		margin-top: 0.2rem;
 	}
 	.panel--green {
 		background: var(--green);
 		color: var(--cream);
 	}
+	.panel--green > p:not(.gsub) {
+		margin-top: 0.8rem;
+	}
 	.panel--lacquer {
 		background: var(--lacquer);
 		color: var(--cream);
 	}
-	h2 {
-		font-size: 1.65rem;
+	.pillars {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+		gap: 1.4rem;
+		margin-top: 1.8rem;
 	}
-	.pair p {
-		margin-top: 0.6rem;
+	.pillar {
+		position: relative;
+		background: var(--cream);
+		color: var(--ink);
+		border: 3px solid var(--ink);
+		border-radius: 12px;
+		box-shadow: var(--paint-shadow);
+		padding: 1.2rem 1.3rem 1.1rem 3.6rem;
 	}
-	.big {
+	.pno {
+		position: absolute;
+		left: 1rem;
+		top: 1.1rem;
+		font-family: var(--display);
+		font-size: 1.4rem;
+		color: var(--lacquer);
+	}
+	.pen {
+		display: block;
+		font-family: var(--display);
+		font-size: 1.12rem;
+	}
+	.pline {
+		display: block;
+		margin-top: 0.2rem;
+		font-size: 0.9rem;
+		color: rgba(42, 39, 35, 0.85);
+	}
+	.lit .big {
 		font-family: var(--display);
 		font-size: clamp(2.6rem, 6vw, 4rem);
 		color: var(--mustard);
 		margin-top: 0.5rem;
+	}
+	.lit p:not(.big) {
+		margin-top: 0.5rem;
+		max-width: 50ch;
 	}
 </style>

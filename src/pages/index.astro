@@ -5,81 +5,125 @@ import Footer from '../components/Footer.astro';
 import LorryFlank from '../components/LorryFlank.astro';
 
 const lots = [
-	{
-		no: '1',
-		en: 'The Mahi Riverside',
-		gu: 'મહી નદી',
-		line: 'The town’s front garden — the northern bank, the evening air, the water.',
-		href: '/visit',
-	},
-	{
-		no: '2',
-		en: 'The Toor Dal Mills',
-		gu: 'દાણાના ભોઠા',
-		line: '45+ processing mills make Vasad a dal heartland of Charotar.',
-		href: '/directory#mills',
-	},
-	{
-		no: '3',
-		en: 'The SVIT Campus',
-		gu: 'એસ.વી.આઈ.ટી.',
-		line: 'Engineering, architecture and nursing, on campus since 1997.',
-		href: '/study',
-	},
-	{
-		no: '4',
-		en: 'Vasad Junction',
-		gu: 'વાસદ સ્ટેશન',
-		line: 'Passenger, MEMU and express halts on the Western Railway line.',
-		href: '/visit#reach',
-	},
-	{
-		no: '5',
-		en: 'Soil & Water Research Institute',
-		gu: 'જમીન સંરક્ષણ',
-		line: 'The central government’s institute for soil and water, right here.',
-		href: '/study#research',
-	},
-	{
-		no: '6',
-		en: 'Ashram & Riverside Resort',
-		gu: 'આશ્રમ · રિસોર્ટ',
-		line: 'The Art of Living ashram and the Krishna Riverside Resort.',
-		href: '/visit#stay',
-	},
+	{ no: '1', en: 'The Mahi Riverside', gu: 'મહી નદી', line: 'The northern bank, the ravine bluffs, the railway viaducts.', href: '#mahi' },
+	{ no: '2', en: 'The Toor Dal Mills', gu: 'દાણાના ભોઠા', line: '45+ pulse mills — the dal capital of Gujarat.', href: '#dal' },
+	{ no: '3', en: 'The SVIT Campus', gu: 'એસ.વી.આઈ.ટી.', line: 'Engineering, architecture, nursing — on the riverbank since 1997.', href: '#campus' },
+	{ no: '4', en: 'Soil & Water Science', gu: 'જમીન સંરક્ષણ', line: 'The ICAR research station that reclaimed the ravines.', href: '#soil' },
+	{ no: '5', en: 'Ashram, Banyan & Junction', gu: 'આશ્રમ · વડ · સ્ટેશન', line: 'The sacred circuit and the Western Railway node.', href: '#landmarks' },
+	{ no: '6', en: 'The Panchayat Desk', gu: 'પંચાયત', line: 'Civic services, registers and emergency lines.', href: '#panchayat' },
 ];
 
-const boards = [
-	{
-		href: '/directory#bazaar',
-		en: 'The Bazaar',
-		gu: 'દુકાનો',
-		line: 'Kirana, sweets, hardware, tailors — the bazaar’s hanging boards.',
-		tone: 'lacquer',
-		tilt: '-1.6deg',
-	},
-	{
-		href: '/directory#mills',
-		en: 'The Mill Yard',
-		gu: 'ભોઠા',
-		line: '45+ toor dal mills. Five sample boards hang now.',
-		tone: 'green',
-		tilt: '1.2deg',
-	},
-	{
-		href: '/directory#stay',
-		en: 'Stay & PG',
-		gu: 'રહેઠાણ',
-		line: 'Rooms and PGs for students, workers and visitors.',
-		tone: 'mustard',
-		tilt: '-0.7deg',
-	},
+const dalStats = [
+	{ big: '45+', line: 'processing mills in the Vasad cluster' },
+	{ big: '1,200+ MT', line: 'daily pulse capacity across the yards' },
+	{ big: '18 states + NRI', line: 'reach of Vasad dal, packed in Charotar' },
+];
+
+const method = [
+	{ no: '01', en: 'Sun conditioning', line: 'Open-air solar drying on floor yards in the dry Charotar breeze.' },
+	{ no: '02', en: 'Water tempering', line: 'Controlled moisture loosens the husk without cooking the kernel.' },
+	{ no: '03', en: 'Emery dehusking', line: 'Low-friction stone mills split the pea with zero fracture loss.' },
+	{ no: '04', en: 'Traditional coating', line: 'A castor-oil film locks in sweetness for twelve-month shelves.' },
+];
+
+const registry = [
+	{ en: 'Laxmi Toor Dal Processing Works', gu: 'લક્ષ્મી તુવેર દાળ', estd: '1968', cap: '120 MT/day', line: 'Export-grade oiled & unpolished dal', mark: 'Flagship Vasad brand' },
+	{ en: 'Delawala Grain & Pulse Mills', gu: 'ડેલાવાળા ગ્રેઇન એન્ડ પલ્સ', estd: '1964', cap: '55 MT/day', line: 'Hand-sorted Charotar toor dal', mark: 'Heritage pioneer' },
+	{ en: 'Vasad Agro Industries', gu: 'વસાદ એગ્રો ઇન્ડસ્ટ્રીઝ', estd: '1978', cap: '80 MT/day', line: 'Golden sweet split pigeon peas', mark: 'High-volume producer' },
+	{ en: 'Charotar Pulse Processors Co.', gu: 'ચારોતર પલ્સ પ્રોસેસર્સ', estd: '1983', cap: '65 MT/day', line: 'Castor-oiled dal — તેલવાળી તુવેર દાળ', mark: 'Export standard' },
+	{ en: 'Shree Mahisagar Agro Mills', gu: 'શ્રી મહીસાગર એગ્રો મિલ્સ', estd: '1992', cap: '45 MT/day', line: 'Unpolished organic desi toor dal', mark: '100% unpolished' },
+	{ en: 'Patel Brothers Pulse Corporation', gu: 'પટેલ બ્રધર્સ પલ્સ', estd: '1988', cap: '75 MT/day', line: 'Triple-cleaned bold-grain split dal', mark: 'Pan-India distributor' },
+];
+
+const strata = [
+	{ depth: '0.0 – 0.6 m', en: 'Charotar goradu loam', line: 'Nutrient-rich sandy loam — the taproot bed of dal and tobacco.' },
+	{ depth: '0.6 – 3.5 m', en: 'Calcareous silt & kankar', line: 'Dense subsoil that gullies fast once cover is stripped.' },
+	{ depth: '3.5 – 12 m', en: 'Kotar ravine terraces', line: 'Held by contour bunding, check dams and root nets.' },
+	{ depth: '12 m +', en: 'Mahi fluvial sands', line: 'The recharge zone feeding wells and borewells.' },
+];
+
+const pillars = [
+	{ no: 'I', en: 'Gully control & check dams', line: 'Masonry drop spillways and vegetative dams slow cloudburst runoff, dropping silt instead of soil.' },
+	{ no: 'II', en: 'Agroforestry & bamboo', line: 'Dendocalamus bamboo and neem bind the ravine crests — K. G. Tejwani’s founding work here.' },
+	{ no: 'III', en: 'Water harvesting', line: 'Watershed models recharge rainwater back into the ground, holding salinity at bay.' },
+];
+
+const colleges = [
+	{ badge: 'B.Tech · M.Tech', en: 'College of Engineering', gu: 'એન્જિનિયરિંગ કોલેજ', line: 'Computer, Civil, Mechanical, Electrical, IT and Electronics & Communication.', body: 'Gujarat Technological University', intake: '840+ seats a year' },
+	{ badge: 'B.Arch · M.Arch', en: 'College of Architecture', gu: 'આર્કિટેક્ચર કોલેજ', line: 'Urban design, sustainable habitat and landscape architecture.', body: 'Council of Architecture & GTU', intake: '80 seats a year' },
+	{ badge: 'B.Sc · GNM · MCA', en: 'Nursing & Computer Applications', gu: 'નર્સિંગ અને એમ.સી.એ.', line: 'Clinical healthcare and advanced software systems.', body: 'Gujarat Nursing Council & GTU', intake: '240+ seats a year' },
+];
+
+const campusStats = [
+	{ big: '4,000+', line: 'students on campus' },
+	{ big: '18,000+', line: 'alumni worldwide' },
+	{ big: '28+', line: 'research laboratories' },
+	{ big: 'Since 1997', line: 'affiliated to GTU' },
+];
+
+const landmarks = [
+	{ en: 'Art of Living Gujarat Ashram', gu: 'આર્ટ ઓફ લિવિંગ આશ્રમ', line: 'Residential Sudarshan Kriya retreats, silent sits and youth courses in greenery over the northern bank.', tone: 'lacquer' },
+	{ en: 'The 200-Year Banyan', gu: 'ઇતિહાસિક વડ વૃક્ષ', line: 'Two centuries of prop roots beside the Mahadev mandir — the town’s living guardian.', tone: 'green' },
+	{ en: 'Krishna Riverside Resort', gu: 'કૃષ્ણા રિવરસાઇડ રિસોર્ટ', line: 'River-cliff nature trails, open lawns, water adventure and Charotar Kathiyawadi dining.', tone: 'mustard' },
+	{ en: 'Vasad Junction (VDA)', gu: 'વાસદ જંકશન', line: 'Western Railway node on the Mumbai–Ahmedabad trunk — passengers, MEMU and express over the viaduct.', tone: 'green' },
+];
+
+const mandirs = [
+	{ en: 'Mahadev Mandir', gu: 'મહાદેવ', line: 'Riverside shivalaya beside the old banyan.' },
+	{ en: 'Veharai Mata Mandir', gu: 'વેહરાઈ માતા', line: 'Kuldevi shrine of Charotar households.' },
+	{ en: 'Jalaram Mandir', gu: 'જલારામ બાપા', line: 'Daily sadavrat and prayer gatherings.' },
+	{ en: 'Swaminarayan Mandir', gu: 'સ્વામિનારાયણ', line: 'Shikharbaddh sanctum, youth assemblies.' },
+	{ en: 'Sat Kaival Mandir', gu: 'સત કૈવલ', line: 'Kaival gyan philosophy and hymns.' },
+	{ en: 'Ram Mandir', gu: 'રામ મંદિર', line: 'Ram Navami processions from the village heart.' },
+];
+
+const daytrips = [
+	{ en: 'Vadodara', km: '20 km', line: 'Laxmi Vilas Palace, Kirti Mandir, Sayaji Baug', time: '25 min down NH 48' },
+	{ en: 'Dakor', km: '35 km', line: 'Ranchhodraiji Mandir and the Gomti lake', time: '40 min via Anand–Umreth' },
+	{ en: 'Champaner-Pavagadh', km: '65 km', line: 'UNESCO World Heritage and Kalika Mata', time: '1 hr 15 via Halol' },
+	{ en: 'Statue of Unity', km: '105 km', line: 'The 182 m colossus and Sardar Sarovar', time: '2 hrs via Vadodara–Dabhoi' },
+];
+
+const ethos = [
+	{ en: 'Dialect & script', line: 'Proud Charotari Gujarati, with literary and mercantile roots.' },
+	{ en: 'Community', line: 'Patidars, artisans, traders and scholars across 3,047 households.' },
+	{ en: 'Hospitality', line: 'Charotar warmth for travellers on the old trunk highway.' },
+	{ en: 'Rhythm', line: 'Fields at morning, mills by day, the Mahi’s bank at dusk.' },
+];
+
+const civicRows = [
+	['Sarpanch', 'Poonambhai D. Parmar'],
+	['Deputy Sarpanch', 'Deepbhai P. Patel'],
+	['Constituencies', 'Anklav Vidhan Sabha · Anand Lok Sabha'],
+	['Post & dialling', 'PIN 388306 · STD 02692'],
+];
+
+const civicStats = [
+	{ big: '14,384', line: 'residents' },
+	{ big: '3,047', line: 'households' },
+	{ big: '910', line: 'women per 1,000 men' },
+	{ big: '80.12%', line: 'literacy' },
+];
+
+const services = [
+	{ en: 'Drinking water & borewell supply', line: 'Filtered groundwater to every ward from overhead tanks.', when: 'Water: 6:00–8:30 am · 5:30–7:30 pm' },
+	{ en: 'Sanitation & Swachh Bharat cell', line: 'Door-to-door collection and segregated composting.', when: 'Daily 7:00 am – 2:00 pm' },
+	{ en: 'Birth, death & marriage registry', line: 'Computer-generated civil certificates on the spot.', when: 'Mon–Sat 10:30 am – 5:30 pm' },
+	{ en: 'Land records & e-Gram desk', line: '7/12 and 8A records, subsidy help for dal and banana growers.', when: 'Mon–Sat 11:00 am – 4:00 pm' },
+];
+
+const emergency = [
+	{ en: 'Gram Panchayat Bhavan', line: 'Civic office', tel: '02692 274220' },
+	{ en: 'Primary Health Centre', line: 'Emergency health · 108', tel: '02692 274102' },
+	{ en: 'Vasad Police Station', line: 'Law & order · 100', tel: '02692 274333' },
+	{ en: 'MGVCL Power Substation', line: 'Electricity · 19122', tel: '02692 274411' },
+	{ en: 'Vasad Jn. Railway help', line: 'Rail transit · 139', tel: 'WR helpdesk' },
 ];
 ---
 
 <Layout
 	title="Vasad — Gateway to Charotar | વાસદ"
-	description="Vasad (Vasudhanagari), Anand district, Gujarat: the Mahi riverside, 45+ toor dal mills, SVIT, Vasad Junction — the town's own site, and its directory of shops, mills and PGs."
+	description="Vasad (Vasudhanagari), Anand district, Gujarat: the Mahi riverside and viaducts, 45+ toor dal mills, the ICAR soil & water research station, SVIT campus, the sacred mandir circuit — and the town's directory of shops, mills and PGs."
 >
 	<Nav />
 	<main id="main">
@@ -88,14 +132,15 @@ const boards = [
 		<section class="hero wrap" aria-label="Vasad, painted on the town lorry">
 			<LorryFlank />
 			<div class="roadline" aria-hidden="true"></div>
-			<div class="stones" aria-label="Distances">
+			<div class="stones" aria-label="Distances and marks">
 				<span class="stone stone--lacquer">Anand 15</span>
-				<span class="stone stone--green">Vadodara →</span>
-				<span class="stone stone--mustard">Ahmedabad →</span>
-				<span class="stonenote">km-stone distances follow the town’s record</span>
+				<span class="stone stone--green">Vadodara 20</span>
+				<span class="stone stone--mustard">Ahmedabad 75</span>
+				<span class="stone stone--ghost">22.45°N · 73.0667°E</span>
+				<span class="stone stone--ghost">18.89 m MSL</span>
 			</div>
 			<div class="actions">
-				<a class="plate" href="/visit">Plan your visit</a>
+				<a class="plate" href="#panchayat">Plan your visit</a>
 				<a class="plate plate--ghost" href="/directory">Walk the directory</a>
 			</div>
 		</section>
@@ -112,8 +157,8 @@ const boards = [
 								{lot.en} <span class="gu lotgu">{lot.gu}</span>
 							</span>
 							<span class="lotline">{lot.line}</span>
-							<a class="lotlink" href={lot.href} aria-label={`${lot.en} — read more`}>
-								→
+							<a class="lotlink" href={lot.href} aria-label={`${lot.en} — read below`}>
+								↓
 							</a>
 						</li>
 					))
@@ -121,35 +166,271 @@ const boards = [
 			</ol>
 		</section>
 
-		<section class="yards wrap" aria-labelledby="yards-h">
-			<h2 id="yards-h">The directory wall</h2>
-			<p class="sub">
-				Boards hang here the way they hang in the bazaar — one per shop, one per mill, one per
-				door with a room to let.
-			</p>
-			<div class="wall">
-				{
-					boards.map((b) => (
-						<a class:list={['hanging', `hanging--${b.tone}`]} href={b.href} style={`--tilt:${b.tilt}`}>
-							<span class="h-en">{b.en}</span>
-							<span class="h-gu gu">{b.gu}</span>
-							<span class="h-line">{b.line}</span>
-							<span class="h-go">See the boards →</span>
-						</a>
-					))
-				}
+		<section class="river" id="mahi" aria-labelledby="mahi-h">
+			<div class="wrap">
+				<h2 id="mahi-h">The northern shore of the Mahi</h2>
+				<p class="gu sub">મહીસાગરનો ઉત્તરી તટ — the town kept its river for a front garden</p>
+				<p class="measure">
+					Vasad perches on the northern bluff of the Mahi at 18.89 metres, where the river’s
+					old ravines — the <strong>kotars</strong> — cut into high alluvial terraces. Forest
+					covers the south and northeast; the water runs on toward the Gulf of Khambhat. The
+					railway has crossed here since the BB&CI era, masonry piers carrying passenger,
+					MEMU and express trains over the riverbed, with NH 48 running the artery alongside.
+				</p>
+				<div class="riverline" role="img" aria-label="The Mahi’s course: Wanakbori dam upstream, the Vasad bluffs, and the Gulf of Khambhat estuary downstream">
+					<svg viewBox="0 0 1200 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<path
+							d="M20,70 C160,30 260,110 400,70 C540,30 640,110 780,70 C920,30 1020,110 1180,70"
+							fill="none"
+							stroke="#2a2723"
+							stroke-width="4"
+							stroke-dasharray="14 10"
+						/>
+						<circle cx="120" cy="58" r="9" fill="#e8a020" stroke="#2a2723" stroke-width="3.5" />
+						<circle cx="600" cy="70" r="12" fill="#9e2b25" stroke="#2a2723" stroke-width="3.5" />
+						<circle cx="1080" cy="58" r="9" fill="#1d5c3f" stroke="#2a2723" stroke-width="3.5" />
+					</svg>
+					<div class="stops">
+						<span class="stop"><strong>Wanakbori Dam</strong> upstream reservoir</span>
+						<span class="stop stop--mid"><strong>Vasad Bluffs</strong> 18.89 m · rail & NH 48 viaducts</span>
+						<span class="stop"><strong>Gulf of Khambhat</strong> the river’s end</span>
+					</div>
+				</div>
 			</div>
 		</section>
 
-		<section class="river" aria-labelledby="river-h">
+		<section class="dal wrap" id="dal" aria-labelledby="dal-h">
+			<h2 id="dal-h">The toor dal capital of Gujarat</h2>
+			<p class="gu sub">ગુજરાતનું તુવેર દાળ કેન્દ્ર — the pulse pride of western India</p>
+			<p class="measure intro">
+				Vasad mills the pigeon pea the whole country eats. Over 45 facilities cure, temper,
+				split and polish toor dal here — alongside tobacco floors and banana groves on the
+				Mahi’s silt — and ship it to eighteen states and NRI kitchens abroad.
+			</p>
+			<div class="statrow">
+				{dalStats.map((s) => (
+					<div class="stat riveted">
+						<span class="big">{s.big}</span>
+						<span class="line">{s.line}</span>
+					</div>
+				))}
+			</div>
+
+			<h3 class="mid">The Vasad method</h3>
+			<ol class="steps">
+				{method.map((m) => (
+					<li class="step">
+						<span class="stepno" aria-hidden="true">{m.no}</span>
+						<span class="stepen">{m.en}</span>
+						<span class="stepline">{m.line}</span>
+					</li>
+				))}
+			</ol>
+
+			<h3 class="mid">The mill registry</h3>
+			<p class="regnote">Regulated under the Anand APMC yard — seven boards of the forty-five:</p>
+			<div class="ledger" role="table" aria-label="Mill registry">
+				{
+					registry.map((m) => (
+						<div class="reg" role="row">
+							<div class="regname" role="cell">
+								<span class="en">{m.en}</span>
+								<span class="gu">{m.gu}</span>
+							</div>
+							<div class="regmeta" role="cell">
+								<span class="estd">Estd. {m.estd}</span>
+								<span class="cap">{m.cap}</span>
+							</div>
+							<div class="regline" role="cell">
+								{m.line}
+								<span class="regmark">{m.mark}</span>
+							</div>
+						</div>
+					))
+				}
+			</div>
+			<div class="cta">
+				<a class="plate" href="/directory">Buy Vasad dal — the directory</a>
+				<span class="ctanote">Mill counters, retail marts and tariffs, board by board.</span>
+			</div>
+		</section>
+
+		<section class="soil" id="soil" aria-labelledby="soil-h">
 			<div class="wrap">
-				<h2 id="river-h">The river is the reason</h2>
+				<h2 id="soil-h">The ground, studied here</h2>
+				<p class="gu sub">કેન્દ્રીય જમીન સંરક્ષણ અને જળ સંશોધન કેન્દ્ર — વાસદ</p>
 				<p class="measure">
-					Vasad sits on the northern bank of the Mahi, the highway wall between Ahmedabad and
-					Vadodara — and 15 km south of Anand, the district seat. Step off NH 48 and the
-					Charotar heartland opens: dal mills, fields, the campus, the ashram gate.
+					Vasad hosts the ICAR–Indian Institute of Soil and Water Conservation’s research
+					station, where the Mahi’s ravines were taught to hold still. The soil under the town
+					reads in four layers, and the station’s three works hold every one of them in place.
 				</p>
-				<a class="plate plate--ghost" href="/visit">Reach &amp; roam</a>
+				<div class="soilgrid">
+					<div class="strata panel" role="table" aria-label="Soil strata under Vasad">
+						{
+							strata.map((s, i) => (
+								<div class:list={['band', `band--${i}`]}>
+									<span class="depth">{s.depth}</span>
+									<span class="bandtext">
+										<strong>{s.en}</strong>
+										{s.line}
+									</span>
+								</div>
+							))
+						}
+					</div>
+					<div class="pillars">
+						{pillars.map((p) => (
+							<div class="pillar">
+								<span class="pno" aria-hidden="true">{p.no}</span>
+								<span class="pen">{p.en}</span>
+								<span class="pline">{p.line}</span>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="campus wrap" id="campus" aria-labelledby="campus-h">
+			<h2 id="campus-h">The campus on the riverbank</h2>
+			<p class="gu sub">સરદાર વલ્લભભાઈ પટેલ ઇન્સ્ટિટ્યૂટ ઓફ ટેકનોલોજી — સ્થાપના ૧૯૯૭</p>
+			<p class="measure intro">
+				SVIT changed what this town is. Three colleges share the Mahi-side campus — engineering,
+				architecture, nursing and computer applications — and its graduates now run works
+				from Gujarat to Silicon Valley.
+			</p>
+			<div class="statrow">
+				{campusStats.map((s) => (
+					<div class="stat riveted">
+						<span class="big">{s.big}</span>
+						<span class="line">{s.line}</span>
+					</div>
+				))}
+			</div>
+			<div class="colleges">
+				{colleges.map((c) => (
+					<div class="college panel riveted">
+						<span class="badge">{c.badge}</span>
+						<span class="cen">{c.en}</span>
+						<span class="cgu gu">{c.gu}</span>
+						<span class="cline">{c.line}</span>
+						<span class="cbody">{c.body}</span>
+						<span class="cintake">{c.intake}</span>
+					</div>
+				))}
+			</div>
+			<blockquote class="creed">
+				<p>“Educating minds where the historic waters of the Mahi meet the pioneering entrepreneurial spirit of Charotar.”</p>
+				<cite>SVIT institutional creed · Vasad, Anand</cite>
+			</blockquote>
+			<div class="cta">
+				<a class="plate plate--green" href="/study">Study at Vasad</a>
+				<a class="plate plate--ghost" href="/directory#boys-pg">Student PGs &amp; hostels</a>
+			</div>
+		</section>
+
+		<section class="landmarks" id="landmarks" aria-labelledby="landmarks-h">
+			<div class="wrap">
+				<h2 id="landmarks-h">Landmarks &amp; sacred roots</h2>
+				<p class="gu sub">વાસદના સાંસ્કૃતિક અને ઐતિહાસિક સ્થાનો</p>
+				<div class="landgrid">
+					{landmarks.map((l) => (
+						<div class:list={['land', 'panel', 'riveted', `land--${l.tone}`]}>
+							<span class="len">{l.en}</span>
+							<span class="lgu gu">{l.gu}</span>
+							<span class="lline">{l.line}</span>
+						</div>
+					))}
+				</div>
+				<h3 class="mid">The mandir circuit</h3>
+				<div class="mandirs">
+					{mandirs.map((m) => (
+						<div class="mandir">
+							<span class="men">{m.en}</span>
+							<span class="mgu gu">{m.gu}</span>
+							<span class="mline">{m.line}</span>
+						</div>
+					))}
+				</div>
+				<h3 class="mid">Day trips from the gateway</h3>
+				<div class="trips">
+					{daytrips.map((t) => (
+						<div class="trip">
+							<span class="tkm">{t.km}</span>
+							<span class="ten">{t.en}</span>
+							<span class="tline">{t.line}</span>
+							<span class="ttime">{t.time}</span>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="ethos" aria-labelledby="ethos-h">
+			<div class="wrap">
+				<h2 id="ethos-h">The Charotar temper</h2>
+				<p class="measure">
+					Charotar has always joined full fields to full schedules: families tend the fertile
+					ground in the morning, run the mills through the day, and gather by the Mahi at
+					dusk. Vasad is that temper in town form.
+				</p>
+				<div class="traits">
+					{ethos.map((e) => (
+						<div class="trait">
+							<span class="tren">{e.en}</span>
+							<span class="trline">{e.line}</span>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section class="panchayat wrap" id="panchayat" aria-labelledby="panch-h">
+			<h2 id="panch-h">The panchayat desk</h2>
+			<p class="gu sub">વાસદ ગ્રામ પંચાયત — civic administration and citizen services</p>
+			<div class="panchgrid">
+				<div class="panel riveted council">
+					<h3>The elected council</h3>
+					<dl class="ruled">
+						{civicRows.map(([k, v]) => (
+							<div class="row">
+								<dt>{k}</dt>
+								<dd>{v}</dd>
+							</div>
+						))}
+					</dl>
+				</div>
+				<div class="statrow statrow--civic">
+					{civicStats.map((s) => (
+						<div class="stat riveted">
+							<span class="big">{s.big}</span>
+							<span class="line">{s.line}</span>
+						</div>
+					))}
+				</div>
+			</div>
+			<div class="services">
+				{services.map((s) => (
+					<div class="service panel riveted">
+						<span class="sen">{s.en}</span>
+						<span class="sline">{s.line}</span>
+						<span class="swhen">{s.when}</span>
+					</div>
+				))}
+			</div>
+			<h3 class="mid">Emergency lines</h3>
+			<div class="emergency">
+				{emergency.map((e) => (
+					<a class="emg" href={e.tel.includes('02692') ? `tel:+91${e.tel.replaceAll(' ', '')}` : '/contact'}>
+						<span class="een">{e.en}</span>
+						<span class="eline">{e.line}</span>
+						<span class="etel">{e.tel}</span>
+					</a>
+				))}
+			</div>
+			<div class="cta">
+				<a class="plate" href="/contact">The panchayat page</a>
+				<span class="ctanote">Office counters, registries and how to claim a directory board.</span>
 			</div>
 		</section>
 	</main>
@@ -212,9 +493,10 @@ const boards = [
 		background: var(--mustard);
 		color: var(--ink);
 	}
-	.stonenote {
-		font-size: 0.85rem;
-		color: rgba(42, 39, 35, 0.75);
+	.stone--ghost {
+		background: var(--cream-hi);
+		color: var(--ink);
+		font-size: 0.9rem;
 	}
 	.actions {
 		display: flex;
@@ -229,9 +511,19 @@ const boards = [
 	h2 {
 		font-size: clamp(1.9rem, 4vw, 2.7rem);
 	}
+	h3.mid {
+		font-size: 1.5rem;
+		margin-top: 3rem;
+	}
 	.sub {
 		margin-top: 0.4rem;
 		color: rgba(42, 39, 35, 0.8);
+	}
+	.intro {
+		margin-top: 1rem;
+	}
+	.measure {
+		max-width: 68ch;
 	}
 	.lots {
 		list-style: none;
@@ -259,6 +551,7 @@ const boards = [
 	.chip {
 		grid-area: chip;
 		justify-self: start;
+		align-self: center;
 		font-family: var(--display);
 		font-size: 0.82rem;
 		letter-spacing: 0.05em;
@@ -267,7 +560,10 @@ const boards = [
 		border: 2.5px solid var(--ink);
 		border-radius: 7px;
 		padding: 0.3rem 0.5rem;
-		align-self: center;
+	}
+	.lot:nth-child(2) .chip,
+	.lot:nth-child(4) .chip {
+		background: var(--lacquer);
 	}
 	.lotname {
 		grid-area: name;
@@ -288,100 +584,9 @@ const boards = [
 	.lotlink {
 		grid-area: go;
 		justify-self: end;
-		align-self: end;
 		font-family: var(--display);
 		font-size: 1.15rem;
 		text-decoration: none;
-	}
-	.lot:nth-child(2) .chip {
-		background: var(--lacquer);
-	}
-	.lot:nth-child(4) .chip {
-		background: var(--lacquer);
-	}
-
-	.yards {
-		margin-top: 5.5rem;
-	}
-	.wall {
-		display: flex;
-		gap: 2rem;
-		align-items: flex-start;
-		margin-top: 3.2rem;
-		flex-wrap: wrap;
-	}
-	.hanging {
-		--tilt: 0deg;
-		position: relative;
-		flex: 1 1 260px;
-		max-width: 350px;
-		display: flex;
-		flex-direction: column;
-		gap: 0.3rem;
-		padding: 1.5rem 1.5rem 1.4rem;
-		border: 3px solid var(--ink);
-		border-radius: 12px;
-		text-decoration: none;
-		box-shadow: var(--paint-shadow);
-		transform: rotate(var(--tilt));
-		transform-origin: 50% -14px;
-		transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	.hanging::before {
-		content: '';
-		position: absolute;
-		top: -14px;
-		left: 50%;
-		width: 3px;
-		height: 14px;
-		background: var(--ink);
-	}
-	.hanging::after {
-		content: '';
-		position: absolute;
-		top: -20px;
-		left: 50%;
-		width: 11px;
-		height: 11px;
-		border-radius: 50%;
-		background: var(--rivet);
-		border: 2.5px solid var(--ink);
-		transform: translateX(-50%);
-	}
-	.hanging:hover {
-		transform: rotate(calc(var(--tilt) * -0.5)) translateY(-5px);
-	}
-	.hanging--lacquer {
-		background: var(--lacquer);
-		color: var(--cream);
-	}
-	.hanging--green {
-		background: var(--green);
-		color: var(--cream);
-	}
-	.hanging--mustard {
-		background: var(--mustard);
-		color: var(--ink);
-	}
-	.h-en {
-		font-family: var(--display);
-		font-size: 1.75rem;
-		line-height: 1.1;
-	}
-	.h-gu {
-		font-size: 1rem;
-		font-weight: 600;
-		opacity: 0.9;
-	}
-	.h-line {
-		margin-top: 0.45rem;
-		font-size: 0.97rem;
-		line-height: 1.5;
-	}
-	.h-go {
-		margin-top: 0.9rem;
-		font-family: var(--display);
-		font-size: 1rem;
 	}
 
 	.river {
@@ -393,9 +598,613 @@ const boards = [
 	}
 	.river h2 {
 		color: var(--mustard);
-		margin-bottom: 0.9rem;
 	}
-	.river .plate {
+	.river .sub {
+		color: rgba(244, 233, 216, 0.8);
+	}
+	.riverline {
+		margin-top: 2.4rem;
+	}
+	.riverline svg {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	.stops {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+	.stop {
+		flex: 1 1 180px;
+		color: rgba(244, 233, 216, 0.85);
+		font-size: 0.95rem;
+	}
+	.stop strong {
+		display: block;
+		font-family: var(--display);
+		font-weight: 400;
+		font-size: 1.15rem;
+		color: var(--cream);
+	}
+	.stop--mid strong {
+		color: var(--mustard);
+	}
+
+	.dal {
+		margin-top: 5.5rem;
+	}
+	.statrow {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+		gap: 1.4rem;
+		margin-top: 2.2rem;
+	}
+	.stat {
+		background: var(--cream-hi);
+		border: 3px solid var(--ink);
+		border-radius: 12px;
+		box-shadow: var(--paint-shadow);
+		padding: 1.3rem 1.4rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+	}
+	.stat .big {
+		font-family: var(--display);
+		font-size: 2rem;
+		color: var(--lacquer);
+	}
+	.stat .line {
+		font-size: 0.95rem;
+		color: rgba(42, 39, 35, 0.85);
+	}
+	.steps {
+		list-style: none;
+		padding: 0;
+		margin: 1.6rem 0 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1.4rem;
+		counter-reset: step;
+	}
+	.step {
+		background: var(--green);
+		color: var(--cream);
+		border: 3px solid var(--ink);
+		border-radius: 12px;
+		box-shadow: var(--paint-shadow);
+		padding: 1.3rem 1.4rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+	.step:nth-child(2) {
+		background: var(--lacquer);
+	}
+	.step:nth-child(3) {
+		background: var(--mustard);
+		color: var(--ink);
+	}
+	.stepno {
+		font-family: var(--display);
+		font-size: 1.9rem;
+		color: var(--mustard);
+	}
+	.step:nth-child(3) .stepno {
+		color: var(--lacquer);
+	}
+	.stepen {
+		font-family: var(--display);
+		font-size: 1.25rem;
+	}
+	.stepline {
+		font-size: 0.95rem;
+		line-height: 1.5;
+		opacity: 0.92;
+	}
+	.regnote {
+		margin-top: 0.5rem;
+		color: rgba(42, 39, 35, 0.8);
+	}
+	.ledger {
+		margin-top: 1.4rem;
+		border-top: 3px solid var(--ink);
+	}
+	.reg {
+		display: grid;
+		grid-template-columns: 1.35fr 0.55fr 1.1fr;
+		gap: 0.4rem 1.4rem;
+		padding: 1rem 0.4rem;
+		border-bottom: 3px solid var(--ink);
+		align-items: center;
+		transition: background-color 0.25s ease-out, transform 0.25s ease-out;
+	}
+	.reg:hover {
+		background: var(--lacquer-wash);
+		transform: translateX(6px);
+	}
+	.regname .en {
+		display: block;
+		font-family: var(--display);
+		font-size: 1.2rem;
+	}
+	.regname .gu {
+		display: block;
+		font-size: 0.9rem;
+		color: var(--lacquer);
+		font-weight: 600;
+	}
+	.regmeta {
+		display: flex;
+		flex-direction: column;
+	}
+	.estd {
+		font-size: 0.85rem;
+		color: rgba(42, 39, 35, 0.7);
+	}
+	.cap {
+		font-family: var(--display);
+		font-size: 1.05rem;
+	}
+	.regline {
+		font-size: 0.95rem;
+		color: rgba(42, 39, 35, 0.85);
+	}
+	.regmark {
+		display: block;
+		margin-top: 0.2rem;
+		font-family: var(--display);
+		font-size: 0.85rem;
+		color: var(--green);
+	}
+	@media (max-width: 780px) {
+		.reg {
+			grid-template-columns: 1fr;
+		}
+	}
+	.cta {
+		display: flex;
+		align-items: center;
+		gap: 1.2rem;
+		flex-wrap: wrap;
+		margin-top: 2.4rem;
+	}
+	.ctanote {
+		color: rgba(42, 39, 35, 0.75);
+		font-size: 0.95rem;
+	}
+
+	.soil {
+		margin-top: 5.5rem;
+		background: var(--cream-hi);
+		border-block: 3px solid var(--ink);
+		padding-block: 3.6rem;
+	}
+	.soil .measure {
+		margin-top: 1rem;
+	}
+	.soilgrid {
+		display: grid;
+		grid-template-columns: 1.1fr 1fr;
+		gap: 2.6rem;
+		margin-top: 2.4rem;
+		align-items: start;
+	}
+	@media (max-width: 880px) {
+		.soilgrid {
+			grid-template-columns: 1fr;
+		}
+	}
+	.strata {
+		overflow: hidden;
+	}
+	.band {
+		display: grid;
+		grid-template-columns: 7.5rem 1fr;
+		gap: 1rem;
+		padding: 1rem 1.2rem;
+		border-bottom: 3px solid var(--ink);
+	}
+	.band:last-child {
+		border-bottom: 0;
+	}
+	.depth {
+		font-family: var(--display);
+		font-size: 0.95rem;
+	}
+	.bandtext {
+		font-size: 0.93rem;
+		line-height: 1.45;
+	}
+	.bandtext strong {
+		display: block;
+		font-family: var(--display);
+		font-weight: 400;
+		font-size: 1.05rem;
+	}
+	.band--0 {
+		background: var(--cream);
+	}
+	.band--1 {
+		background: rgba(232, 160, 32, 0.28);
+	}
+	.band--2 {
+		background: var(--green);
+		color: var(--cream);
+	}
+	.band--3 {
+		background: var(--ink);
+		color: var(--cream);
+	}
+	.pillars {
+		display: flex;
+		flex-direction: column;
+		gap: 1.4rem;
+	}
+	.pillar {
+		position: relative;
+		background: var(--cream);
+		border: 3px solid var(--ink);
+		border-radius: 12px;
+		box-shadow: var(--paint-shadow);
+		padding: 1.2rem 1.4rem 1.1rem 4rem;
+	}
+	.pno {
+		position: absolute;
+		left: 1rem;
+		top: 1.1rem;
+		font-family: var(--display);
+		font-size: 1.5rem;
+		color: var(--lacquer);
+	}
+	.pen {
+		display: block;
+		font-family: var(--display);
+		font-size: 1.2rem;
+	}
+	.pline {
+		display: block;
+		margin-top: 0.2rem;
+		font-size: 0.95rem;
+		color: rgba(42, 39, 35, 0.85);
+	}
+
+	.campus {
+		margin-top: 5.5rem;
+	}
+	.colleges {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1.6rem;
+		margin-top: 2.2rem;
+	}
+	.college {
+		padding: 1.6rem 1.5rem 1.4rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+	}
+	.badge {
+		align-self: flex-start;
+		font-family: var(--display);
+		font-size: 0.9rem;
+		background: var(--mustard);
+		color: var(--ink);
+		border: 2.5px solid var(--ink);
+		border-radius: 7px;
+		padding: 0.25rem 0.7rem;
+		transform: rotate(-1.5deg);
+	}
+	.cen {
+		font-family: var(--display);
+		font-size: 1.45rem;
+		margin-top: 0.5rem;
+	}
+	.cgu {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--lacquer);
+	}
+	.cline {
+		margin-top: 0.4rem;
+		font-size: 0.95rem;
+		color: rgba(42, 39, 35, 0.85);
+	}
+	.cbody {
+		margin-top: 0.6rem;
+		font-weight: 600;
+		font-size: 0.92rem;
+	}
+	.cintake {
+		font-family: var(--display);
+		font-size: 0.95rem;
+		color: var(--green);
+	}
+	.creed {
+		margin: 2.6rem 0 0;
+		border: 3px solid var(--ink);
+		border-radius: 12px;
+		background: var(--cream);
+		box-shadow: var(--paint-shadow);
+		padding: 1.6rem 2rem;
+	}
+	.creed p {
+		font-family: var(--display);
+		font-size: 1.3rem;
+		line-height: 1.45;
+	}
+	.creed cite {
+		display: block;
+		margin-top: 0.7rem;
+		font-style: normal;
+		font-size: 0.9rem;
+		color: rgba(42, 39, 35, 0.7);
+	}
+
+	.landmarks {
+		margin-top: 5.5rem;
+		background: var(--green);
+		color: var(--cream);
+		padding-block: 3.6rem;
+		border-block: 3px solid var(--ink);
+	}
+	.landmarks h2 {
+		color: var(--mustard);
+	}
+	.landmarks .sub {
+		color: rgba(244, 233, 216, 0.8);
+	}
+	.landgrid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1.6rem;
+		margin-top: 2.2rem;
+	}
+	.land {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		padding: 1.5rem 1.4rem;
+	}
+	.land--lacquer {
+		background: var(--lacquer);
+		color: var(--cream);
+	}
+	.land--green {
+		background: var(--green-deep);
+		color: var(--cream);
+	}
+	.land--mustard {
+		background: var(--mustard);
+		color: var(--ink);
+	}
+	.len {
+		font-family: var(--display);
+		font-size: 1.35rem;
+	}
+	.lgu {
+		font-size: 0.92rem;
+		font-weight: 600;
+		opacity: 0.9;
+	}
+	.lline {
+		margin-top: 0.4rem;
+		font-size: 0.95rem;
+		line-height: 1.5;
+	}
+	.landmarks h3.mid {
+		color: var(--mustard);
+	}
+	.mandirs {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1.2rem;
 		margin-top: 1.6rem;
+	}
+	.mandir {
+		border: 2.5px solid rgba(244, 233, 216, 0.6);
+		border-radius: 10px;
+		padding: 1rem 1.1rem;
+		background: rgba(42, 39, 35, 0.25);
+	}
+	.men {
+		display: block;
+		font-family: var(--display);
+		font-size: 1.08rem;
+	}
+	.mgu {
+		display: block;
+		font-size: 0.85rem;
+		color: var(--mustard);
+		font-weight: 600;
+	}
+	.mline {
+		display: block;
+		margin-top: 0.25rem;
+		font-size: 0.85rem;
+		color: rgba(244, 233, 216, 0.85);
+	}
+	.trips {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+		gap: 1.4rem;
+		margin-top: 1.6rem;
+	}
+	.trip {
+		background: var(--cream);
+		color: var(--ink);
+		border: 3px solid var(--ink);
+		border-radius: 10px 10px 4px 4px;
+		box-shadow: var(--paint-shadow);
+		padding: 1.2rem 1.3rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+	}
+	.tkm {
+		font-family: var(--display);
+		font-size: 1.6rem;
+		color: var(--lacquer);
+	}
+	.ten {
+		font-family: var(--display);
+		font-size: 1.15rem;
+	}
+	.tline {
+		font-size: 0.9rem;
+		color: rgba(42, 39, 35, 0.85);
+	}
+	.ttime {
+		margin-top: 0.3rem;
+		font-weight: 600;
+		font-size: 0.85rem;
+		color: var(--green);
+	}
+
+	.ethos {
+		margin-top: 5.5rem;
+		background: var(--ink);
+		color: var(--cream);
+		padding-block: 3.4rem;
+	}
+	.ethos h2 {
+		color: var(--mustard);
+	}
+	.ethos .measure {
+		margin-top: 1rem;
+		color: rgba(244, 233, 216, 0.9);
+	}
+	.traits {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+		gap: 1.4rem;
+		margin-top: 2.2rem;
+	}
+	.trait {
+		border: 2.5px solid rgba(244, 233, 216, 0.4);
+		border-radius: 10px;
+		padding: 1.1rem 1.2rem;
+	}
+	.tren {
+		display: block;
+		font-family: var(--display);
+		font-size: 1.1rem;
+		color: var(--mustard);
+	}
+	.trline {
+		display: block;
+		margin-top: 0.2rem;
+		font-size: 0.92rem;
+		color: rgba(244, 233, 216, 0.85);
+	}
+
+	.panchayat {
+		margin-top: 5.5rem;
+	}
+	.panchgrid {
+		display: grid;
+		grid-template-columns: 1.1fr 1fr;
+		gap: 2.6rem;
+		margin-top: 2rem;
+		align-items: start;
+	}
+	@media (max-width: 880px) {
+		.panchgrid {
+			grid-template-columns: 1fr;
+		}
+	}
+	.council {
+		padding: 1.8rem 2rem;
+	}
+	.council h3 {
+		font-size: 1.4rem;
+	}
+	.ruled {
+		margin: 0.9rem 0 0;
+	}
+	.row {
+		display: grid;
+		grid-template-columns: 9rem 1fr;
+		gap: 0.8rem;
+		padding: 0.65rem 0;
+		border-bottom: 2px dashed rgba(42, 39, 35, 0.4);
+	}
+	.row:last-child {
+		border-bottom: 0;
+	}
+	dt {
+		font-family: var(--display);
+		font-size: 1rem;
+	}
+	dd {
+		margin: 0;
+	}
+	.statrow--civic {
+		margin-top: 0;
+	}
+	.services {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1.5rem;
+		margin-top: 2.4rem;
+	}
+	.service {
+		padding: 1.3rem 1.4rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+	.sen {
+		font-family: var(--display);
+		font-size: 1.15rem;
+	}
+	.sline {
+		font-size: 0.93rem;
+		color: rgba(42, 39, 35, 0.85);
+	}
+	.swhen {
+		margin-top: 0.4rem;
+		font-weight: 600;
+		font-size: 0.85rem;
+		color: var(--lacquer);
+	}
+	.emergency {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1.2rem;
+		margin-top: 1.6rem;
+	}
+	.emg {
+		display: flex;
+		flex-direction: column;
+		gap: 0.1rem;
+		text-decoration: none;
+		background: var(--cream-hi);
+		border: 3px solid var(--ink);
+		border-radius: 10px;
+		box-shadow: var(--paint-shadow);
+		padding: 1rem 1.2rem;
+		transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease-out;
+	}
+	.emg:hover {
+		transform: translateY(-3px);
+		background: var(--mustard);
+	}
+	.een {
+		font-family: var(--display);
+		font-size: 1.05rem;
+		color: var(--ink);
+	}
+	.eline {
+		font-size: 0.85rem;
+		color: rgba(42, 39, 35, 0.75);
+	}
+	.etel {
+		margin-top: 0.3rem;
+		font-family: var(--display);
+		font-size: 1.1rem;
+		color: var(--lacquer);
 	}
 </style>

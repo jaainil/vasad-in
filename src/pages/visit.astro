@@ -2,77 +2,135 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+const mandirs = [
+	{ en: 'Mahadev Mandir', gu: 'મહાદેવ', line: 'Riverside shivalaya beside the 200-year banyan.' },
+	{ en: 'Veharai Mata Mandir', gu: 'વેહરાઈ માતા', line: 'Kuldevi shrine of Charotar Patidar households.' },
+	{ en: 'Jalaram Mandir', gu: 'જલારામ બાપા', line: 'Daily sadavrat and devotional gatherings.' },
+	{ en: 'Swaminarayan Mandir', gu: 'સ્વામિનારાયણ', line: 'Shikharbaddh sanctum with youth assemblies.' },
+	{ en: 'Sat Kaival Mandir', gu: 'સત કૈવલ', line: 'Kaival gyan philosophy and hymns.' },
+	{ en: 'Ram Mandir', gu: 'રામ મંદિર', line: 'Ram Navami processions from the village heart.' },
+];
+
+const daytrips = [
+	{ en: 'Vadodara (Baroda)', km: '20 km', line: 'Laxmi Vilas Palace, Kirti Mandir, Sayaji Baug', time: '25 min down NH 48' },
+	{ en: 'Dakor', km: '35 km', line: 'Shree Ranchhodraiji Mandir and the sacred Gomti lake', time: '40 min via Anand–Umreth' },
+	{ en: 'Champaner-Pavagadh', km: '65 km', line: 'UNESCO World Heritage site and Kalika Mata temple', time: '1 hr 15 via Halol' },
+	{ en: 'Statue of Unity', km: '105 km', line: 'The world’s tallest monument at 182 m and Sardar Sarovar', time: '2 hrs via Vadodara–Dabhoi' },
+];
 ---
 
 <Layout
 	title="Reach & Roam — Vasad | પ્રવાસ"
-	description="Visiting Vasad: the Mahi riverside, the Art of Living ashram and Krishna Riverside Resort, and how to arrive by NH48 or Vasad Junction."
+	description="Visiting Vasad: the Mahi bluffs and viaducts, the Art of Living ashram, Krishna Riverside Resort, the 200-year banyan and six mandirs, and day trips from NH 48."
 >
 	<Nav />
 	<main id="main" class="wrap">
 		<header class="pagehead">
 			<h1>Reach &amp; roam</h1>
-			<p class="gu sub">પ્રવાસ — the river, the retreats, the road in</p>
+			<p class="gu sub">પ્રવાસ — the river, the retreats, the sacred circuit</p>
 		</header>
 
 		<section class="panel riveted riverpanel" aria-labelledby="mahi-h">
-			<div class="riverface">
-				<h2 id="mahi-h">The Mahi at the town's edge</h2>
-				<p class="measure">
-					Vasad keeps its northern bank of the Mahi as its front garden. The evening air comes
-					off the water, the woods to the south stay dark and green, and the river road is the
-					town's slow walk. No ticket, no gate — just the bank.
-				</p>
-			</div>
+			<h2 id="mahi-h">The Mahi at the town’s edge</h2>
+			<p class="measure">
+				Vasad perches on the northern bluff of the Mahi at 18.89 metres — the old ravine
+				terrace the locals call the <strong>kotar</strong>. Forested cliffs run south and
+				northeast, the evening air comes off the water, and the railway’s masonry viaduct
+				piers carry the Mumbai–Ahmedabad trains across the bed. No ticket, no gate — just the
+				bank.
+			</p>
 		</section>
 
-		<div class="stays" id="stay">
+		<div class="stays">
 			<section class="panel riveted hang hang--lacquer" aria-labelledby="ashram-h">
-				<h2 id="ashram-h">Art of Living Vasad Ashram</h2>
+				<h2 id="ashram-h">Art of Living Gujarat Ashram</h2>
+				<p class="gu gsub">આર્ટ ઓફ લિવિંગ ગુજરાત આશ્રમ — વાસદ</p>
 				<p>
-					Courses and events through the year, focused on stress reduction and well-being. The
-					ashram keeps its own calendar — check with the ashram office before travelling for a
-					specific program.
+					The foundation’s Gujarat ashram, set in greenery over the northern bank. Residential
+					Sudarshan Kriya retreats, silent meditation and youth empowerment courses, with
+					daily satsangs and a yoga amphitheatre. Check the ashram’s own calendar before
+					travelling for a specific program.
 				</p>
 			</section>
 			<section class="panel riveted hang hang--green" aria-labelledby="resort-h">
 				<h2 id="resort-h">Krishna Riverside Resort</h2>
+				<p class="gu gsub">ક્રિષ્ના રિવરસાઇડ રિસોર્ટ</p>
 				<p>
-					Luxury accommodation and recreation on the riverside — the town's full-service stay,
+					Hospitality and recreation on the river cliffs — nature trails along the bluffs,
+					open lawns, water adventure, and Charotar Kathiyawadi dining. Riverfront cottages
 					with the Mahi for a neighbour.
 				</p>
 			</section>
 		</div>
 
-		<section class="panel riveted reach" id="reach" aria-labelledby="reach-h">
+		<section class="panel riveted sacred" aria-labelledby="sacred-h">
+			<h2 id="sacred-h">Sacred roots</h2>
+			<p class="measure">
+				Beside the Mahadev mandir on the old bluff stands the town’s living guardian — a
+				<strong>200-year-old banyan</strong>, its prop roots descending like pillars. Around
+				it runs the mandir circuit of six:
+			</p>
+			<div class="mandirs">
+				{mandirs.map((m) => (
+					<div class="mandir">
+						<span class="men">{m.en}</span>
+						<span class="mgu gu">{m.gu}</span>
+						<span class="mline">{m.line}</span>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section class="panel riveted reach" aria-labelledby="reach-h">
 			<h2 id="reach-h">Getting there</h2>
 			<div class="ways">
 				<div class="way">
 					<h3>Road</h3>
 					<p>
-						Vasad sits on <strong>NH 48</strong>, the Ahmedabad–Vadodara corridor. Anand lies
-						15 km north; Vadodara is the next city southbound.
+						Vasad sits on <strong>NH 48</strong>, the Ahmedabad–Vadodara artery. Anand lies
+						15 km north, Vadodara 20 km south, Ahmedabad 75 km, Mumbai 420 km.
 					</p>
 				</div>
 				<div class="way">
 					<h3>Rail</h3>
 					<p>
-						<strong>Vasad Junction</strong> halts passenger, MEMU and selected express trains
-						on the Western Railway line — about 15 km from Anand railway station.
+						<strong>Vasad Junction (station code VDA)</strong> halts passenger, MEMU and
+						selected express trains on the Western Railway trunk — about 15 km from Anand
+						Junction, over the river viaduct.
 					</p>
 				</div>
 			</div>
 			<div class="stones" aria-label="Distances">
 				<span class="stone stone--lacquer">Anand 15</span>
-				<span class="stone stone--green">Vadodara →</span>
-				<span class="stone stone--mustard">Ahmedabad →</span>
+				<span class="stone stone--green">Vadodara 20</span>
+				<span class="stone stone--mustard">Ahmedabad 75</span>
+				<span class="stone stone--ghost">Mumbai 420</span>
 			</div>
 		</section>
 
-		<section class="note" aria-label="Where to stay and eat">
+		<section class="panel riveted trips" aria-labelledby="trips-h">
+			<h2 id="trips-h">The gateway for day trips</h2>
+			<p class="measure">
+				Midway on the corridor, Vasad is the unhurried base for central Gujarat’s celebrated
+				destinations:
+			</p>
+			<div class="tripgrid">
+				{daytrips.map((t) => (
+					<div class="trip">
+						<span class="tkm">{t.km}</span>
+						<span class="ten">{t.en}</span>
+						<span class="tline">{t.line}</span>
+						<span class="ttime">{t.time}</span>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section class="note" aria-label="Where to stay">
 			<p>
-				Lodging and rooms — including PGs near the campus — hang their boards on the
-				<a href="/directory#stay">directory wall</a>.
+				Lodging, PGs and messes hang their boards on the
+				<a href="/directory">directory wall</a>.
 			</p>
 		</section>
 	</main>
@@ -86,6 +144,9 @@ import Footer from '../components/Footer.astro';
 	h1 {
 		font-size: clamp(2.3rem, 5vw, 3.4rem);
 	}
+	h2 {
+		font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+	}
 	.sub {
 		margin-top: 0.4rem;
 		color: rgba(42, 39, 35, 0.8);
@@ -95,13 +156,18 @@ import Footer from '../components/Footer.astro';
 		padding: 2rem 2.2rem 2.1rem;
 		margin-top: 2.6rem;
 	}
+	.gsub {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: rgba(244, 233, 216, 0.8);
+		margin-top: 0.2rem;
+	}
 	.riverpanel {
 		background: var(--green);
 		color: var(--cream);
 	}
 	.riverpanel h2 {
 		color: var(--mustard);
-		font-size: clamp(1.8rem, 3.5vw, 2.5rem);
 	}
 	.riverpanel p {
 		margin-top: 0.7rem;
@@ -131,17 +197,46 @@ import Footer from '../components/Footer.astro';
 		background: var(--green);
 		color: var(--cream);
 	}
-	.hang h2 {
-		font-size: 1.65rem;
-	}
 	.hang p {
 		margin-top: 0.6rem;
 	}
-	.reach {
+	.sacred {
 		background: var(--cream-hi);
 	}
-	.reach h2 {
-		font-size: 1.9rem;
+	.sacred > p {
+		margin-top: 0.7rem;
+	}
+	.mandirs {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1.2rem;
+		margin-top: 1.6rem;
+	}
+	.mandir {
+		border: 2.5px solid rgba(42, 39, 35, 0.5);
+		border-radius: 10px;
+		padding: 1rem 1.1rem;
+		background: var(--cream);
+	}
+	.men {
+		display: block;
+		font-family: var(--display);
+		font-size: 1.08rem;
+	}
+	.mgu {
+		display: block;
+		font-size: 0.85rem;
+		color: var(--lacquer);
+		font-weight: 600;
+	}
+	.mline {
+		display: block;
+		margin-top: 0.25rem;
+		font-size: 0.85rem;
+		color: rgba(42, 39, 35, 0.85);
+	}
+	.reach {
+		background: var(--cream-hi);
 	}
 	.ways {
 		display: grid;
@@ -185,6 +280,51 @@ import Footer from '../components/Footer.astro';
 	.stone--mustard {
 		background: var(--mustard);
 		color: var(--ink);
+	}
+	.stone--ghost {
+		background: var(--cream);
+		color: var(--ink);
+	}
+	.trips {
+		background: var(--cream-hi);
+	}
+	.trips > p {
+		margin-top: 0.7rem;
+	}
+	.tripgrid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+		gap: 1.4rem;
+		margin-top: 1.6rem;
+	}
+	.trip {
+		background: var(--cream);
+		border: 3px solid var(--ink);
+		border-radius: 10px 10px 4px 4px;
+		box-shadow: var(--paint-shadow);
+		padding: 1.2rem 1.3rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+	}
+	.tkm {
+		font-family: var(--display);
+		font-size: 1.6rem;
+		color: var(--lacquer);
+	}
+	.ten {
+		font-family: var(--display);
+		font-size: 1.15rem;
+	}
+	.tline {
+		font-size: 0.9rem;
+		color: rgba(42, 39, 35, 0.85);
+	}
+	.ttime {
+		margin-top: 0.3rem;
+		font-weight: 600;
+		font-size: 0.85rem;
+		color: var(--green);
 	}
 	.note {
 		margin-top: 2.2rem;

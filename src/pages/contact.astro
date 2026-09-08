@@ -2,62 +2,112 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+const council = [
+	['Sarpanch', 'Poonambhai D. Parmar'],
+	['Deputy Sarpanch', 'Deepbhai P. Patel'],
+	['Constituencies', 'Anklav Vidhan Sabha · Anand Lok Sabha'],
+	['Address', 'Panchayat Bhavan, Vasad 388306, Anand, Gujarat'],
+	['Position', '22.45°N 73.0667°E — on NH 48, 15 km south of Anand'],
+];
+
+const services = [
+	{
+		en: 'Drinking water & borewell supply',
+		line: 'Filtered groundwater to every ward from 8-lakh-litre overhead storage.',
+		when: 'Morning 6:00 – 8:30 · Evening 5:30 – 7:30',
+	},
+	{
+		en: 'Sanitation & Swachh Bharat cell',
+		line: 'Door-to-door collection and segregated composting across 3,047 households.',
+		when: 'Daily 7:00 am – 2:00 pm',
+	},
+	{
+		en: 'Birth, death & marriage registry',
+		line: 'Computer-generated civil certificates under the Gujarat Panchayats Act.',
+		when: 'Mon – Sat 10:30 am – 5:30 pm',
+	},
+	{
+		en: 'Land records & e-Gram desk',
+		line: '7/12 and 8A records, subsidy help for dal and banana growers, citizen verification.',
+		when: 'Mon – Sat 11:00 am – 4:00 pm',
+	},
+];
+
+const lines = [
+	{ en: 'Gram Panchayat Bhavan', line: 'Civic office', tel: '02692 274220', href: 'tel:+912692274220' },
+	{ en: 'Primary Health Centre', line: 'Emergency health · 108', tel: '02692 274102', href: 'tel:+912692274102' },
+	{ en: 'Vasad Police Station', line: 'Law & order · 100', tel: '02692 274333', href: 'tel:+912692274333' },
+	{ en: 'MGVCL Power Substation', line: 'Electricity · 19122', tel: '02692 274411', href: 'tel:+912692274411' },
+	{ en: 'Vasad Jn. Railway help', line: 'Rail transit · 139', tel: 'WR helpdesk', href: '/visit#reach' },
+];
 ---
 
 <Layout
 	title="The Panchayat Office — Vasad | સંપર્ક"
-	description="Contact Vasad's gram panchayat: the sarpanch's office, the town's postal and dialling marks, and how to claim a directory board."
+	description="Contact Vasad's gram panchayat: the elected council, service counters and schedules, and the town's emergency phone lines."
 >
 	<Nav />
 	<main id="main" class="wrap">
 		<header class="pagehead">
 			<h1>The panchayat office</h1>
-			<p class="gu sub">સંપર્ક — the town's front desk</p>
+			<p class="gu sub">સંપર્ક — the town’s front desk</p>
 		</header>
 
 		<section class="panel riveted office" aria-labelledby="gp-h">
 			<h2 id="gp-h">Gram Panchayat Vasad</h2>
 			<dl class="ruled">
-				<div class="row">
-					<dt>Sarpanch</dt>
-					<dd>Dharmistha Alpeshbhai Patel (Delawala)</dd>
-				</div>
-				<div class="row">
-					<dt>Address</dt>
-					<dd>Gram Panchayat office, Vasad 388306, Anand, Gujarat</dd>
-				</div>
-				<div class="row">
-					<dt>Dialling</dt>
-					<dd>STD code 02692 — the prefix for every Vasad landline</dd>
-				</div>
-				<div class="row">
-					<dt>Position</dt>
-					<dd>22.45°N 73.0667°E — on NH 48, 15 km south of Anand</dd>
-				</div>
+				{council.map(([k, v]) => (
+					<div class="row">
+						<dt>{k}</dt>
+						<dd>{v}</dd>
+					</div>
+				))}
 			</dl>
 		</section>
 
-		<div class="pair">
-			<section class="panel riveted pending" aria-labelledby="pend-h">
-				<h2 id="pend-h">Plates painted, seal waiting</h2>
-				<p>
-					The office phone and email plates are painted and hung — they publish here when the
-					panchayat stamps them. Until then, the office door in Vasad is the fastest line.
-				</p>
-				<div class="blanks" aria-hidden="true">
-					<span class="blank">phone · 02692 2__ ___</span>
-					<span class="blank">mail · the panchayat’s own address</span>
-				</div>
-			</section>
-			<section class="panel riveted panel--lacquer claim" aria-labelledby="claim-h">
-				<h2 id="claim-h">Claim a directory board</h2>
-				<p>
-					Shop, mill or room in Vasad? Your board hangs free on the
-					<a href="/directory">directory wall</a> — send the name, what you do, and where,
-					through the panchayat. Boards carry the owner's word, so the owner claims them.
-				</p>
-			</section>
-		</div>
+		<section class="counters" aria-labelledby="counters-h">
+			<h2 id="counters-h">The citizen counters</h2>
+			<div class="services">
+				{services.map((s) => (
+					<div class="service panel riveted">
+						<span class="sen">{s.en}</span>
+						<span class="sline">{s.line}</span>
+						<span class="swhen">{s.when}</span>
+					</div>
+				))}
+			</div>
+			<p class="officenote">
+				Statutory work — certificates, property tax, water connections, NOCs — is processed
+				at the Panchayat Bhavan counters, Monday to Saturday, 10:30 am to 5:30 pm.
+			</p>
+		</section>
+
+		<section class="urgent" aria-labelledby="lines-h">
+			<h2 id="lines-h">Emergency lines</h2>
+			<div class="emgrid">
+				{lines.map((l) => (
+					<a class="emg" href={l.href}>
+						<span class="een">{l.en}</span>
+						<span class="eline">{l.line}</span>
+						<span class="etel">{l.tel}</span>
+					</a>
+				))}
+			</div>
+		</section>
+
+		<section class="panel riveted claim" aria-labelledby="claim-h">
+			<h2 id="claim-h">Claim a directory board</h2>
+			<p>
+				Shop, mill, PG or mess in Vasad? Your board hangs free on the
+				<a href="/directory">directory wall</a> — send the name, what you do, where, and a
+				WhatsApp line, through the panchayat or the portal mail below. Boards carry the
+				owner’s word, so the owner claims them.
+			</p>
+			<div class="how">
+				<a class="plate plate--ghost" href="mailto:jainilprajapati9@gmail.com">jainilprajapati9@gmail.com</a>
+			</div>
+		</section>
 	</main>
 	<Footer />
 </Layout>
@@ -69,6 +119,9 @@ import Footer from '../components/Footer.astro';
 	h1 {
 		font-size: clamp(2.3rem, 5vw, 3.4rem);
 	}
+	h2 {
+		font-size: clamp(1.6rem, 3vw, 2.2rem);
+	}
 	.sub {
 		margin-top: 0.4rem;
 		color: rgba(42, 39, 35, 0.8);
@@ -78,15 +131,15 @@ import Footer from '../components/Footer.astro';
 		padding: 2.1rem 2.3rem;
 		margin-top: 2.6rem;
 	}
-	h2 {
-		font-size: 1.7rem;
+	h3 {
+		font-size: 1.4rem;
 	}
 	.ruled {
 		margin: 1rem 0 0;
 	}
 	.row {
 		display: grid;
-		grid-template-columns: 8.5rem 1fr;
+		grid-template-columns: 9.5rem 1fr;
 		gap: 0.8rem;
 		padding: 0.7rem 0;
 		border-bottom: 2px dashed rgba(42, 39, 35, 0.4);
@@ -102,49 +155,96 @@ import Footer from '../components/Footer.astro';
 		margin: 0;
 		line-height: 1.5;
 	}
-	.pair {
+	.counters {
+		margin-top: 3.2rem;
+	}
+	.services {
 		display: grid;
-		grid-template-columns: 1.1fr 1fr;
-		gap: 2.6rem;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1.5rem;
+		margin-top: 1.6rem;
 	}
-	@media (max-width: 780px) {
-		.pair {
-			grid-template-columns: 1fr;
-		}
-	}
-	.pending p,
-	.claim p {
-		margin-top: 0.7rem;
-	}
-	.blanks {
+	.service {
+		padding: 1.3rem 1.4rem;
 		display: flex;
 		flex-direction: column;
-		gap: 0.6rem;
-		margin-top: 1.2rem;
+		gap: 0.25rem;
+		margin-top: 0;
 	}
-	.blank {
-		font-family: var(--gu);
+	.sen {
+		font-family: var(--display);
+		font-size: 1.15rem;
+	}
+	.sline {
+		font-size: 0.93rem;
+		color: rgba(42, 39, 35, 0.85);
+	}
+	.swhen {
+		margin-top: 0.4rem;
 		font-weight: 600;
-		letter-spacing: 0.08em;
-		color: rgba(42, 39, 35, 0.55);
-		border: 2.5px dashed rgba(42, 39, 35, 0.5);
-		border-radius: 8px;
-		padding: 0.55rem 0.9rem;
-		width: fit-content;
-		background: repeating-linear-gradient(
-			-45deg,
-			transparent 0 12px,
-			rgba(42, 39, 35, 0.05) 12px 24px
-		);
+		font-size: 0.85rem;
+		color: var(--lacquer);
+	}
+	.officenote {
+		margin-top: 1.4rem;
+		color: rgba(42, 39, 35, 0.8);
+		max-width: 68ch;
+	}
+	.urgent {
+		margin-top: 3.2rem;
+	}
+	.emgrid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1.2rem;
+		margin-top: 1.6rem;
+	}
+	.emg {
+		display: flex;
+		flex-direction: column;
+		gap: 0.1rem;
+		text-decoration: none;
+		background: var(--cream-hi);
+		border: 3px solid var(--ink);
+		border-radius: 10px;
+		box-shadow: var(--paint-shadow);
+		padding: 1rem 1.2rem;
+		transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease-out;
+	}
+	.emg:hover {
+		transform: translateY(-3px);
+		background: var(--mustard);
+	}
+	.een {
+		font-family: var(--display);
+		font-size: 1.05rem;
+		color: var(--ink);
+	}
+	.eline {
+		font-size: 0.85rem;
+		color: rgba(42, 39, 35, 0.75);
+	}
+	.etel {
+		margin-top: 0.3rem;
+		font-family: var(--display);
+		font-size: 1.1rem;
+		color: var(--lacquer);
 	}
 	.claim {
 		background: var(--lacquer);
 		color: var(--cream);
 	}
-	.claim a {
+	.claim a:not(.plate) {
 		color: var(--mustard);
 	}
-	.claim a:hover {
+	.claim a:not(.plate):hover {
 		color: var(--cream);
+	}
+	.claim p {
+		margin-top: 0.7rem;
+		max-width: 68ch;
+	}
+	.how {
+		margin-top: 1.3rem;
 	}
 </style>

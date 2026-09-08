@@ -4,37 +4,39 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
 const ground = [
-	['Bank', 'The northern bank of the Mahi river'],
-	['Height', 'About 19 m above sea level'],
-	['Road', 'On NH 48, between Ahmedabad and Vadodara'],
+	['Bank', 'The northern bluff of the Mahi river, 18.89 m above sea level'],
+	['Road', 'On NH 48, between Ahmedabad (75 km) and Vadodara (20 km)'],
 	['District', 'Anand seat lies 15 km to the north'],
-	['Woods', 'Forests to the south and the northeast'],
+	['Woods', 'Forests to the south and the northeast, over kotar ravines'],
 	['Position', '22.45°N 73.0667°E'],
 ];
 
 const people = [
 	['People', '14,384 at the 2011 Census'],
 	['Men & women', '7,530 men · 6,854 women'],
+	['Households', '3,047 — sex ratio 910 women per 1,000 men'],
 	['Literacy', '80.12% — men 84.18%, women 75.66%'],
 	['Languages', 'Gujarati and Hindi at home, English in class'],
 ];
 
 const work = [
-	['Dal', '45+ toor dal processing mills — a Charotar hub'],
-	['Fields', 'Tobacco farming alongside the dal trade'],
-	['Research', 'The central Soil Conservation & Water Research Institute'],
+	['Dal', '45+ toor dal processing mills — the pulse capital of Gujarat'],
+	['Fields', 'Tobacco floors and banana groves on the Mahi’s silt'],
+	['Research', 'The ICAR soil & water conservation station on the ravines'],
 ];
 
 const civic = [
 	['Body', 'Gram panchayat Vasad'],
-	['Sarpanch', 'Dharmistha Alpeshbhai Patel (Delawala)'],
+	['Sarpanch', 'Poonambhai D. Parmar'],
+	['Deputy Sarpanch', 'Deepbhai P. Patel'],
+	['Constituencies', 'Anklav Vidhan Sabha · Anand Lok Sabha'],
 	['Post', 'PIN 388306 · STD code 02692'],
 ];
 ---
 
 <Layout
 	title="The Town Record — Vasad | વાસદ વિશે"
-	description="Vasad's record: geography on the Mahi's northern bank, the 2011 Census people, the dal-mill economy, and the gram panchayat."
+	description="Vasad's record: Vasudhanagari, the northern bluff of the Mahi, the 2011 Census people, the dal-mill economy, and the gram panchayat."
 >
 	<Nav />
 	<main id="main" class="wrap">
@@ -46,9 +48,10 @@ const civic = [
 		<section class="panel riveted name" aria-labelledby="name-h">
 			<h2 id="name-h">Vasad · <span class="gu">વાસદ</span></h2>
 			<p class="measure">
-				The registers record an older name too: <strong>Vasudhanagari</strong>. The town sits in
-				Anand district, Gujarat, and calls itself the gateway to Charotar — the rich, double-crop
-				land between the Mahi and the Sabarmati.
+				The registers record an older name too: <strong>Vasudhanagari</strong> — from the
+				Sanskrit <em>vasudha</em>, the earth and its treasure, and <em>nagari</em>, the city.
+				The town sits in Anand district, Gujarat, and calls itself the gateway to Charotar —
+				the rich, double-cropped plain between the Mahi and the Sabarmati.
 			</p>
 		</section>
 

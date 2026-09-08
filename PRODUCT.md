@@ -47,6 +47,8 @@ The only comprehensive digital home for Vasad itself. Not a resort site, not a c
 ## Evidence on Hand
 
 - Wikipedia town record (provided in session brief) — demographics, economy, transport, education, landmarks, references. No photography, logo, or official assets yet; do not fabricate images of real people or claim official government status.
+- User-supplied full content record (the operator's existing vasad.in portal, provided in session) — the authoritative content source for this build: Laxmi Toor Dal and the mill registry (estd years, MT/day capacities); the Vasad processing method; ICAR–IISWC soil & water research station and ravine (kotar) reclamation; SVIT's three colleges, intakes and campus stats; the 200-year banyan and six-mandir circuit; Art of Living ashram; Krishna Riverside Resort; Vasad Jn (code VDA); day-trip distances (Vadodara 20, Dakor 35, Champaner-Pavagadh 65, Statue of Unity 105 km); census detail (3,047 households, sex ratio 910); panchayat council (Sarpanch Poonambhai D. Parmar, Deputy Deepbhai P. Patel), service schedules and emergency phone lines; twelve directory listings (dal retail, boys/girls PGs, mess/tiffin).
+- Site status: independent, unofficial community portal under active development — not the municipal government website. Developer credit: Jainil Prajapati (jaainil.com); repo github.com/jaainil/vasad.in; feedback jainilprajapati9@gmail.com.
 
 ## Product Principles
 

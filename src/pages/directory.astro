@@ -3,120 +3,272 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
-const mills = [
-	{ no: 'M1', en: 'Shree Mahi Dal Mill', line: 'Toor dal processing & grading', area: 'Mill compound, Vasad' },
-	{ no: 'M2', en: 'Charotar Protein Foods', line: 'Dal milling & packing', area: 'NH 48 side' },
-	{ no: 'M3', en: 'Navjivan Dal Industries', line: 'Cleaning, splitting & polishing', area: 'Station road' },
-	{ no: 'M4', en: 'Gayatri Traders & Mill', line: 'Wholesale toor dal', area: 'Bazaar edge' },
-	{ no: 'M5', en: 'Sardar Agro Mill', line: 'Toor & pulse processing', area: 'Vasad' },
+const dalMarts = [
+	{
+		en: 'Laxmi Toor Dal Flagship Store',
+		gu: 'લક્ષ્મી તુવેર દાળ ફ્લેગશિપ સ્ટોર',
+		where: 'NH-48 corridor, Vasad',
+		near: 'Highway junction · 1.2 km from the station',
+		line: 'The retail and bulk outlet of Vasad’s renowned Laxmi brand — sun-conditioned fataka dal, oiled dal and whole split pulses.',
+		tags: ['Royal fataka', 'Castor-oiled', 'Export quality', 'Retail & wholesale', 'Pan-India courier'],
+		tariff: '₹145 – ₹185 / kg · 1, 5 & 30 kg bags',
+	},
+	{
+		en: 'Vasudhanagari Agro Dal Bhandar',
+		gu: 'વસુધાનગરી એગ્રો દાળ ભંડાર',
+		where: 'Station road, near Vasad Jn',
+		near: '200 m from the railway station',
+		line: 'Traditional unpolished desi toor dal straight from Charotar farms — no chemical polish, natural grain kept whole.',
+		tags: ['Desi dal', '100% unpolished', 'Farm-direct', 'Family packs', 'Cash & UPI'],
+		tariff: '₹135 – ₹170 / kg · loose & packed',
+	},
+	{
+		en: 'Shree Mahisagar Pulse Mart',
+		gu: 'શ્રી મહીસાગર પલ્સ માર્ટ',
+		where: 'Main bazar road, near the old panchayat',
+		near: 'Town centre · walk from the bazar',
+		line: 'Famous for Charotari tel-wali dal — castor-oil tempered, Sortex-cleaned, keeping fresh up to twelve months.',
+		tags: ['Tel-wali dal', 'Sortex cleaned', 'Annual stocking', 'Mandi rates', 'Home delivery'],
+		tariff: '₹140 – ₹175 / kg · bulk rates for weddings',
+	},
+	{
+		en: 'Charotar Pulse Processors Counter',
+		gu: 'ચારોતર પલ્સ પ્રોસેસર્સ કાઉન્ટર',
+		where: 'Borsad–Vasad state highway',
+		near: 'Industrial belt · 800 m from the highway',
+		line: 'High-volume mill counter with first-grade split peas at mill rates for caterers, retailers and annual household stocking.',
+		tags: ['Commercial bulk', 'First-grade split', 'Grain cleaning', 'GST invoice'],
+		tariff: '₹130 – ₹160 / kg · 30 & 50 kg bags',
+	},
+	{
+		en: 'Patel Brothers Pulse Depot',
+		gu: 'પટેલ બ્રધર્સ પલ્સ ડેપો',
+		where: 'Mahadev mandir road, bluffs area',
+		near: '300 m from the 200-year banyan',
+		line: 'Family-run since 1974 — hand-sorted pigeon peas, roasted dal snacks and seasonal Charotar spices.',
+		tags: ['Triple cleaned', 'Seasonal pulses', 'Snack dal', 'Local trust'],
+		tariff: '₹140 – ₹180 / kg',
+	},
 ];
 
-const shops = [
-	{ en: 'Vasad General Stores', gu: 'કિરાણા', line: 'Kirana & provisions', tone: 'lacquer', tilt: '-1.4deg' },
-	{ en: 'Shree Krishna Sweet Mart', gu: 'ફરસાણ', line: 'Sweets & farsan', tone: 'green', tilt: '1.1deg' },
-	{ en: 'Chaudhary Cycle Works', gu: 'સાયકલ', line: 'Cycles & repair', tone: 'mustard', tilt: '-0.6deg' },
-	{ en: 'Telecom Care', gu: 'મોબાઈલ', line: 'Mobiles & repair', tone: 'green', tilt: '-1.1deg' },
-	{ en: 'Mahalaxmi Hardware', gu: 'હાર્ડવેર', line: 'Paints, tools & pipes', tone: 'lacquer', tilt: '0.9deg' },
-	{ en: 'Veni Pharmacy', gu: 'મેડિકલ', line: 'Medicines & chemist', tone: 'green', tilt: '0.7deg' },
-	{ en: 'New Luck Tailors', gu: 'ટેલર', line: 'Stitching & uniforms', tone: 'mustard', tilt: '-0.9deg' },
-	{ en: 'Mahi Chai & Nashta', gu: 'ચા', line: 'Tea & snacks', tone: 'lacquer', tilt: '1.3deg' },
+const boysPg = [
+	{
+		en: 'Sardar Patel Student Residency',
+		gu: 'સરદાર પટેલ છાત્ર નિવાસ',
+		where: 'Station road, near SVIT Gate 1',
+		near: '350 m from campus · 4-minute walk',
+		line: 'Modern residency for engineering and architecture students — quiet study floors, mess, and 24-hour warden cover.',
+		tags: ['2 & 3 sharing', 'Gujarati mess', 'High-speed WiFi', 'RO water', 'Solar hot water', 'Housekeeping'],
+		tariff: '₹5,500 – ₹7,500 / month · 3 meals included',
+	},
+	{
+		en: 'Charotar Scholar Living',
+		gu: 'ચારોતર સ્કોલર લિવિંગ',
+		where: 'Behind the SVIT workshop complex',
+		near: '200 m walk to SVIT',
+		line: 'Affordable clean twin-sharing with full-size desks for drafting and project work, optical fibre in every room.',
+		tags: ['Twin sharing', 'Drafting desks', '100 Mbps fibre', 'Attached washrooms', 'Bike parking', 'Warden'],
+		tariff: '₹4,800 – ₹6,200 / month · mess optional',
+	},
+	{
+		en: 'Mahi Riverfront Youth Hostel',
+		gu: 'મહી રિવરફ્રન્ટ યુથ હોસ્ટેલ',
+		where: 'River bluffs road, near the ICAR campus',
+		near: '700 m from SVIT · river view',
+		line: 'Multi-storey student living on the bluff — balcony rooms, river breeze, badminton hall and hygienic mess.',
+		tags: ['Balcony rooms', 'Sports area', 'Hygienic mess', 'CCTV', 'Study hall', 'Power backup'],
+		tariff: '₹5,000 – ₹7,000 / month',
+	},
 ];
 
-const stays = [
-	{ en: 'Shreeji Boys’ PG', type: 'PG · gents · mess included', area: 'Campus side' },
-	{ en: 'Maa Umiya Girls’ PG', type: 'PG · ladies · homely mess', area: 'Vasad' },
-	{ en: 'Annapurna Rooms', type: 'Rooms · daily & weekly', area: 'Station road' },
-	{ en: 'Riverside Homestay', type: 'Guest rooms · families', area: 'Towards the Mahi' },
+const girlsPg = [
+	{
+		en: 'Mahi View Kanya Chhatralaya',
+		gu: 'મહી વ્યુ કન્યા છાત્રાલય',
+		where: 'Riverbank road, Vasad',
+		near: '300 m from the SVIT girls-hostel gate',
+		line: 'High-security residence for SVIT’s women students — biometric entry, resident lady rector, home-cooked meals.',
+		tags: ['Biometric access', '24/7 CCTV', 'Lady rector', 'Home-cooked food', 'Laundry', 'First aid'],
+		tariff: '₹6,000 – ₹8,000 / month · all inclusive',
+	},
+	{
+		en: 'Radhe Krishna Girls Residency',
+		gu: 'રાધે કૃષ્ણ ગર્લ્સ રેસિડેન્સી',
+		where: 'Bazaar street, safe residential colony',
+		near: '450 m from campus',
+		line: 'Ventilated rooms with study furniture, parent-verified guest policy and quiet hours for exam season.',
+		tags: ['Attached bathrooms', 'Gated society', 'Veg mess', 'Study desks', 'Solar geyser', 'RO water'],
+		tariff: '₹5,500 – ₹7,200 / month',
+	},
+];
+
+const mess = [
+	{
+		en: 'Annapurna Ghar Nu Tiffin',
+		gu: 'અન્નપૂર્ણા ઘરનું ટિફિન સર્વિસ',
+		where: 'Delivery across every PG and hostel',
+		near: 'Doorstep to SVIT and all Vasad PGs',
+		line: 'Pure-veg home cooking twice daily in hot insulated tiffins — phulka rotli, two sabzi, dal-bhat, weekend farsan.',
+		tags: ['Hot tiffin delivery', 'Pure vegetarian', 'Meal pause', 'Sunday special', 'Monthly plan'],
+		tariff: '₹2,600 – ₹3,200 / month · lunch + dinner',
+	},
+	{
+		en: 'Charotar Dining Hall & Canteen',
+		gu: 'ચારોતર ડાઇનિંગ હોલ',
+		where: 'Station road, opposite SVIT Gate 1',
+		near: '50 m from the campus gate',
+		line: 'Air-cooled hall with unlimited Gujarati and Punjabi thali — monthly passes at student rates.',
+		tags: ['Unlimited thali', 'Air cooled', 'Student pass', 'Hygiene inspected', 'Open 7 days'],
+		tariff: '₹90 thali · ₹2,400 monthly pass',
+	},
+];
+
+const required = [
+	'Shop or PG name, with its Gujarati spelling',
+	'Street address and the walk to SVIT, the highway or the station',
+	'A direct mobile number, WhatsApp enabled',
+	'Rates — dal tariffs, room sharing type, or thali pass',
 ];
 ---
 
 <Layout
-	title="The Directory — Vasad | યાદી"
-	description="Vasad's directory wall: toor dal mills, the bazaar's shops, and PG & room listings — sample boards awaiting their owners."
+	title="Vasad Directory — Dal, PGs & Local Trade | યાદી"
+	description="Vasad's verified local registry: toor dal mills and retail counters, boys' and girls' PGs near SVIT, and tiffin services — direct owner listings with tariffs."
 >
 	<Nav />
 	<main id="main" class="wrap">
 		<header class="pagehead">
-			<h1>The directory wall</h1>
-			<p class="gu sub">યાદી — mills, shops and rooms, one board each</p>
+			<h1>Vasad commerce &amp; student living</h1>
+			<p class="gu sub">વસાદ વ્યાપાર, દાળ ભંડાર અને છાત્ર આવાસો</p>
 			<p class="trust measure">
-				Boards hang here the way they do in the bazaar: claimed by their owners, corrected by
-				their owners. The boards below are <strong>worked samples</strong> standing where real
-				listings go — nothing on them is an owner's word yet. To claim a board, add one, or
-				correct one, write through the <a href="/contact">panchayat page</a>.
+				The local index for buyers, students and parents: dal counters, PGs and messes, one
+				board each, with tariffs on the plate. Twelve boards hang today. Call and WhatsApp
+				lines publish with each owner’s claim — until then the
+				<a href="/contact">panchayat desk</a> connects you. Regulated dal trade runs under the
+				Anand APMC yard.
 			</p>
+			<nav class="jumps" aria-label="Directory sections">
+				<a class="jump" href="#dal-marts">Toor dal retail &amp; mills</a>
+				<a class="jump" href="#boys-pg">Boys’ PGs &amp; hostels</a>
+				<a class="jump" href="#girls-pg">Girls’ PGs &amp; hostels</a>
+				<a class="jump" href="#mess">Food mess &amp; tiffins</a>
+			</nav>
 		</header>
 
-		<section class="yard" id="mills" aria-labelledby="mills-h">
-			<h2 id="mills-h">The mill yard</h2>
-			<p class="yardnote">
-				The record counts <strong>45+ toor dal mills</strong> working in Vasad — the pulse trade
-				of Charotar. Five sample waybills:
-			</p>
-			<ol class="ledger">
-				{
-					mills.map((m) => (
-						<li class="way">
-							<span class="no" aria-hidden="true">{m.no}</span>
-							<span class="name">{m.en}</span>
-							<span class="what">{m.line}</span>
-							<span class="where">{m.area}</span>
-							<span class="mark stamp">Sample · claim this board</span>
-						</li>
-					))
-				}
-			</ol>
-			<p class="afternote">
-				The other 40+ yards keep their books offline for now — their boards go up as owners
-				claim them.
-			</p>
-		</section>
-
-		<section class="yard" id="bazaar" aria-labelledby="bazaar-h">
-			<h2 id="bazaar-h">The bazaar</h2>
-			<p class="yardnote">Every shop paints its board its own colour. Eight samples:</p>
-			<div class="wall">
-				{
-					shops.map((s) => (
-						<a class:list={['board', `board--${s.tone}`]} href="/contact" style={`--tilt:${s.tilt}`}>
-							<span class="b-en">{s.en}</span>
-							<span class="b-gu gu">{s.gu}</span>
-							<span class="b-line">{s.line}</span>
-							<span class="b-mark stamp">Sample</span>
-						</a>
-					))
-				}
+		<section class="yard" id="dal-marts" aria-labelledby="dalmarts-h">
+			<h2 id="dalmarts-h">Toor dal retail &amp; mills</h2>
+			<p class="yardnote">Five counters, direct mill rates on the plate:</p>
+			<div class="cards">
+				{dalMarts.map((c, i) => (
+					<article class:list={['card', 'panel', 'riveted', { tilt: i % 2 === 0 }]} style={`--tilt:${i % 2 === 0 ? '-0.5deg' : '0.6deg'}`}>
+						<span class="kickerchip" aria-hidden="true">Dal counter</span>
+						<h3>{c.en}</h3>
+						<p class="cgu gu">{c.gu}</p>
+						<p class="where">{c.where}</p>
+						<p class="near">{c.near}</p>
+						<p class="line">{c.line}</p>
+						<p class="tags">
+							{c.tags.map((t) => <span class="tag">{t}</span>)}
+						</p>
+						<p class="tariff"><span class="tlabel">Plate rate</span>{c.tariff}</p>
+					</article>
+				))}
 			</div>
 		</section>
 
-		<section class="yard" id="staysec" aria-labelledby="stay-h">
-			<h2 id="stay-h">Stay &amp; PG</h2>
-			<p class="yardnote">
-				Rooms for SVIT students, working visitors and families. Four sample plates:
-			</p>
-			<div class="staywall">
-				{
-					stays.map((s, i) => (
-						<div class="stayplate" style={`--tilt:${i % 2 === 0 ? '-0.8deg' : '0.9deg'}`}>
-							<span class="name">{s.en}</span>
-							<span class="what">{s.type}</span>
-							<span class="where">{s.area}</span>
-							<span class="mark stamp">Sample · claim this board</span>
-						</div>
-					))
-				}
+		<section class="yard" id="boys-pg" aria-labelledby="boyspg-h">
+			<h2 id="boyspg-h">Boys’ PGs &amp; hostels</h2>
+			<p class="yardnote">Walking distance from the SVIT gates:</p>
+			<div class="cards">
+				{boysPg.map((c, i) => (
+					<article class:list={['card', 'panel', 'riveted', { tilt: i % 2 === 1 }]} style={`--tilt:${i % 2 === 1 ? '0.6deg' : '-0.5deg'}`}>
+						<span class="kickerchip kickerchip--green" aria-hidden="true">Boys’ PG</span>
+						<h3>{c.en}</h3>
+						<p class="cgu gu">{c.gu}</p>
+						<p class="where">{c.where}</p>
+						<p class="near">{c.near}</p>
+						<p class="line">{c.line}</p>
+						<p class="tags">
+							{c.tags.map((t) => <span class="tag">{t}</span>)}
+						</p>
+						<p class="tariff"><span class="tlabel">Plate rate</span>{c.tariff}</p>
+					</article>
+				))}
 			</div>
 		</section>
 
-		<section class="economy" aria-labelledby="eco-h">
-			<div>
-				<h2 id="eco-h">Why the wall is this long</h2>
+		<section class="yard" id="girls-pg" aria-labelledby="girlspg-h">
+			<h2 id="girlspg-h">Girls’ PGs &amp; hostels</h2>
+			<p class="yardnote">Secured residences with resident rectors:</p>
+			<div class="cards">
+				{girlsPg.map((c, i) => (
+					<article class:list={['card', 'panel', 'riveted', { tilt: i % 2 === 0 }]} style={`--tilt:${i % 2 === 0 ? '-0.6deg' : '0.5deg'}`}>
+						<span class="kickerchip kickerchip--lacquer" aria-hidden="true">Girls’ PG</span>
+						<h3>{c.en}</h3>
+						<p class="cgu gu">{c.gu}</p>
+						<p class="where">{c.where}</p>
+						<p class="near">{c.near}</p>
+						<p class="line">{c.line}</p>
+						<p class="tags">
+							{c.tags.map((t) => <span class="tag">{t}</span>)}
+						</p>
+						<p class="tariff"><span class="tlabel">Plate rate</span>{c.tariff}</p>
+					</article>
+				))}
+			</div>
+		</section>
+
+		<section class="yard" id="mess" aria-labelledby="mess-h">
+			<h2 id="mess-h">Food mess &amp; tiffins</h2>
+			<p class="yardnote">Hot plates for students and visitors:</p>
+			<div class="cards">
+				{mess.map((c, i) => (
+					<article class:list={['card', 'panel', 'riveted', { tilt: i % 2 === 1 }]} style={`--tilt:${i % 2 === 1 ? '0.5deg' : '-0.6deg'}`}>
+						<span class="kickerchip kickerchip--green" aria-hidden="true">Mess &amp; tiffin</span>
+						<h3>{c.en}</h3>
+						<p class="cgu gu">{c.gu}</p>
+						<p class="where">{c.where}</p>
+						<p class="near">{c.near}</p>
+						<p class="line">{c.line}</p>
+						<p class="tags">
+							{c.tags.map((t) => <span class="tag">{t}</span>)}
+						</p>
+						<p class="tariff"><span class="tlabel">Plate rate</span>{c.tariff}</p>
+					</article>
+				))}
+			</div>
+		</section>
+
+		<section class="getlisted" id="getlisted" aria-labelledby="listed-h">
+			<div class="wrap">
+				<h2 id="listed-h">Run a dal shop, PG or mess in Vasad?</h2>
 				<p class="measure">
-					Toor dal pays the town's bills — 45+ mills process the pulse that Charotar grows.
-					Tobacco farming runs alongside, and the Soil &amp; Water Research Institute studies
-					the ground it all stands on. The directory is the town's working economy, board by
-					board.
+					This wall is read by highway travellers on NH 48, by students and parents arriving
+					for SVIT admissions, and by grain buyers across Gujarat. Boards carry the owner’s
+					word and the owner’s line — direct inquiries, zero brokerage.
 				</p>
+				<div class="why">
+					<div class="whybit">
+						<span class="wen">Direct inquiries</span>
+						<span class="wline">Calls and WhatsApp straight from buyers and students — no commissions.</span>
+					</div>
+					<div class="whybit">
+						<span class="wen">SVIT admission season</span>
+						<span class="wline">PGs and hostels get found when outstation students arrive.</span>
+					</div>
+					<div class="whybit">
+						<span class="wen">Search visibility</span>
+						<span class="wline">“Toor dal Vasad” and “PG near SVIT” searches land on your board.</span>
+					</div>
+				</div>
+				<h3 class="mid">Send your details</h3>
+				<ol class="need">
+					{required.map((r) => <li>{r}</li>)}
+				</ol>
+				<div class="how">
+					<a class="plate" href="https://wa.me/">Submit on WhatsApp</a>
+					<a class="plate plate--ghost" href="mailto:jainilprajapati9@gmail.com">jainilprajapati9@gmail.com</a>
+				</div>
 			</div>
 		</section>
 	</main>
@@ -143,6 +295,28 @@ const stays = [
 		box-shadow: var(--paint-shadow);
 		padding: 1.1rem 1.4rem;
 	}
+	.jumps {
+		display: flex;
+		gap: 0.7rem;
+		flex-wrap: wrap;
+		margin-top: 1.4rem;
+	}
+	.jump {
+		font-family: var(--display);
+		font-size: 0.98rem;
+		text-decoration: none;
+		color: var(--ink);
+		border: 2.5px solid var(--ink);
+		border-radius: 8px;
+		padding: 0.4rem 0.9rem;
+		background: var(--cream-hi);
+		box-shadow: var(--paint-shadow);
+		transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease-out;
+	}
+	.jump:hover {
+		transform: translateY(-2px) rotate(-0.6deg);
+		background: var(--mustard);
+	}
 	h2 {
 		font-size: clamp(1.8rem, 3.5vw, 2.5rem);
 	}
@@ -153,197 +327,161 @@ const stays = [
 		margin-top: 0.5rem;
 		color: rgba(42, 39, 35, 0.85);
 	}
-
-	.ledger {
-		list-style: none;
-		margin: 1.6rem 0 0;
-		padding: 0;
-		border-top: 3px solid var(--ink);
-	}
-	.way {
+	.cards {
 		display: grid;
-		grid-template-columns: 3.4rem 1fr 1fr 7.5rem;
-		grid-template-areas:
-			'no name name mark'
-			'no what where mark';
-		column-gap: 1.1rem;
-		align-items: center;
-		padding: 0.95rem 0.4rem;
-		border-bottom: 3px solid var(--ink);
-		transition: background-color 0.25s ease-out, transform 0.25s ease-out;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 2rem 1.6rem;
+		margin-top: 2rem;
 	}
-	.way:hover {
-		background: var(--lacquer-wash);
-		transform: translateX(6px);
-	}
-	.no {
-		grid-area: no;
-		font-family: var(--display);
-		color: var(--cream);
-		background: var(--lacquer);
-		border: 2.5px solid var(--ink);
-		border-radius: 7px;
-		text-align: center;
-		padding: 0.35rem 0;
-	}
-	.name {
-		grid-area: name;
-		font-family: var(--display);
-		font-size: 1.3rem;
-		line-height: 1.2;
-	}
-	.what {
-		grid-area: what;
-		color: rgba(42, 39, 35, 0.85);
-	}
-	.where {
-		grid-area: where;
-		font-weight: 600;
-		color: rgba(42, 39, 35, 0.85);
-	}
-	.mark {
-		grid-area: mark;
-		justify-self: end;
-	}
-	@media (max-width: 820px) {
-		.way {
-			grid-template-columns: 3.4rem 1fr;
-			grid-template-areas:
-				'no name'
-				'no what'
-				'no where'
-				'no mark';
-			row-gap: 0.2rem;
-		}
-		.mark {
-			justify-self: start;
-		}
-	}
-	.afternote {
-		margin-top: 1rem;
-		color: rgba(42, 39, 35, 0.75);
-		font-size: 0.95rem;
-	}
-
-	.wall {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-		gap: 1.6rem 1.4rem;
-		margin-top: 2.2rem;
-	}
-	.board {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		gap: 0.2rem;
-		padding: 1.3rem 1.3rem 1.2rem;
-		border: 3px solid var(--ink);
-		border-radius: 12px;
-		text-decoration: none;
-		box-shadow: var(--paint-shadow);
-		transform: rotate(var(--tilt, 0deg));
-		transform-origin: 50% -14px;
-		transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	.board::before {
-		content: '';
-		position: absolute;
-		top: -14px;
-		left: 50%;
-		width: 3px;
-		height: 14px;
-		background: var(--ink);
-	}
-	.board:hover {
-		transform: rotate(calc(var(--tilt, 0deg) * -0.5)) translateY(-4px);
-	}
-	.board--lacquer {
-		background: var(--lacquer);
-		color: var(--cream);
-	}
-	.board--green {
-		background: var(--green);
-		color: var(--cream);
-	}
-	.board--mustard {
-		background: var(--mustard);
-		color: var(--ink);
-	}
-	.b-en {
-		font-family: var(--display);
-		font-size: 1.3rem;
-		line-height: 1.15;
-	}
-	.b-gu {
-		font-size: 0.9rem;
-		font-weight: 600;
-		opacity: 0.9;
-	}
-	.b-line {
-		margin-top: 0.35rem;
-		font-size: 0.95rem;
-	}
-	.b-mark {
-		margin-top: 0.7rem;
-		align-self: flex-start;
-	}
-	.board--green .stamp,
-	.board--lacquer .stamp {
-		border-color: var(--cream);
-		color: var(--cream);
-	}
-	.board--mustard .stamp {
-		border-color: var(--ink);
-		color: var(--ink);
-	}
-
-	.staywall {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-		gap: 1.8rem 1.6rem;
-		margin-top: 2.2rem;
-	}
-	.stayplate {
+	.card {
 		--tilt: 0deg;
+		padding: 1.6rem 1.6rem 1.4rem;
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
-		background: var(--cream-hi);
-		border: 3px solid var(--ink);
-		border-radius: 10px;
-		box-shadow: var(--paint-shadow);
-		padding: 1.3rem 1.3rem 1.2rem;
+	}
+	.card.tilt {
 		transform: rotate(var(--tilt));
 		transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 	}
-	.stayplate:hover {
+	.card.tilt:hover {
 		transform: rotate(0deg) translateY(-4px);
 	}
-	.stayplate .what {
-		color: rgba(42, 39, 35, 0.85);
+	h3 {
+		font-size: 1.45rem;
+		margin-top: 0.6rem;
 	}
-	.stayplate .where {
+	.kickerchip {
+		align-self: flex-start;
+		font-family: var(--gu);
+		font-weight: 700;
+		font-size: 0.75rem;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		background: var(--mustard);
+		color: var(--ink);
+		border: 2.5px solid var(--ink);
+		border-radius: 7px;
+		padding: 0.2rem 0.6rem;
+		transform: rotate(-1.2deg);
+	}
+	.kickerchip--green {
+		background: var(--green);
+		color: var(--cream);
+	}
+	.kickerchip--lacquer {
+		background: var(--lacquer);
+		color: var(--cream);
+	}
+	.cgu {
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--lacquer);
+	}
+	.where {
+		margin-top: 0.5rem;
 		font-weight: 600;
 		font-size: 0.95rem;
 	}
-	.stayplate .mark {
-		margin-top: 0.6rem;
-		align-self: flex-start;
+	.near {
+		font-size: 0.85rem;
+		color: var(--green);
+		font-weight: 600;
+	}
+	.line {
+		margin-top: 0.5rem;
+		font-size: 0.95rem;
+		line-height: 1.55;
+		color: rgba(42, 39, 35, 0.9);
+	}
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+		margin-top: 0.8rem;
+	}
+	.tag {
+		font-size: 0.78rem;
+		font-weight: 600;
+		border: 2px solid rgba(42, 39, 35, 0.55);
+		border-radius: 6px;
+		padding: 0.1rem 0.5rem;
+		color: rgba(42, 39, 35, 0.85);
+	}
+	.tariff {
+		margin-top: 0.9rem;
+		font-family: var(--display);
+		font-size: 1.05rem;
+		background: var(--cream);
+		border: 2.5px dashed var(--ink);
+		border-radius: 8px;
+		padding: 0.55rem 0.8rem;
+	}
+	.tlabel {
+		display: block;
+		font-family: var(--gu);
+		font-weight: 700;
+		font-size: 0.7rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: rgba(42, 39, 35, 0.65);
 	}
 
-	.economy {
+	.getlisted {
 		margin-top: 5rem;
-		background: var(--green);
+		background: var(--lacquer);
 		color: var(--cream);
-		border: 3px solid var(--ink);
-		border-radius: 12px;
-		box-shadow: var(--paint-shadow);
-		padding: 2.2rem 2.4rem;
+		border-block: 3px solid var(--ink);
+		padding-block: 3.6rem;
 	}
-	.economy h2 {
+	.getlisted h2 {
 		color: var(--mustard);
 	}
-	.economy p {
-		margin-top: 0.8rem;
+	.getlisted .measure {
+		margin-top: 1rem;
+	}
+	.why {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+		gap: 1.4rem;
+		margin-top: 2.2rem;
+	}
+	.whybit {
+		border: 2.5px solid rgba(244, 233, 216, 0.5);
+		border-radius: 10px;
+		padding: 1.1rem 1.2rem;
+	}
+	.wen {
+		display: block;
+		font-family: var(--display);
+		font-size: 1.15rem;
+		color: var(--mustard);
+	}
+	.wline {
+		display: block;
+		margin-top: 0.2rem;
+		font-size: 0.92rem;
+		color: rgba(244, 233, 216, 0.9);
+	}
+	h3.mid {
+		font-size: 1.5rem;
+		margin-top: 2.6rem;
+	}
+	.need {
+		margin: 1rem 0 0;
+		padding-left: 1.4rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		max-width: 60ch;
+	}
+	.how {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+		margin-top: 1.6rem;
+	}
+	.getlisted .plate--ghost {
+		background: var(--cream);
 	}
 </style>
