@@ -95,6 +95,58 @@
 	.wrap {
 		@apply mx-auto max-w-[1180px] px-[clamp(1.25rem,4vw,2.5rem)];
 	}
+
+	.claim-input {
+		@apply w-full rounded-lg border-[2.5px] border-ink bg-cream px-3.5 py-2.5 font-body text-[1rem] leading-[1.55] text-ink caret-lacquer placeholder:text-ink/70;
+	}
+	.claim-input[aria-invalid='true'] {
+		@apply border-lacquer-deep bg-lacquer/5;
+	}
+	.claim-input.font-gu {
+		font-family: var(--font-gu);
+	}
+
+	.claim-chip {
+		@apply cursor-pointer select-none;
+	}
+	.claim-chip > span {
+		@apply inline-flex max-w-full rounded-lg border-[2.5px] border-ink bg-cream px-3 py-1.5 font-body text-[0.9rem] font-semibold text-ink [transition:background-color_0.2s_ease-out,color_0.2s_ease-out];
+	}
+	.claim-chip:hover > span {
+		@apply bg-mustard/30;
+	}
+	.claim-chip:has(:checked) > span {
+		@apply bg-mustard text-ink;
+	}
+	.claim-chip:has(:focus-visible) > span {
+		@apply outline-[3px] outline-offset-[3px] outline-mustard;
+	}
+	.claim-chip-green:hover > span {
+		@apply bg-green/20;
+	}
+	.claim-chip-green:has(:checked) > span {
+		@apply bg-green text-cream;
+	}
+	.claim-chip-lg > span {
+		@apply px-4 py-2.5 text-[0.98rem];
+	}
+
+	.claim-box {
+		@apply mt-[3px] size-5 shrink-0 rounded-[6px] border-[2.5px] border-ink bg-cream-hi [transition:background-color_0.2s_ease-out,border-color_0.2s_ease-out];
+	}
+	.claim-declare:has(:checked) > span {
+		@apply border-green-deep bg-green text-cream;
+	}
+	.claim-declare:has(:checked) .claim-box {
+		@apply border-mustard bg-mustard;
+	}
+	.claim-declare:has(:focus-visible) > span {
+		@apply outline-[3px] outline-offset-[3px] outline-mustard;
+	}
+
+	.claim-err {
+		@apply mt-1.5 block text-[0.85rem] font-semibold text-lacquer-deep;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {

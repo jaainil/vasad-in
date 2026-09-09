@@ -123,12 +123,21 @@ const mess = [
 	},
 ];
 
-const required = [
-	'Shop or PG name, with its Gujarati spelling',
-	'Street address and the walk to SVIT, the highway or the station',
-	'A direct mobile number, WhatsApp enabled',
-	'Rates — dal tariffs, room sharing type, or thali pass',
+const categories = [
+	'Dal counter/mill',
+	'Boys PG',
+	'Girls PG',
+	'Mess & tiffin',
+	'Eatery',
+	'Hotel/stay',
+	'Shop/trade',
+	'Clinic/hospital',
+	'School/college',
+	'Mandir',
+	'Other',
 ];
+
+const services = ['UPI', 'Home delivery', 'WiFi', 'AC', 'Mess included', 'Parking', '24x7'];
 
 const yards = [
 	{ id: 'dal-marts', h: 'Toor dal retail &amp; mills', note: 'Five counters, direct mill rates on the plate:', chip: 'Dal counter', chipTone: 'bg-mustard text-ink', items: dalMarts },
@@ -238,16 +247,346 @@ const yards = [
 						</span>
 					</div>
 				</div>
-				<h3 class="mt-10 text-2xl">Send your details</h3>
-				<ol class="mt-4 flex max-w-[60ch] flex-col gap-1.5 pl-6">
-					{required.map((r) => <li>{r}</li>)}
-				</ol>
-				<div class="mt-6 flex flex-wrap gap-4">
-					<a class="plate" href="https://wa.me/">Submit on WhatsApp</a>
-					<a class="plate plate-ghost" href="mailto:jainilprajapati9@gmail.com">jainilprajapati9@gmail.com</a>
+			<div class="panel riveted mt-10 bg-cream-hi px-6 py-7 text-ink max-[560px]:px-4" id="add-form">
+				<h3 class="text-[1.6rem]">Put your board on the wall</h3>
+				<p class="font-gu mt-1 text-[0.95rem] font-semibold text-lacquer">
+					નીચે વિગત ભરો — reviewed, then pinned on the map and the directory.
+				</p>
+
+				<form
+					id="board-form"
+					class="mt-6 flex flex-col gap-5"
+					novalidate
+					method="POST"
+					target="_blank"
+					action="https://docs.google.com/forms/d/e/1FAIpQLScWSyFPmeY0gKadpd94YzVfaGQQuN4EjzH-Ecn2prEpvABJ4Q/formResponse"
+				>
+					<input type="text" name="company" id="hp-company" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+					<div class="grid gap-5 md:grid-cols-2">
+						<div class="flex flex-col gap-1.5">
+							<label class="font-display text-[1.05rem]" for="f-name-en">Shop name (English) <span class="text-lacquer" aria-hidden="true">*</span></label>
+							<input class="f-input" id="f-name-en" name="entry.487658782" type="text" required autocomplete="organization" placeholder="Laxmi Toor Dal Flagship Store" />
+						</div>
+						<div class="flex flex-col gap-1.5">
+							<label class="font-display text-[1.05rem]" for="f-name-gu">ગુજરાતીમાં નામ <span class="text-lacquer" aria-hidden="true">*</span></label>
+							<input class="f-input" id="f-name-gu" name="entry.159480209" type="text" required lang="gu" placeholder="લક્ષ્મી તુવેર દાળ" />
+						</div>
+					</div>
+
+					<fieldset class="flex flex-col gap-2.5 border-0 p-0">
+						<legend class="font-display text-[1.05rem]">Category <span class="text-lacquer" aria-hidden="true">*</span> <span class="font-body text-[0.85rem] text-ink/70">— pick one</span></legend>
+						<div class="flex flex-wrap gap-2" id="category-chips">
+							{
+								categories.map((c) => (
+									<label class="chip">
+										<input type="checkbox" name="entry.1567350137" value={c} data-group="category" />
+										<span>{c}</span>
+									</label>
+								))
+							}
+						</div>
+					</fieldset>
+
+					<div class="flex flex-col gap-1.5">
+						<label class="font-display text-[1.05rem]" for="f-offer">What you offer <span class="text-lacquer" aria-hidden="true">*</span></label>
+						<textarea class="f-input" id="f-offer" name="entry.1164576121" rows="3" required placeholder="Sun-conditioned fataka dal, oiled and unpolished — retail and bulk, courier across India."></textarea>
+					</div>
+
+					<fieldset class="flex flex-col gap-2.5 border-0 p-0">
+						<legend class="font-display text-[1.05rem]">Services <span class="font-body text-[0.85rem] text-ink/70">— tick all that apply</span></legend>
+						<div class="flex flex-wrap gap-2">
+							{
+								services.map((s) => (
+									<label class="chip">
+										<input type="checkbox" name="entry.69958718" value={s} />
+										<span>{s}</span>
+									</label>
+								))
+							}
+						</div>
+					</fieldset>
+
+					<div class="grid gap-5 md:grid-cols-2">
+						<div class="flex flex-col gap-1.5">
+							<label class="font-display text-[1.05rem]" for="f-rates">Rates / plate price <span class="text-lacquer" aria-hidden="true">*</span></label>
+							<input class="f-input" id="f-rates" name="entry.753515760" type="text" required placeholder="₹145 – ₹185 / kg · 1, 5 & 30 kg bags" />
+						</div>
+						<div class="flex flex-col gap-1.5">
+							<label class="font-display text-[1.05rem]" for="f-street">Street / area <span class="text-lacquer" aria-hidden="true">*</span></label>
+							<input class="f-input" id="f-street" name="entry.738917396" type="text" required placeholder="Station road, near Vasad Jn" />
+						</div>
+					</div>
+
+					<div class="grid gap-5 md:grid-cols-2">
+						<div class="flex flex-col gap-1.5">
+							<label class="font-display text-[1.05rem]" for="f-landmark">Landmark &amp; walking distance <span class="font-body text-[0.85rem] text-ink/70">— optional</span></label>
+							<input class="f-input" id="f-landmark" name="entry.1443771944" type="text" placeholder="200 m from the railway station" />
+						</div>
+						<div class="flex flex-col gap-1.5">
+							<label class="font-display text-[1.05rem]" for="f-maps">Google Maps link <span class="text-lacquer" aria-hidden="true">*</span></label>
+							<input class="f-input" id="f-maps" name="entry.1499072883" type="url" required placeholder="Share your shop on Google Maps → Copy link → paste here" />
+							<span class="text-[0.85rem] text-ink/75">Paste the link — we read the exact pin from it. No coordinates to type.</span>
+						</div>
+					</div>
+
+					<fieldset class="flex flex-col gap-2.5 border-0 p-0">
+						<legend class="font-display text-[1.05rem]">Map status <span class="text-lacquer" aria-hidden="true">*</span></legend>
+						<div class="grid gap-3 md:grid-cols-2">
+							<label class="mapchoice">
+								<input type="radio" name="entry.1034517891" value="Create map pin using link" checked />
+								<span class="mapchoice-box" aria-hidden="true"></span>
+								<span><strong class="font-display font-normal">Pin me on the map</strong><span class="block text-[0.9rem] text-ink/80">From the Google Maps link above.</span></span>
+							</label>
+							<label class="mapchoice">
+								<input type="radio" name="entry.1034517891" value="Directory only (no map pin)" />
+								<span class="mapchoice-box" aria-hidden="true"></span>
+								<span><strong class="font-display font-normal">Directory only</strong><span class="block text-[0.9rem] text-ink/80">No map pin — we still keep your Maps link on record.</span></span>
+							</label>
+						</div>
+					</fieldset>
+
+					<div class="grid gap-5 md:grid-cols-2">
+						<div class="flex flex-col gap-1.5">
+							<label class="font-display text-[1.05rem]" for="f-owner">Owner / contact person <span class="text-lacquer" aria-hidden="true">*</span></label>
+							<input class="f-input" id="f-owner" name="entry.2007134093" type="text" required autocomplete="name" />
+						</div>
+						<div class="flex flex-col gap-1.5">
+							<label class="font-display text-[1.05rem]" for="f-mobile">Mobile number <span class="text-lacquer" aria-hidden="true">*</span></label>
+							<input class="f-input" id="f-mobile" name="entry.299352551" type="tel" required inputmode="numeric" autocomplete="tel" placeholder="98XXXXXXXX" />
+							<span class="text-[0.85rem] text-ink/75">Shown on your board — buyers call you directly.</span>
+						</div>
+					</div>
+
+					<fieldset class="flex flex-col gap-2.5 border-0 p-0">
+						<legend class="font-display text-[1.05rem]">Is this your WhatsApp number? <span class="text-lacquer" aria-hidden="true">*</span></legend>
+						<div class="grid gap-3 md:grid-cols-2">
+							<label class="mapchoice">
+								<input type="radio" name="entry.1855344288" value="Yes" checked />
+								<span class="mapchoice-box" aria-hidden="true"></span>
+								<span><strong class="font-display font-normal">Yes</strong></span>
+							</label>
+							<label class="mapchoice">
+								<input type="radio" name="entry.1855344288" value="No, I will provide a separate WhatsApp number" />
+								<span class="mapchoice-box" aria-hidden="true"></span>
+								<span><strong class="font-display font-normal">No</strong><span class="block text-[0.9rem] text-ink/80">We'll call and take the other number.</span></span>
+							</label>
+						</div>
+					</fieldset>
+
+					<label class="flex cursor-pointer items-start gap-2.5 rounded-lg border-[2.5px] border-dashed border-ink bg-cream px-4 py-3">
+						<input type="checkbox" id="f-declare" name="entry.628294987" value="This is my shop or I am authorised to list this. I understand my number may be shown on the public board." required class="mt-1 h-4 w-4 shrink-0 accent-lacquer" />
+						<span class="text-[0.95rem] leading-[1.5]">
+							<strong class="font-display font-normal">Declaration —</strong> this is my shop, or I am authorised to list it. I understand my number may be shown on the public board. <span class="text-lacquer" aria-hidden="true">*</span>
+						</span>
+					</label>
+
+					<div class="flex flex-wrap items-center gap-4">
+						<button type="submit" class="plate cursor-pointer border-[3px] border-ink font-display text-[1.15rem]">Submit — pin my board</button>
+						<p class="m-0 text-[0.9rem] text-ink/75">Boards go up after a quick check — usually within a day or two.</p>
+					</div>
+					<p class="f-status m-0 hidden rounded-lg border-[2.5px] border-ink bg-cream px-4 py-3" role="alert"></p>
+				</form>
+
+				<div id="board-done" class="hidden" tabindex="-1">
+					<p class="font-gu text-[1.15rem] font-bold text-green">બોર્ડ મળી ગયો!</p>
+					<p class="mt-2 max-w-[60ch]">
+						Board received. We check every listing by hand, then hang it on the directory and
+						pin it on the map — usually within a day or two.
+					</p>
+					<p class="mt-3 text-[0.95rem] text-ink/80">
+						Want to add a photo or edit details later? Write to the {' '}
+						<a href="/contact">panchayat desk</a>.
+					</p>
 				</div>
 			</div>
-		</section>
-	</main>
-	<Footer />
+		</div>
+	</section>
+</main>
+<Footer />
 </Layout>
+
+<style>
+	.f-input {
+		width: 100%;
+		border: 2.5px solid var(--color-ink);
+		border-radius: 10px;
+		background: var(--color-cream);
+		padding: 0.55rem 0.8rem;
+		font: inherit;
+		color: inherit;
+	}
+	.f-input::placeholder { color: rgb(42 39 35 / 0.45); }
+	.f-input[aria-invalid='true'] { border-color: var(--color-lacquer); background: #f3ddda; }
+
+	.chip { position: relative; cursor: pointer; }
+	.chip input { position: absolute; opacity: 0; pointer-events: none; }
+	.chip span {
+		display: inline-block;
+		border: 2.5px solid var(--color-ink);
+		border-radius: 999px;
+		background: var(--color-cream);
+		padding: 0.32rem 0.85rem;
+		font-size: 0.9rem;
+		font-weight: 600;
+		transition: background-color 0.2s ease-out, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	.chip:hover span { background: var(--color-mustard); transform: translateY(-1px); }
+	.chip input:checked + span { background: var(--color-ink); color: var(--color-cream); }
+	.chip input:focus-visible + span { outline: 3px solid var(--color-mustard); outline-offset: 3px; }
+
+	.mapchoice {
+		position: relative;
+		display: flex;
+		align-items: flex-start;
+		gap: 0.6rem;
+		cursor: pointer;
+		border: 2.5px solid var(--color-ink);
+		border-radius: 10px;
+		background: var(--color-cream);
+		padding: 0.7rem 0.9rem;
+	}
+	.mapchoice input { position: absolute; opacity: 0; }
+	.mapchoice-box {
+		width: 18px;
+		height: 18px;
+		flex-shrink: 0;
+		margin-top: 0.2rem;
+		border: 2.5px solid var(--color-ink);
+		border-radius: 50%;
+		background: var(--color-cream-hi);
+	}
+	.mapchoice:has(input:checked) { background: var(--color-cream-hi); }
+	.mapchoice input:checked ~ .mapchoice-box { background: var(--color-lacquer); box-shadow: inset 0 0 0 3px var(--color-cream); }
+	.mapchoice:has(input:focus-visible) { outline: 3px solid var(--color-mustard); outline-offset: 3px; }
+</style>
+
+<script>
+	const FORM_STATUS = {
+		required: 'A few boards are still blank on the form — fill the marked fields and submit again.',
+		mobile: 'That mobile number does not look right — ten digits, starting 6–9.',
+		link: 'Paste your Google Maps link, or choose “Directory only” for the map status.',
+		category: 'Pick one category chip for your board.',
+		declare: 'Tick the declaration — boards hang only with the owner’s word.',
+		failed:
+			'The submit did not go through. Try again, or open the form directly: https://docs.google.com/forms/d/e/1FAIpQLScWSyFPmeY0gKadpd94YzVfaGQQuN4EjzH-Ecn2prEpvABJ4Q/viewform',
+	};
+
+	const form = document.getElementById('board-form') as HTMLFormElement | null;
+	const done = document.getElementById('board-done');
+	const statusEl = document.querySelector<HTMLElement>('.f-status');
+
+	if (form) {
+		const q = (sel: string) => form.querySelector<HTMLInputElement>(sel);
+		const qa = (sel: string) => Array.from(form.querySelectorAll<HTMLInputElement>(sel));
+
+		/* Category reads as a single pick, even though the Google question allows many. */
+		qa('input[data-group]').forEach((chip) => {
+			chip.addEventListener('change', () => {
+				if (!chip.checked) return;
+				qa(`input[data-group="${chip.dataset.group}"]`).forEach((o) => {
+					if (o !== chip) o.checked = false;
+				});
+			});
+		});
+
+		/* The Google form keeps the Maps link required server-side — mirror that here. */
+		const mapsInput = q('input[name="entry.1499072883"]');
+		if (mapsInput) mapsInput.required = true;
+
+		const mark = (el: HTMLInputElement, bad: boolean) => {
+			if (bad) el.setAttribute('aria-invalid', 'true');
+			else el.removeAttribute('aria-invalid');
+		};
+
+		const showStatus = (msg: string, withLink = false) => {
+			if (!statusEl) return;
+			statusEl.classList.remove('hidden');
+			statusEl.textContent = '';
+			statusEl.append(msg);
+			if (withLink) {
+				statusEl.append(' ');
+				const a = document.createElement('a');
+				a.href = FORM_STATUS.failed.split('directly: ')[1];
+				a.textContent = 'Open the form directly';
+				a.target = '_blank';
+				a.rel = 'noopener';
+				statusEl.append(a);
+			}
+		};
+
+		form.addEventListener('submit', async (ev) => {
+			if (!statusEl) return;
+			statusEl.classList.add('hidden');
+
+			/* Honeypot: bots fill everything — humans never see this field. */
+			const hp = q('#hp-company');
+			if (hp && hp.value.trim() !== '') {
+				form.classList.add('hidden');
+				if (done) {
+					done.classList.remove('hidden');
+					done.focus();
+				}
+				ev.preventDefault();
+				return;
+			}
+
+			const bad: string[] = [];
+			const fields = ['487658782', '159480209', '1164576121', '753515760', '738917396', '2007134093', '299352551'];
+			let firstBad: HTMLInputElement | null = null;
+			for (const id of fields) {
+				const el = q(`input[name="entry.${id}"], textarea[name="entry.${id}"]`);
+				if (!el) continue;
+				const empty = el.value.trim() === '';
+				mark(el, empty);
+				if (empty) {
+					bad.push(FORM_STATUS.required);
+					firstBad ??= el;
+				}
+			}
+
+			const category = qa('input[name="entry.1567350137"]:checked');
+			if (category.length === 0) bad.push(FORM_STATUS.category);
+
+			const rawMobile = (q('input[name="entry.299352551"]')?.value ?? '').replace(/\D/g, '');
+			const mobile = rawMobile.replace(/^91(?=\d{10}$)/, '').replace(/^0(?=\d{10}$)/, '');
+			if (!/^[6-9]\d{9}$/.test(mobile)) bad.push(FORM_STATUS.mobile);
+
+			const mapsEl = q('input[name="entry.1499072883"]');
+			const mapsOk = /^https?:\/\//.test((mapsEl?.value ?? '').trim());
+			mark(mapsEl as HTMLInputElement, !mapsOk);
+			if (!mapsOk) bad.push(FORM_STATUS.link);
+
+			const declared = q('input[name="entry.628294987"]:checked');
+			if (!declared) bad.push(FORM_STATUS.declare);
+
+			ev.preventDefault();
+			if (bad.length > 0) {
+				showStatus(bad[0]);
+				firstBad?.focus();
+				return;
+			}
+
+			/* Normalise the mobile into the sheet. */
+			const mobileEl = q('input[name="entry.299352551"]');
+			if (mobileEl) mobileEl.value = mobile;
+
+			try {
+				const payload = new URLSearchParams();
+				for (const [k, v] of new FormData(form).entries()) {
+					if (typeof v === 'string' && v.trim() !== '') payload.append(k, v);
+				}
+				payload.append('fvv', '1');
+				payload.append('pageHistory', '0');
+				await fetch(form.action, { method: 'POST', mode: 'no-cors', body: payload });
+				form.classList.add('hidden');
+				if (done) {
+					done.classList.remove('hidden');
+					done.focus();
+				}
+			} catch {
+				showStatus(FORM_STATUS.failed, true);
+			}
+		});
+	}
+</script>

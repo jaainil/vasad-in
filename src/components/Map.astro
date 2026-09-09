@@ -106,6 +106,14 @@ const icons: Record<string, string> = {
 			<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>{' '}
 			via <a href="https://wiki.openstreetmap.org/wiki/Overpass_API" target="_blank" rel="noopener">Overpass</a> —{' '}
 			<span data-count>{TOWN_BOARDS.length} boards</span>.
+			{
+				variant === 'full' && (
+					<span class="block">
+						Run a place here?{' '}
+						<a href="/directory#getlisted">Add your board to this map</a>.
+					</span>
+				)
+			}
 		</p>
 		{
 			variant === 'teaser' ? (

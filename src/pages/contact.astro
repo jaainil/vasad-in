@@ -41,6 +41,23 @@ const lines = [
 	{ en: 'MGVCL Power Substation', line: 'Electricity · 19122', tel: '02692 274411', href: 'tel:+912692274411' },
 	{ en: 'Vasad Jn. Railway help', line: 'Rail transit · 139', tel: 'WR helpdesk', href: '/visit#reach' },
 ];
+
+const categories = [
+	'Dal counter/mill',
+	'Boys PG',
+	'Girls PG',
+	'Mess & tiffin',
+	'Eatery',
+	'Hotel/stay',
+	'Shop/trade',
+	'Clinic/hospital',
+	'School/college',
+	'Mandir',
+	'Other',
+];
+
+const amenities = ['UPI', 'Home delivery', 'WiFi', 'AC', 'Mess included', 'Parking', '24x7', 'Other'];
+
 ---
 
 <Layout
@@ -99,18 +116,444 @@ const lines = [
 			</div>
 		</section>
 
-		<section class="panel riveted mt-10 bg-lacquer px-8 pb-8 pt-8 text-cream" aria-label="Claim a directory board">
+		<section class="mt-12 border-[3px] border-ink bg-lacquer px-5 py-10 text-cream md:px-10" aria-label="Claim a directory board">
 			<h2 class="text-[clamp(1.6rem,3vw,2.2rem)]">Claim a directory board</h2>
-			<p class="mt-3">
+			<p class="mt-3 max-w-[70ch]">
 				Shop, mill, PG or mess in Vasad? Your board hangs free on the {' '}
-				<a class="text-mustard hover:text-cream" href="/directory">directory wall</a> — send the name, what you do, where, and a
-				WhatsApp line, through the panchayat or the portal mail below. Boards carry the
-				owner’s word, so the owner claims them.
+				<a class="text-mustard hover:text-cream" href="/directory">directory wall</a> — file the claim board below: the
+				name, what you do, where, and the owner’s line. Nothing hangs until the owner’s word
+				checks out; the desk replies on the number you give.
 			</p>
-			<div class="mt-5">
+
+			<form
+				id="claim-form"
+				novalidate
+				class="panel riveted mt-8 -rotate-[0.4deg] bg-cream-hi px-6 py-7 text-ink md:px-10 md:py-9"
+				aria-label="Board claim form"
+			>
+				<p
+					id="claim-banner"
+					role="alert"
+					hidden
+					class="mb-7 rounded-lg border-[2.5px] border-lacquer bg-mustard/25 px-4 py-3 font-semibold text-lacquer-deep"
+				></p>
+				<p class="mb-1 text-right text-[0.82rem] font-semibold text-ink/70">
+					Panels marked <span class="text-lacquer" aria-hidden="true">*</span> need ink before the claim files.
+				</p>
+
+				<fieldset>
+					<legend class="font-display text-[1.35rem]">
+						The shop <span class="font-gu ml-2 text-[1rem] font-semibold text-lacquer">દુકાન</span>
+					</legend>
+					<div class="mt-4 grid gap-5 md:grid-cols-2">
+						<div>
+							<label class="mb-1.5 block text-[0.95rem] font-semibold" for="c-name">
+								Shop or establishment name <span class="text-lacquer" aria-hidden="true">*</span>
+							</label>
+							<input
+								id="c-name"
+								name="entry.1090812166"
+								type="text"
+								required
+								data-msg="The board needs the shop’s name in English."
+								class="claim-input"
+								placeholder="Laxmi Toor Dal Flagship Store"
+							/>
+							<span class="claim-err" data-err-for="c-name" hidden></span>
+						</div>
+						<div>
+							<label class="mb-1.5 block text-[0.95rem] font-semibold" for="c-gu">
+								Name in Gujarati <span class="text-lacquer" aria-hidden="true">*</span>
+							</label>
+							<input
+								id="c-gu"
+								name="entry.966597005"
+								type="text"
+								lang="gu"
+								required
+								data-msg="Write the Gujarati name — it paints the board."
+								class="claim-input font-gu"
+								placeholder="લક્ષ્મી તુવેર દાળ ફ્લેગશિપ સ્ટોર"
+							/>
+							<span class="claim-err" data-err-for="c-gu" hidden></span>
+						</div>
+					</div>
+
+					<div class="mt-5">
+						<span class="mb-2 block text-[0.95rem] font-semibold" id="c-cat-l">
+							Category — pick every plate that fits <span class="text-lacquer" aria-hidden="true">*</span>
+						</span>
+						<div class="flex flex-wrap gap-2" role="group" aria-labelledby="c-cat-l">
+							{categories.map((o) => (
+								<label class="claim-chip">
+									<input
+										class="sr-only"
+										type="checkbox"
+										name="entry.1567350137"
+										value={o}
+										required
+										data-err="category"
+										data-msg="Pick at least one category — the wall sorts by it."
+									/>
+									<span>{o}</span>
+								</label>
+							))}
+						</div>
+						<span class="claim-err" data-err-for="category" hidden></span>
+					</div>
+
+					<div class="mt-5">
+						<label class="mb-1.5 block text-[0.95rem] font-semibold" for="c-offer">
+							What you offer <span class="text-lacquer" aria-hidden="true">*</span>
+						</label>
+						<textarea
+							id="c-offer"
+							name="entry.765707696"
+							rows="3"
+							required
+							data-msg="A line on what you offer — even one sentence files."
+							class="claim-input min-h-[5.5rem] resize-y"
+							placeholder="Dal by the kilo at mill rates · thali at noon · twin sharing with mess…"></textarea>
+						<span class="claim-err" data-err-for="c-offer" hidden></span>
+					</div>
+
+					<div class="mt-5">
+						<span class="mb-2 block text-[0.95rem] font-semibold" id="c-srv-l">Services &amp; amenities — optional</span>
+						<div class="flex flex-wrap gap-2" role="group" aria-labelledby="c-srv-l">
+							{amenities.map((o) => (
+								<label class="claim-chip claim-chip-green">
+									<input class="sr-only" type="checkbox" name="entry.69958718" value={o} data-err="services" />
+									<span>{o}</span>
+								</label>
+							))}
+						</div>
+					</div>
+
+					<div class="mt-5">
+						<label class="mb-1.5 block text-[0.95rem] font-semibold" for="c-rates">
+							Rates or plate price <span class="text-lacquer" aria-hidden="true">*</span>
+						</label>
+						<input
+							id="c-rates"
+							name="entry.1131866977"
+							type="text"
+							required
+							data-msg="Put the rate on the plate — a range does."
+							class="claim-input"
+							placeholder="₹145 – ₹185 / kg · monthly pass ₹2,400"
+						/>
+						<span class="claim-err" data-err-for="c-rates" hidden></span>
+					</div>
+				</fieldset>
+
+				<fieldset class="mt-9 border-t-[3px] border-dashed border-ink/40 pt-7">
+					<legend class="font-display text-[1.35rem]">
+						Where it hangs <span class="font-gu ml-2 text-[1rem] font-semibold text-lacquer">સરનામું</span>
+					</legend>
+					<div class="mt-4 grid gap-5 md:grid-cols-2">
+						<div>
+							<label class="mb-1.5 block text-[0.95rem] font-semibold" for="c-street">
+								Street or area <span class="text-lacquer" aria-hidden="true">*</span>
+							</label>
+							<input
+								id="c-street"
+								name="entry.1240336885"
+								type="text"
+								required
+								data-msg="The street or area — buyers find the board by it."
+								class="claim-input"
+								placeholder="Station road, near Vasad Jn"
+							/>
+							<span class="claim-err" data-err-for="c-street" hidden></span>
+						</div>
+						<div>
+							<label class="mb-1.5 block text-[0.95rem] font-semibold" for="c-landmark">Landmark &amp; walking distance</label>
+							<input
+								id="c-landmark"
+								name="entry.1284574387"
+								type="text"
+								class="claim-input"
+								placeholder="200 m from the railway station · walk from SVIT Gate 1"
+							/>
+						</div>
+					</div>
+
+					<div class="mt-5">
+						<label class="mb-1.5 block text-[0.95rem] font-semibold" for="c-maps">
+							Google Maps share link <span class="text-lacquer" aria-hidden="true">*</span>
+						</label>
+						<input
+							id="c-maps"
+							name="entry.960096529"
+							type="url"
+							required
+							data-msg="Paste the Google Maps share link — copy it from the Maps app."
+							data-msg-bad="That is not a full link — paste the share URL starting with https://"
+							class="claim-input"
+							placeholder="https://maps.app.goo.gl/…"
+						/>
+						<span class="claim-err" data-err-for="c-maps" hidden></span>
+					</div>
+
+					<div class="mt-5">
+						<span class="mb-2 block text-[0.95rem] font-semibold" id="c-pin-l">
+							Map status — how the pin goes <span class="text-lacquer" aria-hidden="true">*</span>
+						</span>
+						<div class="flex flex-wrap gap-2" role="group" aria-labelledby="c-pin-l">
+							<label class="claim-chip claim-chip-lg">
+								<input
+									class="sr-only"
+									type="radio"
+									name="entry.1034517891"
+									value="Create map pin using link"
+									required
+									data-err="pin"
+									data-msg="Say how the pin should go — or none at all."
+								/>
+								<span>Create map pin using link</span>
+							</label>
+							<label class="claim-chip claim-chip-lg">
+								<input
+									class="sr-only"
+									type="radio"
+									name="entry.1034517891"
+									value="Directory only (no map pin)"
+									required
+									data-err="pin"
+									data-msg="Say how the pin should go — or none at all."
+								/>
+								<span>Directory only (no map pin)</span>
+							</label>
+						</div>
+						<span class="claim-err" data-err-for="pin" hidden></span>
+					</div>
+				</fieldset>
+
+				<fieldset class="mt-9 border-t-[3px] border-dashed border-ink/40 pt-7">
+					<legend class="font-display text-[1.35rem]">
+						The owner <span class="font-gu ml-2 text-[1rem] font-semibold text-lacquer">માલિક</span>
+					</legend>
+					<div class="mt-4 grid gap-5 md:grid-cols-2">
+						<div>
+							<label class="mb-1.5 block text-[0.95rem] font-semibold" for="c-owner">
+								Owner or contact person <span class="text-lacquer" aria-hidden="true">*</span>
+							</label>
+							<input
+								id="c-owner"
+								name="entry.680061091"
+								type="text"
+								required
+								data-msg="The claim carries the owner’s name."
+								class="claim-input"
+								placeholder="The person the desk should call"
+							/>
+							<span class="claim-err" data-err-for="c-owner" hidden></span>
+						</div>
+						<div>
+							<label class="mb-1.5 block text-[0.95rem] font-semibold" for="c-mobile">
+								Mobile number <span class="text-lacquer" aria-hidden="true">*</span>
+							</label>
+							<input
+								id="c-mobile"
+								name="entry.954460371"
+								type="tel"
+								required
+								pattern="[0-9\s+\-()]{10,15}"
+								data-msg="The mobile line is how we verify the claim."
+								data-msg-bad="A 10-digit mobile number — add the country code if it is not Indian."
+								class="claim-input"
+								placeholder="98765 43210"
+							/>
+							<span class="claim-err" data-err-for="c-mobile" hidden></span>
+						</div>
+					</div>
+
+					<div class="mt-5">
+						<span class="mb-2 block text-[0.95rem] font-semibold" id="c-wa-l">
+							Is this your WhatsApp number? <span class="text-lacquer" aria-hidden="true">*</span>
+						</span>
+						<div class="flex flex-wrap gap-2" role="group" aria-labelledby="c-wa-l">
+							<label class="claim-chip claim-chip-lg">
+								<input
+									class="sr-only"
+									type="radio"
+									name="entry.1855344288"
+									value="Yes"
+									required
+									data-err="wa"
+									data-msg="Say yes or no — the board prints the WhatsApp line."
+								/>
+								<span>Yes — same line</span>
+							</label>
+							<label class="claim-chip claim-chip-lg">
+								<input
+									class="sr-only"
+									type="radio"
+									name="entry.1855344288"
+									value="No, I will provide a separate WhatsApp number"
+									required
+									data-err="wa"
+									data-msg="Say yes or no — the board prints the WhatsApp line."
+								/>
+								<span>No, a separate WhatsApp line</span>
+							</label>
+						</div>
+						<span class="claim-err" data-err-for="wa" hidden></span>
+					</div>
+
+					<label class="claim-declare mt-6 block">
+						<input
+							class="sr-only"
+							type="checkbox"
+							name="entry.628294987"
+							value="This is my shop or I am authorised to list this. I understand my number may be shown on the public board."
+							required
+							data-err="declaration"
+							data-msg="Tick the declaration — the board hangs on the owner’s word."
+						/>
+						<span
+							class="flex items-start gap-3 rounded-lg border-[2.5px] border-ink bg-cream px-4 py-3 text-[0.95rem] font-semibold leading-[1.55] [transition:background-color_0.2s_ease-out,border-color_0.2s_ease-out,color_0.2s_ease-out]"
+						>
+							<span class="claim-box" aria-hidden="true"></span>
+							This is my shop or I am authorised to list this. I understand my number may be shown
+							on the public board.
+						</span>
+					</label>
+					<span class="claim-err" data-err-for="declaration" hidden></span>
+				</fieldset>
+
+				<div class="mt-8">
+					<button id="claim-submit" class="plate" type="submit">Hang my board</button>
+				</div>
+			</form>
+
+			<div
+				id="claim-done"
+				hidden
+				tabindex="-1"
+				class="panel riveted mt-8 -rotate-[0.4deg] bg-cream-hi px-6 py-9 text-ink md:px-10"
+				aria-label="Claim filed"
+			>
+				<span class="inline-block -rotate-[5deg] rounded-md border-[3px] border-green px-4 py-1.5 font-gu text-[0.95rem] font-bold tracking-[0.08em] text-green uppercase">
+					Filed · નોંધાયું
+				</span>
+				<h3 class="mt-5 text-[clamp(1.6rem,3vw,2.1rem)]">The claim is on the desk</h3>
+				<p class="mt-3 max-w-[62ch]">
+					We read every board before it hangs — expect a call or a mail on the line you gave.
+					Nothing goes up until the owner’s word checks out.
+				</p>
+				<div class="mt-6">
+					<button id="claim-again" class="plate plate-ghost" type="button">File another claim</button>
+				</div>
+			</div>
+
+			<div class="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
 				<a class="plate plate-ghost" href="mailto:jainilprajapati9@gmail.com">jainilprajapati9@gmail.com</a>
+				<span class="text-[0.92rem] text-cream/90">Prefer to post it? Mail the desk — claims are read daily.</span>
 			</div>
 		</section>
 	</main>
 	<Footer />
+
+	<script>
+		const ACTION =
+			'https://docs.google.com/forms/d/e/1FAIpQLScWSyFPmeY0gKadpd94YzVfaGQQuN4EjzH-Ecn2prEpvABJ4Q/formResponse';
+
+		const form = document.getElementById('claim-form');
+		const done = document.getElementById('claim-done');
+		const banner = document.getElementById('claim-banner');
+		const btn = document.getElementById('claim-submit');
+		const again = document.getElementById('claim-again');
+
+		const reduce = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		function errSpan(el) {
+			const key = el.dataset.err || el.id;
+			return key ? document.querySelector(`[data-err-for="${key}"]`) : null;
+		}
+
+		function flag(el, msg) {
+			el.setAttribute('aria-invalid', 'true');
+			const span = errSpan(el);
+			if (span) {
+				span.textContent = msg;
+				span.hidden = false;
+			}
+		}
+
+		function clearFlag(el) {
+			el.removeAttribute('aria-invalid');
+			const span = errSpan(el);
+			if (span) span.hidden = true;
+		}
+
+		function validate() {
+			let first = null;
+			for (const el of form.querySelectorAll('input, textarea')) {
+				if (!el.willValidate) continue;
+				clearFlag(el);
+				if (el.checkValidity()) continue;
+				const msg = el.validity.valueMissing
+					? el.dataset.msg || el.validationMessage
+					: el.dataset.msgBad || el.validationMessage;
+				flag(el, msg);
+				if (!first) first = el;
+			}
+			return first;
+		}
+
+		function revealFailure(text, el) {
+			banner.textContent = text;
+			banner.hidden = false;
+			(el.closest('fieldset') || el).scrollIntoView({
+				behavior: reduce() ? 'auto' : 'smooth',
+				block: 'center',
+			});
+			el.focus({ preventScroll: true });
+		}
+
+		form.addEventListener('input', (e) => {
+			if (e.target.willValidate && e.target.checkValidity()) clearFlag(e.target);
+		});
+
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			banner.hidden = true;
+			const bad = validate();
+			if (bad) {
+				revealFailure('Some panels still need ink — the marked fields say what is missing.', bad);
+				return;
+			}
+			const label = btn.textContent;
+			btn.disabled = true;
+			btn.setAttribute('aria-busy', 'true');
+			btn.textContent = 'Filing the claim…';
+			try {
+				const body = new URLSearchParams(new FormData(form));
+				await fetch(ACTION, { method: 'POST', mode: 'no-cors', body });
+				form.hidden = true;
+				done.hidden = false;
+				done.scrollIntoView({ behavior: reduce() ? 'auto' : 'smooth', block: 'center' });
+				done.focus({ preventScroll: true });
+			} catch {
+				btn.disabled = false;
+				btn.removeAttribute('aria-busy');
+				btn.textContent = label;
+				banner.textContent =
+					'The claim did not reach the desk — check the connection and file again, or mail the portal below.';
+				banner.hidden = false;
+				banner.scrollIntoView({ behavior: reduce() ? 'auto' : 'smooth', block: 'center' });
+			}
+		});
+
+		again.addEventListener('click', () => {
+			form.reset();
+			for (const el of form.querySelectorAll('[aria-invalid]')) clearFlag(el);
+			banner.hidden = true;
+			done.hidden = true;
+			form.hidden = false;
+			const firstInput = form.querySelector('input');
+			if (firstInput) firstInput.focus({ preventScroll: true });
+		});
+	</script>
 </Layout>
