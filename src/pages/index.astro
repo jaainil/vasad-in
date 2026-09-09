@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import LorryFlank from '../components/LorryFlank.astro';
+import Map from '../components/Map.astro';
 
 const dalStats = [
 	{ big: '45+', line: 'processing mills in the Vasad cluster' },
@@ -107,6 +108,10 @@ const ethos = [
 					</div>
 				</div>
 			</div>
+		</section>
+
+		<section class="wrap mt-20" id="map-teaser" aria-label="Vasad on the map">
+			<Map variant="teaser" zoom={12} />
 		</section>
 
 		<section class="wrap mt-20" id="dal" aria-label="The toor dal capital of Gujarat">
