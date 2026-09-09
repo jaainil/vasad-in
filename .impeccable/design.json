@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-09T14:05:00+05:30",
+  "title": "Design System: Vasad (વાસદ) — The Painted Highway",
+  "extensions": {
+    "colorMeta": {
+      "lacquer": { "role": "primary", "displayName": "Lacquer Red", "canonical": "#9e2b25", "tonalRamp": ["oklch(18% 0.06 30)", "oklch(26% 0.09 30)", "oklch(34% 0.12 30)", "oklch(42% 0.14 30)", "oklch(49% 0.15 30)", "oklch(60% 0.13 30)", "oklch(74% 0.09 30)", "oklch(88% 0.05 30)"] },
+      "lacquer-deep": { "role": "primary", "displayName": "Lacquer Deep", "canonical": "#7c1f1b", "tonalRamp": ["oklch(15% 0.05 30)", "oklch(22% 0.08 30)", "oklch(28% 0.10 30)", "oklch(34% 0.12 30)", "oklch(41% 0.14 30)", "oklch(52% 0.12 30)", "oklch(66% 0.08 30)", "oklch(84% 0.04 30)"] },
+      "mustard": { "role": "secondary", "displayName": "Mustard", "canonical": "#e8a020", "tonalRamp": ["oklch(24% 0.06 75)", "oklch(34% 0.09 75)", "oklch(45% 0.12 75)", "oklch(56% 0.14 75)", "oklch(66% 0.15 75)", "oklch(76% 0.13 75)", "oklch(85% 0.09 75)", "oklch(93% 0.05 75)"] },
+      "mustard-deep": { "role": "secondary", "displayName": "Mustard Deep", "canonical": "#b57708", "tonalRamp": ["oklch(20% 0.05 70)", "oklch(28% 0.08 70)", "oklch(37% 0.11 70)", "oklch(46% 0.13 70)", "oklch(56% 0.13 70)", "oklch(67% 0.11 70)", "oklch(79% 0.08 70)", "oklch(90% 0.04 70)"] },
+      "green": { "role": "tertiary", "displayName": "Deep Green", "canonical": "#1d5c3f", "tonalRamp": ["oklch(16% 0.04 160)", "oklch(22% 0.055 160)", "oklch(28% 0.07 160)", "oklch(35% 0.08 160)", "oklch(43% 0.085 160)", "oklch(55% 0.08 160)", "oklch(70% 0.06 160)", "oklch(86% 0.035 160)"] },
+      "green-deep": { "role": "tertiary", "displayName": "Deep Green Hover", "canonical": "#154630", "tonalRamp": ["oklch(13% 0.035 160)", "oklch(19% 0.05 160)", "oklch(24% 0.06 160)", "oklch(30% 0.07 160)", "oklch(37% 0.075 160)", "oklch(48% 0.07 160)", "oklch(64% 0.05 160)", "oklch(82% 0.03 160)"] },
+      "cream": { "role": "neutral", "displayName": "Cream Paint Ground", "canonical": "#f4e9d8", "tonalRamp": ["oklch(24% 0.02 80)", "oklch(35% 0.025 80)", "oklch(48% 0.03 80)", "oklch(60% 0.035 80)", "oklch(72% 0.035 80)", "oklch(82% 0.035 80)", "oklch(90% 0.035 80)", "oklch(96% 0.03 85)"] },
+      "cream-hi": { "role": "neutral", "displayName": "Cream Hi Board", "canonical": "#faf3e3", "tonalRamp": ["oklch(26% 0.02 85)", "oklch(37% 0.025 85)", "oklch(50% 0.03 85)", "oklch(62% 0.035 85)", "oklch(74% 0.035 85)", "oklch(84% 0.035 85)", "oklch(92% 0.03 85)", "oklch(97% 0.025 90)"] },
+      "ink": { "role": "neutral", "displayName": "Ink Keyline", "canonical": "#2a2723", "tonalRamp": ["oklch(15% 0.01 70)", "oklch(22% 0.012 70)", "oklch(30% 0.012 70)", "oklch(40% 0.012 70)", "oklch(52% 0.012 70)", "oklch(65% 0.012 70)", "oklch(78% 0.012 70)", "oklch(90% 0.01 70)"] },
+      "rivet": { "role": "neutral", "displayName": "Rivet Gold", "canonical": "#c9a227", "tonalRamp": ["oklch(20% 0.05 85)", "oklch(30% 0.075 85)", "oklch(42% 0.10 85)", "oklch(53% 0.115 85)", "oklch(63% 0.12 85)", "oklch(73% 0.11 85)", "oklch(83% 0.08 85)", "oklch(92% 0.045 85)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "H2 section headlines and board titles — Yatra One brush lettering, English only." },
+      "gu": { "displayName": "Gujarati Display", "purpose": "Gujarati echo lines and Gujarati display text — Baloo Bhai 2, never Yatra One." },
+      "body": { "displayName": "Body", "purpose": "Paragraphs and long reading, capped at 68ch — Mukta." },
+      "caption": { "displayName": "Caption", "purpose": "Metadata, registry details, footer distances — Mukta 500–600 at 0.85–0.95rem." }
+    },
+    "shadows": [
+      { "name": "paint", "value": "0 16px 32px -20px rgb(42 39 35 / 0.45)", "purpose": "The only structural shadow — a hard parked-panel ground shadow shared by every raised board." }
+    ],
+    "motion": [
+      { "name": "lift", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Transform easing for plate/board lifts and tilts (0.3–0.45s)." },
+      { "name": "repaint", "value": "ease-out", "purpose": "Background-color repaints on hover and state changes (0.2–0.25s)." },
+      { "name": "drift", "value": "drift 5.5s linear infinite", "purpose": "Roadline background drift under the lorry; killed under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "registry-collapse", "value": "780px", "purpose": "Mill registry rows collapse from three columns to one." },
+      { "name": "lg", "value": "1024px", "purpose": "Two-column content splits engage (e.g. soil strata panel + prose)." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Plate",
+      "kind": "button",
+      "refersTo": "plate-primary",
+      "description": "Lacquered action plate — the town speaking. Lifts and tilts on hover.",
+      "html": "<a class=\"ds-plate ds-plate-primary\" href=\"#\">Plan your visit</a>",
+      "css": ".ds-plate { display: inline-block; border: 3px solid var(--color-ink, #2a2723); font-family: 'Yatra One', serif; font-size: 1.15rem; line-height: 1.2; text-decoration: none; box-shadow: 0 16px 32px -20px rgb(42 39 35 / 0.45); transition: transform 0.45s cubic-bezier(0.22,1,0.36,1), background-color 0.2s ease-out; } .ds-plate-primary { background: var(--color-lacquer, #9e2b25); color: var(--color-cream, #f4e9d8); border-radius: 10px; padding: 0.85rem 1.7rem; } .ds-plate-primary:hover { transform: translateY(-3px) rotate(-0.5deg); background: var(--color-lacquer-deep, #7c1f1b); } .ds-plate-primary:focus-visible { outline: 3px solid var(--color-mustard, #e8a020); outline-offset: 3px; border-radius: 4px; }"
+    },
+    {
+      "name": "Ghost Plate",
+      "kind": "button",
+      "refersTo": "plate-ghost",
+      "description": "Unpainted board plate; repaints itself mustard on hover.",
+      "html": "<a class=\"ds-plate ds-plate-ghost\" href=\"#\">Walk the directory</a>",
+      "css": ".ds-plate { display: inline-block; border: 3px solid var(--color-ink, #2a2723); font-family: 'Yatra One', serif; font-size: 1.15rem; line-height: 1.2; text-decoration: none; box-shadow: 0 16px 32px -20px rgb(42 39 35 / 0.45); transition: transform 0.45s cubic-bezier(0.22,1,0.36,1), background-color 0.2s ease-out; } .ds-plate-ghost { background: var(--color-cream-hi, #faf3e3); color: var(--color-ink, #2a2723); border-radius: 10px; padding: 0.85rem 1.7rem; } .ds-plate-ghost:hover { transform: translateY(-3px) rotate(-0.5deg); background: var(--color-mustard, #e8a020); color: var(--color-ink, #2a2723); } .ds-plate-ghost:focus-visible { outline: 3px solid var(--color-mustard, #e8a020); outline-offset: 3px; border-radius: 4px; }"
+    },
+    {
+      "name": "Green Plate",
+      "kind": "button",
+      "refersTo": "plate-green",
+      "description": "River-and-field green plate for secondary journeys.",
+      "html": "<a class=\"ds-plate ds-plate-green\" href=\"#\">Study at Vasad</a>",
+      "css": ".ds-plate { display: inline-block; border: 3px solid var(--color-ink, #2a2723); font-family: 'Yatra One', serif; font-size: 1.15rem; line-height: 1.2; text-decoration: none; box-shadow: 0 16px 32px -20px rgb(42 39 35 / 0.45); transition: transform 0.45s cubic-bezier(0.22,1,0.36,1), background-color 0.2s ease-out; } .ds-plate-green { background: var(--color-green, #1d5c3f); color: var(--color-cream, #f4e9d8); border-radius: 10px; padding: 0.85rem 1.7rem; } .ds-plate-green:hover { transform: translateY(-3px) rotate(-0.5deg); background: var(--color-green-deep, #154630); } .ds-plate-green:focus-visible { outline: 3px solid var(--color-mustard, #e8a020); outline-offset: 3px; border-radius: 4px; }"
+    },
+    {
+      "name": "Riveted Panel",
+      "kind": "card",
+      "refersTo": "card-panel",
+      "description": "Raised cream-hi board with ink keyline, parked shadow and gold corner rivets.",
+      "html": "<div class=\"ds-panel\"><span class=\"ds-panel-big\">45+</span><span class=\"ds-panel-line\">processing mills in the Vasad cluster</span></div>",
+      "css": ".ds-panel { position: relative; display: flex; flex-direction: column; gap: 2px; background: var(--color-cream-hi, #faf3e3); color: var(--color-ink, #2a2723); border: 3px solid var(--color-ink, #2a2723); border-radius: 12px; padding: 20px 24px; box-shadow: 0 16px 32px -20px rgb(42 39 35 / 0.45); background-image: radial-gradient(circle 4px at 13px 13px, var(--color-rivet, #c9a227) 92%, transparent 100%), radial-gradient(circle 4px at calc(100% - 13px) 13px, var(--color-rivet, #c9a227) 92%, transparent 100%), radial-gradient(circle 4px at 13px calc(100% - 13px), var(--color-rivet, #c9a227) 92%, transparent 100%), radial-gradient(circle 4px at calc(100% - 13px) calc(100% - 13px), var(--color-rivet, #c9a227) 92%, transparent 100%); } .ds-panel-big { font-family: 'Yatra One', serif; font-size: 2rem; color: var(--color-lacquer, #9e2b25); } .ds-panel-line { font-family: 'Mukta', sans-serif; font-size: 0.95rem; color: rgb(42 39 35 / 0.85); }"
+    },
+    {
+      "name": "Nav Link Board",
+      "kind": "nav",
+      "refersTo": "plate-ghost",
+      "description": "Small painted nav board — English display over Gujarati echo; current page repaints mustard.",
+      "html": "<a class=\"ds-nav-board\" href=\"#\"><span class=\"ds-nav-en\">Visit</span><span class=\"ds-nav-gu\">પ્રવાસ</span></a>",
+      "css": ".ds-nav-board { display: flex; flex-direction: column; align-items: center; gap: 2px; border: 2.5px solid var(--color-ink, #2a2723); border-radius: 8px; background: var(--color-cream-hi, #faf3e3); color: var(--color-ink, #2a2723); text-decoration: none; padding: 0.35rem 0.85rem 0.45rem; transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), background-color 0.2s ease-out; } .ds-nav-board:hover { transform: translateY(-2px) rotate(-1deg); background: var(--color-mustard, #e8a020); } .ds-nav-en { font-family: 'Yatra One', serif; font-size: 1rem; line-height: 1.05; } .ds-nav-gu { font-family: 'Baloo Bhai 2', sans-serif; font-weight: 600; font-size: 0.72rem; color: var(--color-lacquer, #9e2b25); } .ds-nav-board:hover .ds-nav-gu { color: var(--color-ink, #2a2723); } .ds-nav-board:focus-visible { outline: 3px solid var(--color-mustard, #e8a020); outline-offset: 3px; }"
+    },
+    {
+      "name": "Claim Input",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "Cream-fill field with ink border and lacquer caret; invalid state deepens to lacquer.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Business name\" aria-label=\"Business name\" />",
+      "css": ".ds-input { width: 100%; background: var(--color-cream, #f4e9d8); color: var(--color-ink, #2a2723); border: 2.5px solid var(--color-ink, #2a2723); border-radius: 8px; padding: 0.625rem 0.875rem; font-family: 'Mukta', sans-serif; font-size: 1rem; line-height: 1.55; caret-color: var(--color-lacquer, #9e2b25); } .ds-input::placeholder { color: rgb(42 39 35 / 0.7); } .ds-input:hover { border-color: var(--color-ink, #2a2723); } .ds-input:focus-visible { outline: 3px solid var(--color-mustard, #e8a020); outline-offset: 3px; } .ds-input[aria-invalid='true'] { border-color: var(--color-lacquer-deep, #7c1f1b); background: rgb(158 43 37 / 0.05); }"
+    },
+    {
+      "name": "Claim Chip",
+      "kind": "chip",
+      "refersTo": "card-panel",
+      "description": "Selectable painted tag; hover washes mustard, checked repaints the chip mustard.",
+      "html": "<label class=\"ds-chip\"><input type=\"checkbox\" checked /><span>Toor dal retail</span></label> <label class=\"ds-chip\"><input type=\"checkbox\" /><span>PG &amp; hostel</span></label>",
+      "css": ".ds-chip { display: inline-flex; cursor: pointer; } .ds-chip input { position: absolute; opacity: 0; pointer-events: none; } .ds-chip > span { display: inline-flex; border: 2.5px solid var(--color-ink, #2a2723); border-radius: 8px; background: var(--color-cream, #f4e9d8); color: var(--color-ink, #2a2723); padding: 0.375rem 0.75rem; font-family: 'Mukta', sans-serif; font-size: 0.9rem; font-weight: 600; transition: background-color 0.2s ease-out, color 0.2s ease-out; } .ds-chip:hover > span { background: rgb(232 160 32 / 0.3); } .ds-chip:has(:checked) > span { background: var(--color-mustard, #e8a020); color: var(--color-ink, #2a2723); } .ds-chip:has(:focus-visible) > span { outline: 3px solid var(--color-mustard, #e8a020); outline-offset: 3px; }"
+    },
+    {
+      "name": "Chain Divider",
+      "kind": "custom",
+      "refersTo": "card-panel",
+      "description": "Hanging painted chain of alternating cream and mustard links — the section divider.",
+      "html": "<div class=\"ds-chain\" aria-hidden=\"true\"></div>",
+      "css": ".ds-chain { height: 24px; background-repeat: repeat-x; background-position: center; background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='24' viewBox='0 0 44 24'%3E%3Ccircle cx='11' cy='12' r='7' fill='none' stroke='%23f4e9d8' stroke-width='3'/%3E%3Ccircle cx='33' cy='12' r='7' fill='none' stroke='%23e8a020' stroke-width='3'/%3E%3C/svg%3E\"); }"
+    },
+    {
+      "name": "Registry Row",
+      "kind": "custom",
+      "refersTo": "card-panel",
+      "description": "Civic-record table row: display name + Gujarati echo, ink rules, slide-on-hover.",
+      "html": "<div class=\"ds-row\"><div><span class=\"ds-row-name\">Laxmi Toor Dal Processing Works</span><span class=\"ds-row-gu\">લક્ષ્મી તુવેર દાળ</span></div><div class=\"ds-row-meta\">Estd. 1968 · 120 MT/day</div><div class=\"ds-row-line\">Export-grade oiled &amp; unpolished dal</div></div>",
+      "css": ".ds-row { display: grid; grid-template-columns: 1.35fr 0.55fr 1.1fr; align-items: center; gap: 8px 24px; border-bottom: 3px solid var(--color-ink, #2a2723); padding: 16px 4px; transition: background-color 0.25s ease-out, transform 0.25s ease-out; } .ds-row:hover { transform: translateX(6px); background: rgb(158 43 37 / 0.08); } .ds-row-name { display: block; font-family: 'Yatra One', serif; font-size: 1.2rem; color: var(--color-ink, #2a2723); } .ds-row-gu { display: block; font-family: 'Baloo Bhai 2', sans-serif; font-weight: 600; font-size: 0.9rem; color: var(--color-lacquer, #9e2b25); } .ds-row-meta { font-family: 'Yatra One', serif; font-size: 1.05rem; color: var(--color-ink, #2a2723); } .ds-row-line { font-family: 'Mukta', sans-serif; font-size: 0.95rem; color: rgb(42 39 35 / 0.85); } @media (max-width: 780px) { .ds-row { grid-template-columns: 1fr; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Painted Highway",
+    "overview": "Vasad rides its highway the way owners paint their lorries: every facet of the town hand-lettered on its own lacquered panel. The site is not a template with a palette swapped in — it is a fleet of committed painted fields (lacquer red, mustard, deep green) on a cream paint ground, every board edged in a thick ink keyline and riveted at the corners like road signage. Dividers are hanging chains and the road itself carries a drifting painted line. Proud, road-worn, festive: saturation is high because the world is festive, but it is always flat paint — no gradients, no glass, no soft-focus depth.\n\nThe system deliberately refuses the stock-photo town-tourism template. There is no photography of \"generic India\", no rounded-card SaaS softness, no pastel hero. Authority comes from signage physics — keylines, rivets, plates, boards — while warmth comes from the two-script voice: every major heading ships in English (Yatra One) with a Gujarati echo (Baloo Bhai 2) beneath it.",
+    "keyCharacteristics": [
+      "Flat committed color fields; depth from 3px ink keylines and one hard ground shadow, never blur stacks",
+      "Thick ink keylines (3px on boards, 2.5px on compact controls) on every raised surface",
+      "Gold corner rivets on hero panels; chain-and-flower painted borders as dividers",
+      "Two-script typography: Yatra One display + Baloo Bhai 2 Gujarati + Mukta body",
+      "Signage interactions: boards lift and tilt on hover like plates being pressed",
+      "Single structural shadow (shadow-paint), shared by every raised board"
+    ],
+    "rules": [
+      { "name": "The Flat Paint Rule", "body": "Surfaces are committed fields of lacquer, mustard, green or cream. No gradients, no glassmorphism, no tonal overlay washes as decoration.", "section": "colors" },
+      { "name": "The Ink Keyline Rule", "body": "Every raised board carries an ink keyline — 3px on panels, plates and full-bleed bands; 2.5px on compact controls (inputs, chips, nav boards).", "section": "colors" },
+      { "name": "The Two-Field Spacing Rule", "body": "No two adjacent full-bleed bands share the same paint field; alternate lacquer / green / cream-hi / ink so the page reads as a row of repainted panels.", "section": "colors" },
+      { "name": "The Two Scripts Rule", "body": "Every major heading ships English + Gujarati; Yatra One never sets Gujarati — Baloo Bhai 2 does. Hind Vadodara is only ever a fallback.", "section": "typography" },
+      { "name": "The Parked Shadow Rule", "body": "One shadow value for the whole system. Hover lifts a board (translate/tilt); it never grows a bigger shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do draw every raised surface as a painted board: cream-hi field, 3px ink keyline, 12px radius, parked shadow.",
+      "Do pair every English H2 with its Gujarati echo line in Baloo Bhai 2 at 80% field opacity.",
+      "Do alternate full-bleed band fields (lacquer / green / cream-hi / ink) with 3px ink rules between sections.",
+      "Do reserve mustard for the visitor's current position — active nav, checked chips, focus rings, selection.",
+      "Do set all illustration as inline SVG in the palette with ink strokes (3–7 units) and flat fills.",
+      "Do keep the drift animation on roadlines and kill every animation under prefers-reduced-motion."
+    ],
+    "donts": [
+      "Don't use gradients, glassmorphism, backdrop blur, or layered soft shadows — the paint is flat and the only shadow is the parked one.",
+      "Don't introduce colors outside the ten-token palette; no blues or purples anywhere.",
+      "Don't round past 12px or use pill shapes; no fully square corners on interactive elements either.",
+      "Don't set Gujarati text in Yatra One or English body in Baloo Bhai 2 — the two scripts keep their own faces.",
+      "Don't use stock photography as texture or hero imagery; the world is drawn, not photographed.",
+      "Don't resize or restyle the parked shadow; hover responses are transforms, not new elevation."
+    ]
+  }
+}
