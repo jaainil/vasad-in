@@ -60,6 +60,21 @@ const FAMILIES: OverpassTag[] = [
 		match: (t) => t.amenity === 'school' || t.amenity === 'college' || t.amenity === 'university' || t.amenity === 'kindergarten',
 		selectors: ['["amenity"="school"]', '["amenity"="college"]', '["amenity"="university"]', '["amenity"="kindergarten"]'],
 	},
+	{
+		category: 'atm',
+		match: (t) => t.amenity === 'atm',
+		selectors: ['["amenity"="atm"]'],
+	},
+	{
+		category: 'bank',
+		match: (t) => t.amenity === 'bank',
+		selectors: ['["amenity"="bank"]'],
+	},
+	{
+		category: 'fuel',
+		match: (t) => t.amenity === 'fuel',
+		selectors: ['["amenity"="fuel"]'],
+	},
 ];
 
 export function buildOverpassQuery(lat = TOWN_CENTER.lat, lon = TOWN_CENTER.lon, radius = MAP_RADIUS): string {
@@ -107,6 +122,11 @@ const CATEGORY_LABEL: Record<MapCategoryId, string> = {
 	stay: 'Stay / eatery',
 	health: 'Health',
 	study: 'School / college',
+	mill: 'Mill / industry',
+	atm: 'ATM',
+	bank: 'Bank',
+	fuel: 'Fuel station',
+	civic: 'Civic desk',
 };
 
 /*
