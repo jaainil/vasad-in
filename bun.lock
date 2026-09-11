@@ -6,6 +6,10 @@
       "name": "vasad-in",
       "dependencies": {
         "@astrojs/sitemap": "^3.7.4",
+        "@fontsource-variable/baloo-bhai-2": "^5.3.0",
+        "@fontsource/hind-vadodara": "^5.3.0",
+        "@fontsource/mukta": "^5.3.0",
+        "@fontsource/yatra-one": "^5.3.0",
         "@tailwindcss/vite": "^4.3.3",
         "astro": "^7.3.2",
         "leaflet": "^1.9.4",
@@ -138,6 +142,14 @@
     "@esbuild/win32-ia32": ["@esbuild/win32-ia32@0.28.2", "", { "os": "win32", "cpu": "ia32" }, "sha512-YmJbfTlvU7Sdn9BB+4PRES4oB6pxgS37MAONj+hBr/cpXS1aBPKXxNnDbu+QCWPj0o9dgyxeq79g6c5P8KeuYA=="],
 
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.28.2", "", { "os": "win32", "cpu": "x64" }, "sha512-5ebpxr3nWMzrL/rnUI755Jkuee0bHL/Gq0WTF9lvcpv73wAp5eu8MfBUgWK9bhWvZjj7yX8etf/8tI8Ney695g=="],
+
+    "@fontsource-variable/baloo-bhai-2": ["@fontsource-variable/baloo-bhai-2@5.3.0", "", {}, "sha512-9NQxE+1GqenmAYp0YmxSOXh7viUY/IN8ZfPMOxwPctVCSkDKAnMzlyjTMNuXRMFY5rUbCp7kKSYca2zcF0CCaQ=="],
+
+    "@fontsource/hind-vadodara": ["@fontsource/hind-vadodara@5.3.0", "", {}, "sha512-2wkL/KrOJV0fi43aD1inLwChsKbCKkzb3vPrEAgOLmi2zVXGY6RBvVR3PLzvb8sn3tsUiGL8FvTPVJTkTkqNug=="],
+
+    "@fontsource/mukta": ["@fontsource/mukta@5.3.0", "", {}, "sha512-BIM9rx9SmHOcVR8cmOba9LnaFwhfiaFcclwgKV9rH4DIdCmD/tBBhtY02GGukuayxSbqfZ6pXzSO88IigTewDw=="],
+
+    "@fontsource/yatra-one": ["@fontsource/yatra-one@5.3.0", "", {}, "sha512-4lCIB+rkftIhBDklcZUgYFtzqNVIcAb+hdMGb6eDHtCH26cg2KU9lPWpZZScCaDlEfBpBxcElfVW4Plxx+R1MA=="],
 
     "@img/colour": ["@img/colour@1.1.0", "", {}, "sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ=="],
 
