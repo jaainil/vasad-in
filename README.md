@@ -58,11 +58,11 @@ All commands are run from the root of the project:
 
 | Command             | Action                                        |
 | :------------------ | :-------------------------------------------- |
-| `npm install`       | Installs dependencies (Node ≥ 22.12.0)        |
-| `npm run dev`       | Starts local dev server at `localhost:4321`   |
-| `npm run build`     | Builds the production site to `./dist/`       |
-| `npm run preview`   | Previews the production build locally         |
-| `npm run astro ...` | Run CLI commands like `astro add`, `astro check` |
+| `bun install`       | Installs dependencies                         |
+| `bun run dev`       | Starts local dev server at `localhost:4321`   |
+| `bun run build`     | Builds the production site to `./dist/`       |
+| `bun run preview`   | Previews the production build locally         |
+| `bun run astro ...` | Run CLI commands like `astro add`, `astro check` |
 
 ### Background dev server
 
